@@ -77,25 +77,31 @@ Route model
 ​
 ```js
 {
-    title: String,
-    description: String,
-    "alpha_name": String,
-    "coords": [Numbers],
-    "start": {lat, long},
-    "ubicacion": String,
-    "nombre": String,
-    "trailrank": Number,
-    "distancia": Number,
-    "desnivel": Number,
-    "dificultad": String,
-    "wikilocRoute": String,
-    "photo1": String,
-    "photo2": String,
-    "photo3": String,
-    "start_lat": Number,
-    "start_long": Number,
-    "mountainPassesIds": [{ type: Schema.Types.ObjectId, ref: 'mountainPasses' }],
-    "municipioId": [{ type: Schema.Types.ObjectId, ref: 'locations' }],
+	_id: { type: Schema.Types.ObjectId },
+	title: String,
+	description: String,
+	alpha_name: String,
+	location: String,
+	name: String,
+	trailrank: Number,
+	distance: Number,
+	gradient: Number,
+	difficulty: String,
+	wikilocRoute: String,
+	photo1: String,
+	photo2: String,
+	photo3: String,
+	start_latitude: Number,
+	start_longitude: Number,
+	mountainPasses_ids: [{ type: Schema.Types.ObjectId, ref: 'MountainPasses' }],
+	locations_ids: [{ type: Schema.Types.ObjectId, ref: 'Locations' }],
+	geolocation: {
+		type: {
+			type: String,
+			default: 'Polygon',
+		},
+		coordinates: Array,
+	},
 }
 ```
 ​
@@ -118,18 +124,23 @@ Locations model
 ​
 ```js
 {
-    "PROVINCIA": String,
-    "municipio":  String,
-    "POBLACION_MUNI": Number,
-    "SUPERFICIE": Number,
-    "LONGITUD_ETRS89": Number,
-    "LATITUD_ETRS89": Number,
-    "ALTITUD": Number,
-    "municipio_original": String,
-    "radius": Number,
-    "routesIds": [{ type: Schema.Types.ObjectId, ref: 'Routes' }],
-    "numero_rutas": Number,
-    "mountainPassesIds": [{ type: Schema.Types.ObjectId, ref: 'mountainPasses' }],
+    _id: { type: Schema.Types.ObjectId },
+    province: String,
+    municipality: String,
+    municipality_original_name: String,
+    municipality_inhabitants: Number,
+    geographic_area: Number,
+    radius: Number,
+    routes_number: Number,
+    routes_ids: [{ type: Schema.Types.ObjectId, ref: 'Routes' }],
+    mountainPasses_ids: [{ type: Schema.Types.ObjectId, ref: 'MountainPass' }],
+    geolocation: {
+	    type: {
+		    type: String,
+		    default: 'Point',
+	    },
+	    coordinates: Array,
+    },
 }
 ```
 ​
@@ -137,16 +148,26 @@ Mountain Passes model
 ​
 ```js
 {
-    "PROVINCIA": String,
-    "municipio":  String,
-    "LONGITUD_ETRS89": Number,
-    "LATITUD_ETRS89": Number,
-    "ALTITUD": Number,
-    "radius": Number,
-    "routesIds": [{ type: Schema.Types.ObjectId, ref: 'Routes' }],
-    "municipioId": [{ type: Schema.Types.ObjectId, ref: 'locations' }],
-    "numero_rutas": Number,
-    "photo": String,
+    _id: { type: Schema.Types.ObjectId },
+    name: String,
+    province: String,
+    municipality: String,
+    altitude: Number,
+    gradient: Number,
+    distance: Number,
+    mountain_slope: Number,
+    coefficient: Number,
+    url: String,
+    photo: String,
+    geolocation: {
+	    type: {
+		    type: String,
+		    default: 'Point',
+	    },
+	    coordinates: Array,
+    },
+	routes_ids: [{ type: Schema.Types.ObjectId, ref: 'Routes' }],
+    locations_ids: [{ type: Schema.Types.ObjectId, ref: 'Location' }],
 }
 ```
 ## Link
@@ -165,3 +186,4 @@ Mountain Passes model
 
 ### Slides
 - [Slides]()
+
