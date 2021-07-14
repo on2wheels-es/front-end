@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base Typography */
+@layer base {
+  body {
+    @apply text-base max-w-screen-lg mx-auto p-3.5;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-medium;
+  }
+
+  a {
+    @apply no-underline hover:underline focus:underline ;
+  }
+
+}
+
+/* Base Components */
+@layer components {
+  .form-container {
+    @apply min-h-screen flex flex-col items-center justify-center py-4 px-4 sm:px-6 lg:px-8 rounded-lg;
+
+  }
+  .form {
+    @apply rounded bg-white overflow-hidden shadow-xl px-5 py-10 w-full max-w-screen-md;
+  }
+  .form-input {
+      @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-2 border-gray-200 rounded-md py-2 pl-4;
+  }
+  .button-indigo {
+    @apply w-full py-2 px-4 border border-transparent text-lg uppercase font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block;
+  }
+}
+
