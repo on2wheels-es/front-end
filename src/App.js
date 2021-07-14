@@ -16,7 +16,7 @@ class App extends Component {
 			return <div>loading ... </div>;
 		}
 		return (
-			<div className="container">
+			<div className="container bg-black">
 				<h1>Basic React Authentication</h1>
 				<Navbar />
 				<Switch>
