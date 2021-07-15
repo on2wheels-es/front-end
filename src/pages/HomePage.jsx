@@ -5,7 +5,7 @@ function HomePage() {
     <>
       <main className="flex flex-col space-y-4">
         <div className="py-10 border-2">
-          <p>Here would go the SearchBar Component</p>
+          <p>SearchBar Component</p>
         </div>
         <div className="py-10 border-2">
           <p>Popular Locations Component</p>

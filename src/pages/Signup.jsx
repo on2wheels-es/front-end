@@ -30,7 +30,7 @@ class Signup extends Component {
 			<div className="form-container">
 				<div className="text-center">
 					<p>on2Wheels Logo</p>
-					<h2 className="mt-6 text-center font-extrabold text-gray-900">Login to your account</h2>
+					<h2 className="mt-6 text-center font-extrabold text-gray-900">Register</h2>
 				</div>
 				<form className="form" onSubmit={this.handleFormSubmit}>
 					<div className="rounded-md shadow-sm flex-col space-y-2">

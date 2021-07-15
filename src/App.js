@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
+import Navbar from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
-import Private from './pages/Profile';
+import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import HomePage from './pages/HomePage';
@@ -18,13 +18,12 @@ class App extends Component {
 		}
 		return (
 			<>
-				<h1>On2Wheels</h1>
 				<Navbar />
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
-					<PrivateRoute path="/private" component={Private} />
+					<PrivateRoute path="/profile" component={Profile} />
 				</Switch>
 			</>
 		);

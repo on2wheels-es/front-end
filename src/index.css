@@ -24,6 +24,10 @@
     @apply no-underline hover:underline focus:underline ;
   }
 
+  .subtitle {
+    @apply font-bold text-xs m-0;
+  }
+
 }
 
 /* Base Components */
