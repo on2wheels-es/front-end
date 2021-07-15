@@ -1,8 +1,11 @@
 import React from 'react'
 
+import Header from '../components/Header'
+
 function HomePage() {
   return (
     <>
+      <Header />
       <main className="flex flex-col space-y-4">
         <div className="py-10 border-2">
           <p>SearchBar Component</p>

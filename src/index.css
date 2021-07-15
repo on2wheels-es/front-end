@@ -25,7 +25,7 @@
   }
 
   .subtitle {
-    @apply font-bold text-xs m-0;
+    @apply font-bold text-xs;
   }
 
 }
@@ -33,7 +33,7 @@
 /* Base Components */
 @layer components {
   .form-container {
-    @apply min-h-screen flex flex-col items-center justify-center py-4 px-4 sm:px-6 lg:px-8 rounded-lg;
+    @apply min-h-screen flex flex-col items-center justify-center sm:px-6 lg:px-8 rounded-lg;
 
   }
   .form {

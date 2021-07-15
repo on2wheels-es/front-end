@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Navbar from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
 import Profile from './pages/Profile';
@@ -18,7 +17,6 @@ class App extends Component {
 		}
 		return (
 			<>
-				<Navbar />
 				<Switch>
 					<Route exact path="/" component={HomePage} />
 					<AnonRoute path="/signup" component={Signup} />

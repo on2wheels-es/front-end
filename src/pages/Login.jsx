@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import { withAuth } from "../providers/AuthProvider";
-
 
 class Login extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class Login extends Component {
     return (
 			<div className="form-container">
 				<div className="text-center">
-					<p>on2Wheels Logo</p>
+					<Link to="/">on2Wheels Logo</Link>
 					<h2 className="mt-6 text-center font-extrabold text-gray-900">Login to your account</h2>
 				</div>
 				<form className="form" onSubmit={this.handleFormSubmit}>

@@ -29,8 +29,8 @@ class Signup extends Component {
     return (
 			<div className="form-container">
 				<div className="text-center">
-					<p>on2Wheels Logo</p>
-					<h2 className="mt-6 text-center font-extrabold text-gray-900">Register</h2>
+					<Link to="/">on2Wheels Logo</Link>
+					<h2 className="text-center font-extrabold text-gray-900">Register</h2>
 				</div>
 				<form className="form" onSubmit={this.handleFormSubmit}>
 					<div className="rounded-md shadow-sm flex-col space-y-2">
@@ -49,9 +49,9 @@ class Signup extends Component {
 							className="form-input"
 						/>
 					</div>
-					<input className="button-indigo mt-6" type="submit" value="Signup" />
+					<input className="button-indigo mt-4" type="submit" value="Signup" />
 				</form>
-				<p className="font-xl font-bold mt-8 text-indigo-700">
+				<p className="font-xl font-bold mt-4 text-indigo-700">
 					Already have account?
 					<Link to={'/login'}> Login</Link>
 				</p>
