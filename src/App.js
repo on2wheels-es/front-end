@@ -21,7 +21,7 @@ class App extends Component {
 				<h1>On2Wheels</h1>
 				<Navbar />
 				<Switch>
-					<Route path="/" component={HomePage} />
+					<Route exact path="/" component={HomePage} />
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
 					<PrivateRoute path="/private" component={Private} />

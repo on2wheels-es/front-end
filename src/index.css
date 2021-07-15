@@ -5,7 +5,7 @@
 /* Base Typography */
 @layer base {
   body {
-    @apply text-base max-w-screen-lg mx-auto p-3.5;
+    @apply text-base max-w-screen-lg mx-auto p-4;
   }
 
   h1 {
