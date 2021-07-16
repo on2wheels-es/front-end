@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
+
 import { withAuth } from "../providers/AuthProvider";
+import SearchBar from '../components/SearchBar'
 
 class Login extends Component {
   constructor(props) {
@@ -28,6 +30,8 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
+      <>
+      <SearchBar />
 			<div className="form-container">
 				<div className="text-center">
 					<Link to="/">on2Wheels Logo</Link>
@@ -49,6 +53,7 @@ class Login extends Component {
 					<input className="button-indigo mt-6" type="submit" value="Login" />
 				</form>
 			</div>
+      </>
 		);
   }
 }
