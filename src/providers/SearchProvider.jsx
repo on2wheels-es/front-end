@@ -14,7 +14,7 @@ const SearchProvider = (props) => {
   
     return (
       <SearchContext.Provider
-        value={{ allValues, searchHandler }}
+        value={{ allValues, searchHandler, ...props }}
       >
         {props.children}
       </SearchContext.Provider>
