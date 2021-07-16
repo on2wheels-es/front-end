@@ -41,7 +41,7 @@ const SearchBar = () => {
       />
       <button
         onClick={searchInputHandler}
-        className="inline-block w-1/4 bg-indigo-500 p-2 rounded-lg uppercase text-white font-semibold"
+        className="inline-block w-1/4 bg-indigo-500 px-1 py-3 rounded-lg uppercase text-white font-semibold m-0"
       > 
       Search
       </button>
