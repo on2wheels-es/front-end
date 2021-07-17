@@ -26,8 +26,9 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="border rounded-lg px-1 py-1 flex justify-between w-full max-w-screen-sm mx-auto shadow-lg mb-6">
+    <div className="border rounded-lg px-1 py-1 flex justify-between w-full mx-auto shadow-lg mb-6">
       < DateRangePicker
+        className="w-5/12"
         startDate={startDate}
         startDateId="start-date"
         endDate={endDate}
@@ -41,7 +42,7 @@ const SearchBar = () => {
         placeholder="Dates"
         name="date"
         type="text"
-        className="w-2/6 border-r-2 p-2"
+        className="border-r-2 pl-2 hidden"
         value={searchValues.date}
         onChange={handleInput}
       />
@@ -49,7 +50,7 @@ const SearchBar = () => {
         placeholder="CCAA"
         type="text"
         name="CCAA"
-        className="w-2/6"
+        className="w-2/6 border-l-2 pl-4"
         value={searchValues.CCAA}
         onChange={handleInput}
       />
