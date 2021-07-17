@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Card from './Card';
-import MountainPassCardContent from './MountainPassCardContent';
-import MunicipalityCardContent from './MunicipalityCardContent';
-import RouteCardContent from './RouteCardContent';
+import MountainPassCardContent from './Content/MountainPassCardContent';
+import MunicipalityCardContent from './Content/MunicipalityCardContent';
+import RouteCardContent from './Content/RouteCardContent';
 
 export class PrintCards extends Component {
   constructor(props) {

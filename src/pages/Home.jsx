@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 import Container from '../components/Container'
-import PrintCards from '../components/PrintCards'
+import PrintCards from '../components/Card/PrintCards'
 
 function Home() {
   return (
