@@ -3,36 +3,39 @@ import React, { Component } from 'react'
 export default class Card extends Component {
   constructor(props) {
     super(props);
-    this.status = {
-      img: "not loaded"
+    this.state = {
+      status: 'loading',
+      img: ''
     }
   }
 
-  /*
+  componentDidMount() {
+    this.renderGalleryItem()
+    
+  }
+  
   renderGalleryItem = () => {
-    const numItemsToGenerate = 20; // how many gallery items you want on the screen
-    const imageWidth = 480; // your desired image width in pixels
-    const imageHeight = 480; // desired image height in pixels
-    const collectionID = 1163637; // the collection ID from the original url
-    fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/`)
+    const imageWidth = 620; // your desired image width in pixels
+    const imageHeight = 320; // desired image height in pixels
+    fetch(`https://source.unsplash.com/collection/${this.props.collectionID}/${imageWidth}x${imageHeight}/`)
     .then((response)=> { 
       this.setState({
-        img: 'loaded'
-      })
-      console.log(response.url) 
-      return <img src={response.url} alt="gallery image"/>  
+        status: 'loaded',
+        img: response.url
+      }) 
     }) 
   }
- */
-
-
 
   render() {
+    const { status, img } = this.state;
     
     return (
-      <div>
-        
-        
+      <div className="border-2 rounded-md w-3/12">
+        <div>
+          { status === 'loading' &&  <p>....loading</p>}
+          { status === 'loaded' &&  <img src={img} className="object-cover" alt="gallery image"/>}
+        </div>
+        {this.props.children}
       </div>
     )
   }
