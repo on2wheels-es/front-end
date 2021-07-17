@@ -10,13 +10,15 @@ const SearchBar = () => {
   const searchContext = useContext(SearchContext); 
   const { date, CCAA } = searchContext.searchValues;
   const { startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler } = searchContext;
-  
+  console.log(startDate)
   const [searchValues, setSearchValues] = useState({
     date: date,
     CCAA: CCAA
   });
 
-  const onSearchSubmit = (e) => {
+  // Funció startDate - endDate mid point
+  // setSearchValues( { date: date})
+  const onSearchSubmit = (e) => { 
     e.preventDefault();
     onSearchHandler(searchValues);
   };
@@ -42,7 +44,7 @@ const SearchBar = () => {
         placeholder="Dates"
         name="date"
         type="text"
-        className="border-r-2 pl-2 hidden"
+        className="border-r-2 pl-2"
         value={searchValues.date}
         onChange={handleInput}
       />

@@ -24,7 +24,10 @@ const SearchProvider = (props) => {
     }
   
     const onSearchHandler = (newSearch) => {
-      setSearchValues({...newSearch});
+      setSearchValues({
+        date: newSearch.date,
+        CCAA: newSearch.CCAA
+      });
     };
   
     return (

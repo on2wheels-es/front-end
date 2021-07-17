@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 
-function HomePage() {
+function Home() {
   return (
     <>
       <Header />
@@ -26,4 +26,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+export default Home

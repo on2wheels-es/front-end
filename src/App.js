@@ -6,19 +6,15 @@ import AnonRoute from './components/AnonRoute';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import HomePage from './pages/HomePage';
+import Home from './pages/Home';
 import { withAuth } from './providers/AuthProvider';
 
 class App extends Component {
 	render() {
-		const { isLoading } = this.props;
-		if (isLoading) {
-			return <div>loading ... </div>;
-		}
 		return (
 			<>
 				<Switch>
-					<Route exact path="/" component={HomePage} />
+					<Route exact path="/" component={Home} />
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
