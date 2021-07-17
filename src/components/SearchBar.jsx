@@ -4,21 +4,20 @@ import { SearchContext } from "../providers/SearchProvider";
 
 const SearchBar = () => {
   const searchContext = useContext(SearchContext); 
-  const { dates, CCAA } = searchContext.allValues;
+  const { date, CCAA } = searchContext.searchValues;
   
-  const [allValues, setAllValues] = useState({
-    dates: dates,
+  const [searchValues, setSearchValues] = useState({
+    date: date,
     CCAA: CCAA
   });
 
-
-  const searchInputHandler = (e) => {
+  const onSearchSubmit = (e) => {
     e.preventDefault();
-    searchContext.searchHandler(allValues);
+    searchContext.searchHandler(searchValues);
   };
 
-  const inputHandler = e => {
-    setAllValues({...allValues, [e.target.name]: e.target.value});
+  const handleInput = e => {
+    setSearchValues({...searchValues, [e.target.name]: e.target.value});
   };
 
   return (
@@ -28,19 +27,19 @@ const SearchBar = () => {
         name="dates"
         type="text"
         className="w-2/6 border-r-2 p-2"
-        value={allValues.dates}
-        onChange={inputHandler}
+        value={searchValues.dates}
+        onChange={handleInput}
       />
       <input
         placeholder="CCAA"
         type="text"
         name="CCAA"
         className="w-2/6"
-        value={allValues.CCAA}
-        onChange={inputHandler}
+        value={searchValues.CCAA}
+        onChange={handleInput}
       />
       <button
-        onClick={searchInputHandler}
+        onClick={onSearchSubmit}
         className="inline-block w-1/4 bg-indigo-500 px-1 py-3 rounded-lg uppercase text-white font-semibold m-0"
       > 
       Search

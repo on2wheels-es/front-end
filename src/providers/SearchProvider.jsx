@@ -3,18 +3,22 @@ import React, { useState } from "react";
 export const SearchContext = React.createContext();
 
 const SearchProvider = (props) => {
-    const [allValues, setAllValues] = useState({
-      dates: '',
+    const [searchValues, setSearchValues] = useState({
+      date: '',
       CCAA: ''
     });
+
+    const [startDate, setStartDate] = useState();
+    const [endDate, setEndDate] = useState();
+    const [focusedInput, setFocusedInput] = useState();
   
-    const searchHandler = (newSearch) => {
-      setAllValues({...newSearch});
+    const onSearchSubmit = (newSearch) => {
+      setSearchValues({...newSearch});
     };
   
     return (
       <SearchContext.Provider
-        value={{ allValues, searchHandler, ...props }}
+        value={{ searchValues, onSearchSubmit, ...props }}
       >
         {props.children}
       </SearchContext.Provider>
