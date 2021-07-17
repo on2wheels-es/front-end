@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import moment from 'moment';
+
 export const SearchContext = React.createContext();
 
 const SearchProvider = (props) => {
@@ -8,9 +10,9 @@ const SearchProvider = (props) => {
       CCAA: ''
     });
 
-    const [startDate, setStartDate] = useState();
-    const [endDate, setEndDate] = useState();
-    const [focusedInput, setFocusedInput] = useState();
+    const [startDate, setStartDate] = useState(moment());
+    const [endDate, setEndDate] = useState(moment());
+    const [focusedInput, setFocusedInput] = useState(null);
   
     const onSearchSubmit = (newSearch) => {
       setSearchValues({...newSearch});
