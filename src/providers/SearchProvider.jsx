@@ -13,14 +13,23 @@ const SearchProvider = (props) => {
     const [startDate, setStartDate] = useState(moment());
     const [endDate, setEndDate] = useState(moment());
     const [focusedInput, setFocusedInput] = useState(null);
+
+    const onDatesChange = ({ startDate, endDate }) => {
+          setStartDate(startDate);
+          setEndDate(endDate);
+    }
+
+    const onFocusChange = (focusedInput) => {
+      setFocusedInput(focusedInput)
+    }
   
-    const onSearchSubmit = (newSearch) => {
+    const onSearchHandler = (newSearch) => {
       setSearchValues({...newSearch});
     };
   
     return (
       <SearchContext.Provider
-        value={{ searchValues, onSearchSubmit, ...props }}
+        value={{ searchValues, startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler, ...props }}
       >
         {props.children}
       </SearchContext.Provider>
