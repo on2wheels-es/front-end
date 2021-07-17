@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import moment from 'moment';
 
 export const SearchContext = React.createContext();
+
+export const useSearchBar = () => {
+  const searchContext = useContext(SearchContext);
+  return searchContext;
+}
 
 const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({

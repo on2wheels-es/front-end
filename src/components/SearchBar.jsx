@@ -1,17 +1,15 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
+import { useSearchBar  } from "../providers/SearchProvider";
 
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { DateRangePicker } from "react-dates";
 
-import { SearchContext } from "../providers/SearchProvider";
 
 const SearchBar = () => {
-  const searchContext = useContext(SearchContext); 
-  const { date, CCAA } = searchContext.searchValues;
-  const { startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler } = searchContext;
-  console.log(startDate)
-  const [searchValues, setSearchValues] = useState({
+  const { searchValues, startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
+  const { date, CCAA } = searchValues;
+  const [valuesToApi, setValuesToApi] = useState({
     date: date,
     CCAA: CCAA
   });
@@ -24,13 +22,12 @@ const SearchBar = () => {
   };
 
   const handleInput = e => {
-    setSearchValues({...searchValues, [e.target.name]: e.target.value});
+    setValuesToApi({...valuesToApi, [e.target.name]: e.target.value});
   };
 
   return (
     <div className="border rounded-lg px-1 py-1 flex justify-between w-full mx-auto shadow-lg mb-6">
       < DateRangePicker
-        className="w-5/12"
         startDate={startDate}
         startDateId="start-date"
         endDate={endDate}
