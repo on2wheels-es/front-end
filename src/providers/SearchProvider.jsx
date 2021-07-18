@@ -12,32 +12,38 @@ export const useSearchBar = () => {
 const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({
       date: '',
-      CCAA: ''
+      CCAA: '',
+      startDate: moment(),
+      endDate: moment(),
+      focusedInput: null
     });
 
-    const [startDate, setStartDate] = useState(moment());
-    const [endDate, setEndDate] = useState(moment());
-    const [focusedInput, setFocusedInput] = useState(null);
-
     const onDatesChange = ({ startDate, endDate }) => {
-          setStartDate(startDate);
-          setEndDate(endDate);
+      setSearchValues((prevState) => ({
+        ...prevState,
+        startDate,
+        endDate
+      }));
     }
 
     const onFocusChange = (focusedInput) => {
-      setFocusedInput(focusedInput)
+      setSearchValues((prevState) => ({
+        ...prevState,
+        focusedInput
+      }));
     }
   
-    const onSearchHandler = (newSearch) => {
-      setSearchValues({
-        date: newSearch.date,
-        CCAA: newSearch.CCAA
-      });
+    const onSearchHandler = ({ date, CCAA }) => {
+      setSearchValues((prevState) => ({
+        ...prevState,
+        date,
+        CCAA
+      }));
     };
   
     return (
       <SearchContext.Provider
-        value={{ searchValues, startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler, ...props }}
+        value={{ searchValues, onDatesChange, onFocusChange, onSearchHandler, ...props }}
       >
         {props.children}
       </SearchContext.Provider>

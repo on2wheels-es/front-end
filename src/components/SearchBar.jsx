@@ -7,8 +7,8 @@ import { DateRangePicker } from "react-dates";
 
 
 const SearchBar = () => {
-  const { searchValues, startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
-  const { date, CCAA } = searchValues;
+  const { searchValues, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
+  const { date, CCAA, startDate, endDate, focusedInput } = searchValues;
   const [valuesToApi, setValuesToApi] = useState({
     date: date,
     CCAA: CCAA
@@ -18,7 +18,7 @@ const SearchBar = () => {
   // setSearchValues( { date: date})
   const onSearchSubmit = (e) => { 
     e.preventDefault();
-    onSearchHandler(searchValues);
+    onSearchHandler(valuesToApi);
   };
 
   const handleInput = e => {
@@ -42,7 +42,7 @@ const SearchBar = () => {
         name="date"
         type="text"
         className="border-r-2 pl-2"
-        value={searchValues.date}
+        value={valuesToApi.date}
         onChange={handleInput}
       />
       <input
@@ -50,7 +50,7 @@ const SearchBar = () => {
         type="text"
         name="CCAA"
         className="w-2/6 border-l-2 pl-4"
-        value={searchValues.CCAA}
+        value={valuesToApi.CCAA}
         onChange={handleInput}
       />
       <button
