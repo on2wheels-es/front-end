@@ -11,33 +11,52 @@ export const useSearchBar = () => {
 
 const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({
-      date: '',
-      CCAA: ''
+      middleDate: '',
+      CCAA: '',
+      startDate: moment(),
+      endDate: null,
+      focusedInput: null
     });
 
-    const [startDate, setStartDate] = useState(moment());
-    const [endDate, setEndDate] = useState(moment());
-    const [focusedInput, setFocusedInput] = useState(null);
+    console.log(searchValues)
 
     const onDatesChange = ({ startDate, endDate }) => {
-          setStartDate(startDate);
-          setEndDate(endDate);
+      setSearchValues((prevState) => ({
+        ...prevState,
+        startDate,
+        endDate
+      }));
     }
 
     const onFocusChange = (focusedInput) => {
-      setFocusedInput(focusedInput)
+      setSearchValues((prevState) => ({
+        ...prevState,
+        focusedInput
+      }));
     }
   
-    const onSearchHandler = (newSearch) => {
+    const onSearchHandler = ({ CCAA }) => {
+      const middleDate = calculateMiddleDate();
+      
       setSearchValues({
-        date: newSearch.date,
-        CCAA: newSearch.CCAA
+        ...searchValues,
+        middleDate,
+        CCAA
       });
     };
+
+    const calculateMiddleDate = () => {
+      const { startDate, endDate } = searchValues;
+      const date1 = new Date(startDate._d);
+      const date2 = new Date(endDate._d);
+      const middleDate = new Date(date2 - (date2-date1)/2);
+
+      return moment(middleDate).format('L');
+    }
   
     return (
       <SearchContext.Provider
-        value={{ searchValues, startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler, ...props }}
+        value={{ searchValues, onDatesChange, onFocusChange, onSearchHandler, ...props }}
       >
         {props.children}
       </SearchContext.Provider>

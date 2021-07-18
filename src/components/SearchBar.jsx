@@ -4,61 +4,53 @@ import { useSearchBar  } from "../providers/SearchProvider";
 
 import React, { useState } from "react";
 import { DateRangePicker } from "react-dates";
+import '../react_dates_overrides.css'
 
 
 const SearchBar = () => {
-  const { searchValues, startDate, endDate, focusedInput, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
-  const { date, CCAA } = searchValues;
+  const { searchValues, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
+  const { CCAA, startDate, endDate, focusedInput } = searchValues;
   const [valuesToApi, setValuesToApi] = useState({
-    date: date,
     CCAA: CCAA
   });
 
-  // Funció startDate - endDate mid point
-  // setSearchValues( { date: date})
   const onSearchSubmit = (e) => { 
     e.preventDefault();
-    onSearchHandler(searchValues);
+    onSearchHandler(valuesToApi);
   };
 
   const handleInput = e => {
     setValuesToApi({...valuesToApi, [e.target.name]: e.target.value});
-  };
+  };  
 
   return (
-    <div className="border rounded-lg px-1 py-1 flex justify-between w-full mx-auto shadow-lg mb-6">
-      < DateRangePicker
-        startDate={startDate}
-        startDateId="start-date"
-        endDate={endDate}
-        endDateId="end-date"
-        onDatesChange={onDatesChange}
-        focusedInput={focusedInput}
-        onFocusChange={onFocusChange}
-      />
-      
-      <input
-        placeholder="Dates"
-        name="date"
-        type="text"
-        className="border-r-2 pl-2"
-        value={searchValues.date}
-        onChange={handleInput}
-      />
-      <input
-        placeholder="CCAA"
-        type="text"
-        name="CCAA"
-        className="w-2/6 border-l-2 pl-4"
-        value={searchValues.CCAA}
-        onChange={handleInput}
-      />
-      <button
-        onClick={onSearchSubmit}
-        className="inline-block w-1/4 bg-indigo-500 px-1 py-3 rounded-lg uppercase text-white font-semibold m-0"
-      > 
-      Search
-      </button>
+    <div className="searchBar-container">
+      <div className="searchBar-container-flex">
+        <DateRangePicker
+          startDate={startDate}
+          startDateId="start-date"
+          endDate={endDate}
+          endDateId="end-date"
+          onDatesChange={onDatesChange}
+          focusedInput={focusedInput}
+          onFocusChange={onFocusChange}
+        />
+        <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
+        <input
+          placeholder="CCAA"
+          type="text"
+          name="CCAA"
+          className="border pl-2 py-3 rounded-xl text-center 761md:text-left 761md:border-none 761md:rounded-none 761md:w-64"
+          value={valuesToApi.CCAA}
+          onChange={handleInput}
+        />
+        <button
+          onClick={onSearchSubmit}
+          className="inline-block bg-indigo-500 px-1 py-3 rounded-xl uppercase text-white font-semibold m-0 761md:w-1/6"
+        > 
+        Search
+        </button>
+      </div>
     </div>
   );
 };
