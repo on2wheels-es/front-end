@@ -26,7 +26,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="border rounded-lg px-1 py-1 flex justify-between w-full mx-auto shadow-lg mb-6">
+    <div className="border rounded-lg px-1 py-1 flex justify-between w-10/12 mx-auto shadow-lg mb-6">
       < DateRangePicker
         startDate={startDate}
         startDateId="start-date"
@@ -36,26 +36,17 @@ const SearchBar = () => {
         focusedInput={focusedInput}
         onFocusChange={onFocusChange}
       />
-      
-      <input
-        placeholder="Dates"
-        name="date"
-        type="text"
-        className="border-r-2 pl-2"
-        value={valuesToApi.date}
-        onChange={handleInput}
-      />
       <input
         placeholder="CCAA"
         type="text"
         name="CCAA"
-        className="w-2/6 border-l-2 pl-4"
+        className="flex-1 border-l-2 pl-4 mx-2"
         value={valuesToApi.CCAA}
         onChange={handleInput}
       />
       <button
         onClick={onSearchSubmit}
-        className="inline-block w-1/4 bg-indigo-500 px-1 py-3 rounded-lg uppercase text-white font-semibold m-0"
+        className="inline-block w-1/6 bg-indigo-500 px-1 py-3 rounded-lg uppercase text-white font-semibold m-0"
       > 
       Search
       </button>
