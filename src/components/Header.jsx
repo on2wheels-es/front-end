@@ -7,11 +7,10 @@ class Header extends Component {
 	render() {
 		const { user, isLoggedIn, logout } = this.props;
 		return (
-			<header className="py-2 mb-8">
+			<header className="py-2 mb-8 border-b">
 				<div className=" flex justify-between">
            <div className="site-title">
-              <p>On2Wheels</p>
-              <p className="subtitle">Stage planner for cycling 🚴‍♂️</p>
+              <p className="text-indigo-500">On<strong>2Wheels</strong></p>
            </div>
 					<nav>
 						<ul className="flex justify-center p-0">
