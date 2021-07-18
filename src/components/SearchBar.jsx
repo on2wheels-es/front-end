@@ -9,14 +9,11 @@ import '../react_dates_overrides.css'
 
 const SearchBar = () => {
   const { searchValues, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
-  const { date, CCAA, startDate, endDate, focusedInput } = searchValues;
+  const { CCAA, startDate, endDate, focusedInput } = searchValues;
   const [valuesToApi, setValuesToApi] = useState({
-    date: date,
     CCAA: CCAA
   });
 
-  // Funció startDate - endDate mid point
-  // setSearchValues( { date: date})
   const onSearchSubmit = (e) => { 
     e.preventDefault();
     onSearchHandler(valuesToApi);
@@ -24,7 +21,7 @@ const SearchBar = () => {
 
   const handleInput = e => {
     setValuesToApi({...valuesToApi, [e.target.name]: e.target.value});
-  };
+  };  
 
   return (
     <div className="searchBar-container">

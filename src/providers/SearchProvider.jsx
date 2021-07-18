@@ -11,12 +11,14 @@ export const useSearchBar = () => {
 
 const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({
-      date: '',
+      middleDate: '',
       CCAA: '',
       startDate: moment(),
-      endDate: moment(),
+      endDate: null,
       focusedInput: null
     });
+
+    console.log(searchValues)
 
     const onDatesChange = ({ startDate, endDate }) => {
       setSearchValues((prevState) => ({
@@ -33,13 +35,24 @@ const SearchProvider = (props) => {
       }));
     }
   
-    const onSearchHandler = ({ date, CCAA }) => {
-      setSearchValues((prevState) => ({
-        ...prevState,
-        date,
+    const onSearchHandler = ({ CCAA }) => {
+      const middleDate = calculateMiddleDate();
+      
+      setSearchValues({
+        ...searchValues,
+        middleDate,
         CCAA
-      }));
+      });
     };
+
+    const calculateMiddleDate = () => {
+      const { startDate, endDate } = searchValues;
+      const date1 = new Date(startDate._d);
+      const date2 = new Date(endDate._d);
+      const middleDate = new Date(date2 - (date2-date1)/2);
+
+      return moment(middleDate).format('L');
+    }
   
     return (
       <SearchContext.Provider
