@@ -9,15 +9,15 @@
 	}
 
 	h1 {
-		@apply text-4xl font-bold;
+		@apply text-2xl font-bold;
 	}
 
 	h2 {
-		@apply text-2xl font-semibold;
+		@apply text-xl font-semibold;
 	}
 
 	h3 {
-		@apply text-xl font-medium;
+		@apply text-lg font-medium;
 	}
 
 	a {
@@ -25,7 +25,7 @@
 	}
 
 	.subtitle {
-		@apply font-bold text-xs;
+		@apply text-gray-500 text-xs;
 	}
 }
 
@@ -48,5 +48,8 @@
 	}
 	.searchBar-container-flex {
 		@apply flex flex-col space-y-2 761md:flex-row 761md:justify-between 761md:items-center 761md:space-y-0;
+	}
+	.wrapper {
+		@apply flex flex-col align-bottom;
 	}
 }

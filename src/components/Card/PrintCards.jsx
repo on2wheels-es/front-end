@@ -44,6 +44,34 @@ export class PrintCards extends Component {
             "municipality": "",
             "mountain_passes_ids": [859, 1034],
             "municipalities_ids": ""
+          },
+          {
+            "_id": 23,
+            "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
+            "ccaa": "Cantabria",
+            "province": "Noja",
+            "trailrank": 49,
+            "distance": 88,
+            "gradient": 1531,
+            "min_alt": 0,
+            "max_alt": 688,
+            "municipality": "",
+            "mountain_passes_ids": [859, 1034],
+            "municipalities_ids": ""
+          },
+          {
+            "_id": 23,
+            "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
+            "ccaa": "Cantabria",
+            "province": "Noja",
+            "trailrank": 49,
+            "distance": 88,
+            "gradient": 1531,
+            "min_alt": 0,
+            "max_alt": 688,
+            "municipality": "",
+            "mountain_passes_ids": [859, 1034],
+            "municipalities_ids": ""
           }
         ],
         loading: false
