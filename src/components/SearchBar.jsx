@@ -4,6 +4,7 @@ import { useSearchBar  } from "../providers/SearchProvider";
 
 import React, { useState } from "react";
 import { DateRangePicker } from "react-dates";
+import '../react_dates_overrides.css'
 
 
 const SearchBar = () => {
@@ -42,7 +43,7 @@ const SearchBar = () => {
           placeholder="CCAA"
           type="text"
           name="CCAA"
-          className="border pl-2 py-3 rounded-xl 761md:border-none 761md:rounded-none 761md:w-64"
+          className="border pl-2 py-3 rounded-xl text-center 761md:text-left 761md:border-none 761md:rounded-none 761md:w-64"
           value={valuesToApi.CCAA}
           onChange={handleInput}
         />
