@@ -26,30 +26,33 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="border rounded-lg px-1 py-1 flex justify-between w-10/12 mx-auto shadow-lg mb-6">
-      < DateRangePicker
-        startDate={startDate}
-        startDateId="start-date"
-        endDate={endDate}
-        endDateId="end-date"
-        onDatesChange={onDatesChange}
-        focusedInput={focusedInput}
-        onFocusChange={onFocusChange}
-      />
-      <input
-        placeholder="CCAA"
-        type="text"
-        name="CCAA"
-        className="flex-1 border-l-2 pl-4 mx-2"
-        value={valuesToApi.CCAA}
-        onChange={handleInput}
-      />
-      <button
-        onClick={onSearchSubmit}
-        className="inline-block w-1/6 bg-indigo-500 px-1 py-3 rounded-lg uppercase text-white font-semibold m-0"
-      > 
-      Search
-      </button>
+    <div className="searchBar-container">
+      <div className="searchBar-container-flex">
+        <DateRangePicker
+          startDate={startDate}
+          startDateId="start-date"
+          endDate={endDate}
+          endDateId="end-date"
+          onDatesChange={onDatesChange}
+          focusedInput={focusedInput}
+          onFocusChange={onFocusChange}
+        />
+        <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
+        <input
+          placeholder="CCAA"
+          type="text"
+          name="CCAA"
+          className="border pl-2 py-3 rounded-xl 761md:border-none 761md:rounded-none 761md:w-64"
+          value={valuesToApi.CCAA}
+          onChange={handleInput}
+        />
+        <button
+          onClick={onSearchSubmit}
+          className="inline-block bg-indigo-500 px-1 py-3 rounded-xl uppercase text-white font-semibold m-0 761md:w-1/6"
+        > 
+        Search
+        </button>
+      </div>
     </div>
   );
 };

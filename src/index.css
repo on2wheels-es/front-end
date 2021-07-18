@@ -1,49 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Base Typography */
 @layer base {
-  body {
-    @apply text-base max-w-screen-lg mx-auto p-4;
-  }
+	body {
+		@apply text-base max-w-screen-lg mx-auto p-4;
+	}
 
-  h1 {
-    @apply text-4xl font-bold;
-  }
+	h1 {
+		@apply text-4xl font-bold;
+	}
 
-  h2 {
-    @apply text-2xl font-semibold;
-  }
+	h2 {
+		@apply text-2xl font-semibold;
+	}
 
-  h3 {
-    @apply text-xl font-medium;
-  }
+	h3 {
+		@apply text-xl font-medium;
+	}
 
-  a {
-    @apply no-underline hover:underline focus:underline ;
-  }
+	a {
+		@apply no-underline hover:underline focus:underline;
+	}
 
-  .subtitle {
-    @apply font-bold text-xs;
-  }
-
+	.subtitle {
+		@apply font-bold text-xs;
+	}
 }
 
 /* Base Components */
 @layer components {
-  .form-container {
-    @apply min-h-screen flex flex-col items-center justify-center sm:px-6 lg:px-8 rounded-lg;
-
-  }
-  .form {
-    @apply rounded bg-white overflow-hidden shadow-xl px-5 py-10 w-full max-w-screen-md;
-  }
-  .form-input {
-      @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-2 border-gray-200 rounded-md py-2 pl-4;
-  }
-  .button-indigo {
-    @apply w-full py-2 px-4 border border-transparent text-lg uppercase font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block;
-  }
+	.form-container {
+		@apply min-h-screen flex flex-col items-center justify-center sm:px-6 lg:px-8 rounded-lg;
+	}
+	.form {
+		@apply rounded bg-white overflow-hidden shadow-xl px-5 py-10 w-full max-w-screen-md;
+	}
+	.form-input {
+		@apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm border-2 border-gray-200 rounded-md py-2 pl-4;
+	}
+	.button-indigo {
+		@apply w-full py-2 px-4 border border-transparent text-lg uppercase font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block;
+	}
+	.searchBar-container {
+		@apply w-full mx-auto py-3 px-2 bg-white rounded-xl shadow-md border 761md:w-full md:w-11/12 lg:w-10/12 761md:py-1 761md:px-1;
+	}
+	.searchBar-container-flex {
+		@apply flex flex-col space-y-2 761md:flex-row 761md:justify-between 761md:items-center 761md:space-y-0;
+	}
 }
-
