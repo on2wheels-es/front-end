@@ -2,7 +2,7 @@ import React from "react";
 
 import { useSearchBar  } from "../providers/SearchProvider";
 
-export default function searchResults() {
+export default function SearchResults() {
   const { municipalities } = useSearchBar().searchValues;
   console.log(municipalities)
   return (
@@ -12,4 +12,3 @@ export default function searchResults() {
     </div>
   )
 }
-
