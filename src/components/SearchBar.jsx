@@ -13,6 +13,9 @@ const SearchBar = () => {
     CCAA: CCAA
   });
 
+  const width = window.innerWidth;
+  const breakpoint = 761;
+
   const onSearchSubmit = (e) => { 
     e.preventDefault();
     onSearchHandler(valuesToApi);
@@ -25,15 +28,17 @@ const SearchBar = () => {
   return (
     <div className="searchBar-container">
       <div className="searchBar-container-flex">
-        <DateRangePicker
-          startDate={startDate}
-          startDateId="start-date"
-          endDate={endDate}
-          endDateId="end-date"
-          onDatesChange={onDatesChange}
-          focusedInput={focusedInput}
-          onFocusChange={onFocusChange}
-        />
+          <DateRangePicker
+            startDate={startDate}
+            startDateId="start-date"
+            endDate={endDate}
+            endDateId="end-date"
+            onDatesChange={onDatesChange}
+            focusedInput={focusedInput}
+            onFocusChange={onFocusChange}
+            orientation={ width >= breakpoint ? "horizontal" : "vertical"}
+            numberOfMonths={2} 
+          />
         <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
         <input
           placeholder="CCAA"

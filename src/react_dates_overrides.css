@@ -72,3 +72,17 @@
   border-bottom: 2px solid #4F46E5;
 }
 
+.CalendarMonth_caption,
+.CalendarMonth_caption_1 {
+  margin-bottom: 6px;
+}
+
+.DayPickerNavigation_svg__vertical {
+  height: 40px;
+  width: 40px;
+  fill: #4F46E5;
+}
+
+svg.DayPickerNavigation_svg__vertical.DayPickerNavigation_svg__vertical_1 {
+  margin: 0 auto;
+}

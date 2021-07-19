@@ -14,7 +14,7 @@ const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({
       middleDate: '',
       CCAA: '',
-      startDate: moment(),
+      startDate: null,
       endDate: null,
       focusedInput: null,
       status: "loading",
