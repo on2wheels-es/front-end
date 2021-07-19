@@ -1,14 +1,15 @@
-import React, { Component } from 'react'
+import React from "react";
 
-export class searchResults extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Mapa with Results</h1>
-        
-      </div>
-    )
-  }
+import { useSearchBar  } from "../providers/SearchProvider";
+
+export default function searchResults() {
+  const { municipalities } = useSearchBar().searchValues;
+  console.log(municipalities)
+  return (
+    <div>
+      <h1>Search Results</h1>
+      
+    </div>
+  )
 }
 
-export default searchResults

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import apiClient from "../services/apiClient";
 import moment from 'moment';
 
@@ -20,14 +21,14 @@ const SearchProvider = (props) => {
       municipalities: null
     });
 
-    console.log(searchValues)
+    const history = useHistory();
 
     const onDatesChange = ({ startDate, endDate }) => {
-      setSearchValues((prevState) => ({
-        ...prevState,
+      setSearchValues({
+        ...searchValues,
         startDate,
         endDate
-      }));
+      });
     }
 
     const onFocusChange = (focusedInput) => {
@@ -54,7 +55,9 @@ const SearchProvider = (props) => {
                   municipalities: response
               });
             })
-  
+            .then(() => {
+              history.push("/results");
+            }) 
     };
 
     const calculateMiddleDate = () => {

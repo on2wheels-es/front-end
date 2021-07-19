@@ -6,7 +6,6 @@ import React, { useState } from "react";
 import { DateRangePicker } from "react-dates";
 import '../react_dates_overrides.css'
 
-
 const SearchBar = () => {
   const { searchValues, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
   const { CCAA, startDate, endDate, focusedInput } = searchValues;
