@@ -36,8 +36,14 @@ class ApiClient {
     // MUNICIPALITIES
     getAllMunicipalities() {
         return this.apiClient
-                    .get('/municipalities')
-                    .then(({data}) => data)
+                   .get('/municipalities')
+                   .then(({data}) => data)
+    }
+
+    getMunicipalitiesFromSearch(apiIds) {
+        return this.apiClient
+                   .post('/municipalities/results', {apiIds})
+                   .then(({ data }) => data); 
     }
 
     getMunicipality(id) {

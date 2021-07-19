@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import apiClient from "../services/apiClient";
 import moment from 'moment';
 
 export const SearchContext = React.createContext();
@@ -15,7 +15,9 @@ const SearchProvider = (props) => {
       CCAA: '',
       startDate: moment(),
       endDate: null,
-      focusedInput: null
+      focusedInput: null,
+      status: "loading",
+      municipalities: null
     });
 
     console.log(searchValues)
@@ -37,12 +39,22 @@ const SearchProvider = (props) => {
   
     const onSearchHandler = ({ CCAA }) => {
       const middleDate = calculateMiddleDate();
-      
       setSearchValues({
         ...searchValues,
         middleDate,
         CCAA
       });
+
+      apiClient.getMunicipalitiesFromSearch([884, 7257, 4547, 4613])
+               .then((response) => {
+                 console.log(response)
+                 setSearchValues({
+                  ...searchValues,
+                  status: "loaded",
+                  municipalities: response
+              });
+            })
+  
     };
 
     const calculateMiddleDate = () => {
