@@ -66,6 +66,8 @@
 
 .DateInput_input {
   text-align: center;
+  width: 110px;
+  margin-left:1em;
 }
 
 .DateInput_input__focused {
@@ -75,12 +77,17 @@
 .CalendarMonth_caption,
 .CalendarMonth_caption_1 {
   margin-bottom: 6px;
+  text-transform: uppercase;
 }
 
 .DayPickerNavigation_svg__vertical {
   height: 40px;
   width: 40px;
   fill: #4F46E5;
+}
+
+.DayPicker_weekHeader_li {
+  text-transform: capitalize;
 }
 
 svg.DayPickerNavigation_svg__vertical.DayPickerNavigation_svg__vertical_1 {

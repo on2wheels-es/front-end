@@ -37,14 +37,20 @@ const SearchBar = () => {
             focusedInput={focusedInput}
             onFocusChange={onFocusChange}
             orientation={ width >= breakpoint ? "horizontal" : "vertical"}
-            numberOfMonths={2} 
+            numberOfMonths={2}
+            startDatePlaceholderText="Llegada"
+            endDatePlaceholderText="Salida"
+            startDateAriaLabel="Llegada"
+            endDateAriaLabel="Salida"
+            startDateTitleText="Llegada"
+            endDateTitleText="Salida"
           />
         <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
         <input
           placeholder="CCAA"
           type="text"
           name="CCAA"
-          className="border pl-2 py-3 rounded-xl text-center 761md:text-left 761md:border-none 761md:rounded-none 761md:w-64"
+          className="border pl-2 py-3 rounded-xl text-center 761md:text-left 761md:border-none 761md:rounded-none 761md:w-72"
           value={valuesToApi.CCAA}
           onChange={handleInput}
         />
@@ -52,7 +58,7 @@ const SearchBar = () => {
           onClick={onSearchSubmit}
           className="inline-block bg-indigo-500 px-1 py-3 rounded-xl uppercase text-white font-semibold m-0 761md:w-1/6"
         > 
-        Search
+        Buscar
         </button>
       </div>
     </div>

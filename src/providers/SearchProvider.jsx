@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import apiClient from "../services/apiClient";
-import moment from 'moment';
+import moment from 'moment/locale/es';
 
 export const SearchContext = React.createContext();
 
