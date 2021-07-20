@@ -18,7 +18,7 @@ function Home() {
           <PrintCards type="mountainPass"/>
         </Container>
         <Container title={"Rutas"}>
-          <PrintCards type="routes"/>
+          <PrintCards type="route"/>
         </Container>
         <div className="py-10 border-2">
           <p>Cycling Tips</p>
