@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
+import Container from '../components/Container';
 import Map from '../components/Map';
 import apiClient from '../services/apiClient';
 
@@ -18,6 +20,7 @@ export class RouteDetail extends Component {
             const { id } = this.props.match.params;
 
             const response = await apiClient.getRoute(id);
+            console.log('response route', response)
             this.setState({
                 status: 'loaded',
                 data: { coords: response.route.start, ...response.route},
@@ -29,15 +32,17 @@ export class RouteDetail extends Component {
     }
 
     render() {
-        const { data, status } = this.state;
-        console.log(data)
+        const { data, status, dataMunicipalities } = this.state;
         return (
             <div>
                 {status === 'loading' && <p>Loading data</p>}
                 {status === 'loaded' && (
                     <>
-                    <p>{data.name}</p>
-                    <Map data={[data]}/>
+                        <p>{data.name}</p>
+                        <Map data={[data]}/>
+                        <Container>
+                            <PrintMunicipalityCard data={dataMunicipalities} />
+                        </Container>
                     </>
                     
                 )}

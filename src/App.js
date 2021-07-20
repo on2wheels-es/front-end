@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import MountainPassDetail from './pages/MountainPassDetail';
 import { withAuth } from './providers/AuthProvider';
-import SearchResults from './components/searchResults';
+import SearchResults from './components/SearchResults';
 import MunicipalityDetail from './pages/MuncipalityDetail';
 import RouteDetail from './pages/RouteDetail';
 

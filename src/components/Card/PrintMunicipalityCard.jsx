@@ -5,6 +5,8 @@ import Card from './Card';
 import MunicipalityCardContent from './Content/MunicipalityCardContent';
 
 export class PrintMunicipalityCard extends Component {
+
+
   render() {
     const { data } = this.props;
 
