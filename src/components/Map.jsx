@@ -10,7 +10,7 @@ export default function Mapp(props) {
     const [viewport, setViewport] = useState({
       latitude: 40.416775,
       longitude: -3.703790,
-      zoom: 4
+      zoom: 4,
     });
 
     const [selectedData, setSelectedData] = useState(null);

@@ -32,10 +32,10 @@ export class PrintMountainPassCard extends Component {
     return(
       <>
         {status && <p>Loading data</p>}
-        {!status && data.map((dataPoint, index) => {
+        {!status && data.map((dataPoint) => {
           return(
-            <Link to={`/mountainPasses/${dataPoint._id}`}  key={index}>
-              <Card key={index}> 
+            <Link to={`/mountainPasses/${dataPoint._id}`}  key={dataPoint._id}>
+              <Card key={dataPoint._id}> 
                 <MountainPassCardContent data={dataPoint} />
               </Card>
             </Link>

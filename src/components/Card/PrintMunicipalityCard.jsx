@@ -32,10 +32,10 @@ export class PrintMunicipalityCard extends Component {
     return(
       <>
         {status && <p>Loading data</p>}
-        {!status && data.map((dataPoint, index) => {
+        {!status && data.map((dataPoint) => {
           return(
-            <Link to={`/municipalities/${dataPoint._id}`}  key={index}>
-              <Card key={index}> 
+            <Link to={`/municipalities/${dataPoint._id}`}  key={dataPoint._id}>
+              <Card key={dataPoint._id}> 
                 <MunicipalityCardContent data={dataPoint} />
               </Card>
             </Link>

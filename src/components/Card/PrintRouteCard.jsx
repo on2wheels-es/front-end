@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import Card from './Card';
 import RouteCardContent from './Content/RouteCardContent';
 // import apiClient from '../../services/apiClient';
@@ -116,11 +118,13 @@ export class PrintRouteCard extends Component {
     return(
       <>
         {status && <p>Loading data</p>}
-        {!status && data.map((dataPoint, index) => {
+        {!status && data.map((dataPoint) => {
           return(
-            <Card key={index}> 
-              <RouteCardContent data={dataPoint} />
-            </Card>
+            <Link to={`/routes/${dataPoint._id}`}  key={dataPoint._id}>
+              <Card key={dataPoint._id}> 
+                <RouteCardContent data={dataPoint} />
+              </Card>
+            </Link>
           )
         })}
       </>

@@ -11,6 +11,7 @@ import MountainPassDetail from './pages/MountainPassDetail';
 import { withAuth } from './providers/AuthProvider';
 import SearchResults from './components/searchResults';
 import MunicipalityDetail from './pages/MuncipalityDetail';
+import RouteDetail from './pages/RouteDetail';
 
 class App extends Component {
 	render() {
@@ -21,6 +22,7 @@ class App extends Component {
 					<Route exact path="/results" component={SearchResults} />
 					<Route exact path="/mountainPasses/:id" component={MountainPassDetail} />
 					<Route exact path="/municipalities/:id" component={MunicipalityDetail} />
+					<Route exact path="/routes/:id" component={RouteDetail} />
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
