@@ -8,7 +8,8 @@ export class RouteDetail extends Component {
         super(props);
         this.state= {
             status: 'loading',
-            data: undefined
+            data: undefined,
+            dataMunicipalities: undefined
         }
     }
     
@@ -19,7 +20,8 @@ export class RouteDetail extends Component {
             const response = await apiClient.getRoute(id);
             this.setState({
                 status: 'loaded',
-                data: { coords: response.start, ...response}
+                data: { coords: response.route.start, ...response.route},
+                dataMunicipalities: response.municipalities
             })
         } catch(error) {
             console.log(error)
