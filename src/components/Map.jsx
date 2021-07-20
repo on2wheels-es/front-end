@@ -5,7 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const REACT_APP_MAPBOX_TOKEN ='pk.eyJ1IjoibGFpYWxsb3JldCIsImEiOiJja3JhYTdhZHY0aDF6MzFvNmdxNXdhZXJnIn0.FxPZTopXMJT5Ypk3uK5dwg';
 
 export default function Mapp(props) {
-    const { municipalities } = props
+    const { data } = props
 
     const [viewport, setViewport] = useState({
       latitude: 40.416775,
@@ -13,12 +13,12 @@ export default function Mapp(props) {
       zoom: 4
     });
 
-    const [selectedMunicipality, setSelectedMunicipality] = useState(null);
+    const [selectedData, setSelectedData] = useState(null);
     
     useEffect(() => {
     const listener = e => {
             if (e.key === 'Escape') {
-                setSelectedMunicipality(null);
+                setSelectedData(null);
             }
         };
         window.addEventListener("keydown", listener);
@@ -28,9 +28,9 @@ export default function Mapp(props) {
         }
     }, []);
 
-    const handleClick = (e,municipality) => {
+    const handleClick = (e,data) => {
         e.preventDefault();
-        setSelectedMunicipality(municipality)
+        setSelectedData(data)
     }
 
     return (
@@ -39,33 +39,33 @@ export default function Mapp(props) {
                 {...viewport}
                 mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
                 mapStyle="mapbox://styles/laialloret/ckra9l67v5nix19p36ntg3a0p"
-                width="20vw"
-                height="80vh"
+                width="100vw"
+                height="100vh"
                 onViewportChange={(viewport) => setViewport(viewport)}
             >
-                {municipalities.map(municipality => (
+                {data.map(data => (
                     <Marker 
-                        key={municipality._id} 
-                        latitude={municipality.coords.coordinates[0][1]}
-                        longitude={municipality.coords.coordinates[0][0]}
+                        key={data._id} 
+                        latitude={data.coords.coordinates[0][1]}
+                        longitude={data.coords.coordinates[0][0]}
                         offsetTop={-15}
                         offsetLeft={-15}
                     >
-                        <button className="marker-btn" onClick = {(e) => handleClick(e,municipality)}>
+                        <button className="marker-btn" onClick = {(e) => handleClick(e,data)}>
                             <img src="https://www.aqua-marina.com/wp-content/uploads/2017/04/map-marker-icon.png" alt="marker" />
                         </button>
                     </Marker>
                 ))}
 
-                {selectedMunicipality && (
+                {selectedData && (
                     <Popup 
-                        latitude={selectedMunicipality.coords.coordinates[0][1]}
-                        longitude={selectedMunicipality.coords.coordinates[0][0]}
-                        onClose = {() => {setSelectedMunicipality(null)}}
+                        latitude={selectedData.coords.coordinates[0][1]}
+                        longitude={selectedData.coords.coordinates[0][0]}
+                        onClose = {() => {setSelectedData(null)}}
                         >
                         <div>
-                            <h2>{selectedMunicipality.municipality}</h2>
-                            <p>Nº Routes: {selectedMunicipality.routes_number}</p>
+                            <h2>Name</h2>
+                            <p>Nº Routes</p>
                         </div>
                     </Popup>
                 )}

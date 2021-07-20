@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import Card from './Card';
 import MountainPassCardContent from './Content/MountainPassCardContent';
 import apiClient from '../../services/apiClient';
@@ -32,9 +34,11 @@ export class PrintMountainPassCard extends Component {
         {status && <p>Loading data</p>}
         {!status && data.map((dataPoint, index) => {
           return(
-            <Card key={index}> 
-              <MountainPassCardContent data={dataPoint} />
-            </Card>
+            <Link to={`/mountainPasses/${dataPoint._id}`}  key={index}>
+              <Card key={index}> 
+                <MountainPassCardContent data={dataPoint} />
+              </Card>
+            </Link>
           )
         })}
       </>
