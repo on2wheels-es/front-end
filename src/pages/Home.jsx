@@ -11,11 +11,14 @@ function Home() {
       <Header />
       <main className="flex flex-col space-y-4">
         <SearchBar />
-        <Container title={"Popular Mountain Pass"}>
+        <Container title={"Los 8 municipios más recomendados para hacer un stage"}>
+          <PrintCards type="municipality"/>
+        </Container>
+        <Container title={"Los puertos de montaña que no te puedes perder"}>
           <PrintCards type="mountainPass"/>
         </Container>
-        <Container title={"Popular Municipalities"}>
-          <PrintCards type="municipality"/>
+        <Container title={"Rutas"}>
+          <PrintCards type="routes"/>
         </Container>
         <div className="py-10 border-2">
           <p>Cycling Tips</p>
