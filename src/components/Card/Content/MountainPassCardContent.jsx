@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export class MountainPassCardContent extends Component {
   render() {
+    console.log('mountain Pass Card Content', this.props.data)
     return (
         <div className="inline-block">
           <div className="flex flex-col w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl">

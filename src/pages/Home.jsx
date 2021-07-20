@@ -3,7 +3,9 @@ import React from 'react'
 import Header from '../components/Header'
 import SearchBar from '../components/SearchBar'
 import Container from '../components/Container'
-import PrintCards from '../components/Card/PrintCards'
+import PrintMountainPassCard from '../components/Card/PrintMountainPassCard'
+import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard'
+import PrintRouteCard from '../components/Card/PrintRouteCard'
 
 function Home() {
   return (
@@ -12,13 +14,13 @@ function Home() {
       <main className="flex flex-col space-y-4">
         <SearchBar />
         <Container title={"Los 8 municipios más recomendados para hacer un stage"}>
-          <PrintCards type="municipality"/>
+          <PrintMountainPassCard />
         </Container>
         <Container title={"Los puertos de montaña que no te puedes perder"}>
-          <PrintCards type="mountainPass"/>
+          <PrintMunicipalityCard />
         </Container>
         <Container title={"Rutas"}>
-          <PrintCards type="route"/>
+          <PrintRouteCard />
         </Container>
         <div className="py-10 border-2">
           <p>Cycling Tips</p>
