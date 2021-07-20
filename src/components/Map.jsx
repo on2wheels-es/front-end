@@ -15,7 +15,7 @@ export default function Mapp(props) {
       zoom: 4
     });
 
-    // const [selectedMunicipality, setselectedMunicipality] = useState(null);
+    // const [selectedMunicipality, setSelectedMunicipality] = useState(null);
     
     // useEffect(() => {
     // const listener = e => {
@@ -57,15 +57,15 @@ export default function Mapp(props) {
                     </Marker>
                 ))}
 
-                {selectedPark && (
+                {selectedMunicipality && (
                     <Popup 
-                        latitude={selectedPark.geometry.coordinates[1]} 
-                        longitude={selectedPark.geometry.coordinates[0]}
-                        onClose = {() => {setSelectedPark(null)}}
+                        latitude={selectedMunicipality.geometry.coordinates[1]} 
+                        longitude={selectedMunicipality.geometry.coordinates[0]}
+                        onClose = {() => {setSelectedMunicipality(null)}}
                         >
                         <div>
-                            <h2>{selectedPark.properties.NAME}</h2>
-                            <p>{selectedPark.properties.DESCRIPTIO}</p>
+                            <h2>{selectedMunicipality.properties.NAME}</h2>
+                            <p>{selectedMunicipality.properties.DESCRIPTIO}</p>
                         </div>
                     </Popup>
                 )} */}
