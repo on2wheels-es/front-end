@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import apiClient from "../services/apiClient";
-import moment from 'moment/locale/es';
+import moment from 'moment';
 
 export const SearchContext = React.createContext();
 
@@ -61,6 +61,11 @@ const SearchProvider = (props) => {
     };
 
     const calculateMiddleDate = () => {
+      moment.locale('es');
+      const localLocale = moment();
+      localLocale.format('LLLL');
+
+
       const { startDate, endDate } = searchValues;
       const date1 = new Date(startDate._d);
       const date2 = new Date(endDate._d);

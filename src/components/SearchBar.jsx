@@ -42,8 +42,6 @@ const SearchBar = () => {
             endDatePlaceholderText="Salida"
             startDateAriaLabel="Llegada"
             endDateAriaLabel="Salida"
-            startDateTitleText="Llegada"
-            endDateTitleText="Salida"
           />
         <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
         <input
