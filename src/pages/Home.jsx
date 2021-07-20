@@ -13,11 +13,11 @@ function Home() {
       <Header />
       <main className="flex flex-col space-y-4">
         <SearchBar />
-        <Container title={"Los 8 municipios más recomendados para hacer un stage"}>
-          <PrintMountainPassCard />
+        <Container title={"Los mejores municipios para hacer un stage"}>
+          <PrintMunicipalityCard />
         </Container>
         <Container title={"Los puertos de montaña que no te puedes perder"}>
-          <PrintMunicipalityCard />
+          <PrintMountainPassCard />
         </Container>
         <Container title={"Rutas"}>
           <PrintRouteCard />

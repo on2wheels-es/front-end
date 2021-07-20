@@ -102,7 +102,7 @@ export class PrintRouteCard extends Component {
             "municipalities_ids": ""
           }
         ],
-        loading: false
+        status: false
       })
 
     } catch (error) {
