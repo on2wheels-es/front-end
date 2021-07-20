@@ -44,7 +44,7 @@
 		@apply w-full py-2 px-4 border border-transparent text-lg uppercase font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block;
 	}
 	.searchBar-container {
-		@apply w-full mx-auto mb-4 py-3 px-2 bg-white rounded-xl shadow-md border 761md:w-full md:w-11/12 lg:w-10/12 761md:py-1 761md:px-1;
+		@apply  mb-4 py-3 px-2 bg-white rounded-xl shadow-md border w-full mx-auto 761md:w-full md:w-11/12 lg:w-10/12 761md:py-1 761md:px-1;
 	}
 	.searchBar-container-flex {
 		@apply flex flex-col space-y-2 761md:flex-row 761md:justify-between 761md:items-center 761md:space-y-0;
@@ -54,13 +54,3 @@
 	}
 }
 
-.marker-btn {
-	background: none;
-	border: none;
-	cursor: pointer;
-  }
-  
-  .marker-btn img {
-	width: 20px;
-	height: 20px;
-}

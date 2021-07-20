@@ -8,7 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import { withAuth } from './providers/AuthProvider';
-import SearchResults from './components/SearchResults';
+import SearchResults from './components/searchResults';
 
 class App extends Component {
 	render() {
