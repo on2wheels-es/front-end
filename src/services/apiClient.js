@@ -27,6 +27,12 @@ class ApiClient {
                     .then(({data}) => data)
     }
 
+    getPopularMountainPasses() {
+        return this.apiClient
+                    .get('/mountainPasses/popular')
+                    .then(({data}) => data)
+    }
+
     getMountainPass(id) {
         return this.apiClient
                     .get(`/mountainPasses/${id}`)
@@ -38,6 +44,12 @@ class ApiClient {
         return this.apiClient
                    .get('/municipalities')
                    .then(({data}) => data)
+    }
+
+    getPopularMunicipalities() {
+        return this.apiClient
+                    .get('/municipalities/popular')
+                    .then(({data}) => data)
     }
 
     getMunicipalitiesFromSearch(apiIds) {

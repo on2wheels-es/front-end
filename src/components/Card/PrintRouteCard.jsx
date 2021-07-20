@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import Card from './Card';
-import MountainPassCardContent from './Content/MountainPassCardContent';
-import MunicipalityCardContent from './Content/MunicipalityCardContent';
 import RouteCardContent from './Content/RouteCardContent';
+// import apiClient from '../../services/apiClient';
 
-export class PrintCards extends Component {
+export class PrintRouteCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      loading: true
+      status: true,
     }
   }
 
-  componentDidMount() {
-      // Fetch data from the Api
-      this.setState({
+  async componentDidMount() {
+    try {
+       // Api Call TBD -> const response = await apiClient.***();
+       this.setState({
         data: [
           {
             "_id": 23,
@@ -102,41 +102,30 @@ export class PrintCards extends Component {
             "municipalities_ids": ""
           }
         ],
-        loading: false
+        status: false
       })
 
-  }
-
-  printType = () => {
-    switch (this.props.type) {
-      case 'route':
-        return <RouteCardContent />
-      case 'municipality':
-        return <MunicipalityCardContent />
-      case 'mountainPass':
-        return <MountainPassCardContent />
-      default:
-        return <RouteCardContent />
+    } catch (error) {
+       console.log(error)
     }
-
   }
 
   render() {
-    const { data, loading } = this.state;
+    const { data, status } = this.state;
+
     return(
       <>
-        {loading && <p>Loading data</p>}
-        {!loading && data.map((dataPoint, index) => {
+        {status && <p>Loading data</p>}
+        {!status && data.map((dataPoint, index) => {
           return(
             <Card key={index}> 
-              {this.printType()}
+              <RouteCardContent data={dataPoint} />
             </Card>
           )
         })}
       </>
     )
   }
-
 }
 
-export default PrintCards;
+export default PrintRouteCard;
