@@ -60,7 +60,7 @@ const SearchBar = () => {
         </div>
         <button
           onClick={onSearchSubmit}
-          className="inline-block bg-indigo-500 mt-2 px-1 py-3 rounded-xl uppercase text-white font-semibold m-0 761md:w-1/6"
+          className="inline-block bg-indigo-500 mt-2 px-1 py-3 761md:py-6 rounded-xl uppercase text-white font-semibold m-0 761md:w-1/6"
         > 
         Buscar
         </button>
