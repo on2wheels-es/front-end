@@ -134,7 +134,7 @@ export default class Home extends Component {
           { status === 'loaded' && (
             <>
               <Container title={"Los mejores municipios para hacer un stage"}>
-                 <PrintMunicipalityCard  data={dataMunicipalities} status={status}/>
+                 <PrintMunicipalityCard data={dataMunicipalities}/>
               </Container>
               <Container title={"Los puertos de montaña que no te puedes perder"}>
                   <PrintMountainPassCard data={dataMountainPasses} />

@@ -9,9 +9,9 @@ export class RouteCardContent extends Component {
         <div className="md:flex-shrink-0">
           <img className="w-full object-cover" src="https://images.unsplash.com/photo-1561390368-a315cfe6833b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" styles={{"height": "320px", "width": "420px"}} alt="default image" />
         </div>
-        <div className="flex justify-between items-end py-4 px-6">
+        <div className="flex justify-between items-end py-2 px-6">
           <div>
-            <p className="text-lg font-bold">{name}</p>
+            <p className="text-md font-bold">{name}</p>
             <span className="flex items-center text-sm" aria-label="Provincia del paso de montaña" role="img">
               <span className="flex items-center mt-1">
                 <svg width="18" height="18" viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">

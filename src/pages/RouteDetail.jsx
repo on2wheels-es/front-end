@@ -37,25 +37,24 @@ export class RouteDetail extends Component {
         const { data, status, dataMunicipalities } = this.state;
 
         return (
-            <>
+          <>
             <Header />
             <main>
                 {status === 'loading' && <p>Loading data</p>}
                 {status === 'loaded' && (
-                    <>
-                        <h1 className="mb-5">{data.name}</h1>
-                        <Map data={[data]}/>
-                        <Container title={"Municipios por donde pasa esta ruta"}>
-                            <PrintMunicipalityCard data={dataMunicipalities} />
-                        </Container>
-                        <Container title={"Puertos de montaña que conquistaras"}>
-                            <PrintMountainPassCard  data={data.mountain_passes_ids} />
-                        </Container>
-                    </>
+                      <>
+                          <h1 className="mb-5">{data.name}</h1>
+                          <Map data={[data]}/>
+                          <Container title={"Municipios por donde pasa esta ruta"}>
+                              <PrintMunicipalityCard data={dataMunicipalities} />
+                          </Container>
+                          <Container title={"Puertos de montaña que conquistaras"}>
+                              <PrintMountainPassCard  data={data.mountain_passes_ids} />
+                          </Container>
+                      </>
                 )}
-                
-            </main>
-            </>
+              </main>
+          </>
         )
     }
 }

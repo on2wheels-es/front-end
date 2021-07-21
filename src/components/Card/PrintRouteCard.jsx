@@ -12,8 +12,8 @@ export class PrintRouteCard extends Component {
       <>
         {data.map((dataPoint) => {
           return(
-            <Link to={`/routes/${dataPoint._id}`}  key={dataPoint._id}>
-              <Card key={dataPoint._id}> 
+            <Link to={`/routes/${dataPoint._id}`} key={dataPoint._id}>
+              <Card> 
                 <RouteCardContent data={dataPoint} />
               </Card>
             </Link>

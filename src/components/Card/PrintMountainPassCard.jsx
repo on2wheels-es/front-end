@@ -14,7 +14,7 @@ export class PrintMountainPassCard extends Component {
         {data.map((dataPoint) => {
           return(
             <Link to={`/mountainPasses/${dataPoint._id}`}  key={dataPoint._id}>
-              <Card key={dataPoint._id}> 
+              <Card> 
                 <MountainPassCardContent data={dataPoint} />
               </Card>
             </Link>
