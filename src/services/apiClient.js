@@ -59,12 +59,6 @@ class ApiClient {
                     .then(({data}) => data)
     }
 
-    getMunicipalitiesFromSearch(apiIds) {
-        return this.apiClient
-                   .post('/municipalities/results', {apiIds})
-                   .then(({ data }) => data); 
-    }
-
     getMunicipality(id) {
         return this.apiClient
                     .get(`/municipalities/${id}`)
