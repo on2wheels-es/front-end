@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from "react-router-dom";
 import Map from "../components/Map"
 import Header from '../components/Header';
 
@@ -9,7 +10,8 @@ import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 
 export default function SearchResults(props) {
   // Calculate the middle date;
-  console.log(props)
+  const { search } = useLocation();
+  console.log(search)
   const [ municipalities, setMunicipalities ] = useState([]);
   
   useEffect(() => {
@@ -25,7 +27,6 @@ export default function SearchResults(props) {
     return () => mounted = false;
   }, [])
   
-
   return (
     <>
       <Header />
