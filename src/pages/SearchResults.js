@@ -30,7 +30,7 @@ export default function SearchResults(props) {
     <>
       <Header />
       <main>
-        <h1>Search Results</h1>
+        <h1 className="mb-5">Search Results</h1>
         <Map data={municipalities}></Map>
         < Container>
           <PrintMunicipalityCard data={municipalities} />

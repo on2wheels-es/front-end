@@ -1,29 +1,22 @@
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
-import { useSearchBar  } from "../providers/SearchProvider";
+import { useSearchBar } from "../providers/SearchProvider";
 
-import React, { useState } from "react";
+import React from "react";
 import { DateRangePicker } from "react-dates";
 import '../react_dates_overrides.css'
 
 const SearchBar = () => {
-  const { searchValues, onDatesChange, onFocusChange, onSearchHandler } = useSearchBar();
+  const { searchValues, onDatesChange, onFocusChange, onClickSearchHandler, onLocationChange } = useSearchBar();
   const { CCAA, startDate, endDate, focusedInput } = searchValues;
-  const [valuesToApi, setValuesToApi] = useState({
-    CCAA: CCAA
-  });
 
   const width = window.innerWidth;
   const breakpoint = 761;
 
   const onSearchSubmit = (e) => { 
     e.preventDefault();
-    onSearchHandler(valuesToApi);
+    onClickSearchHandler();
   };
-
-  const handleInput = e => {
-    setValuesToApi({...valuesToApi, [e.target.name]: e.target.value});
-  };  
 
   return (
     <div className="searchBar-container">
@@ -35,8 +28,8 @@ const SearchBar = () => {
             type="text"
             name="CCAA"
             className="py-1 rounded-xl mb-3 761md:border-b-2 761md:rounded-none 761md:w-72"
-            value={valuesToApi.CCAA}
-            onChange={handleInput}
+            value={CCAA}
+            onChange={e => onLocationChange(e.target.value)}
           />
         </div>
         <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>

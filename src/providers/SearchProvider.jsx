@@ -24,6 +24,13 @@ const SearchProvider = (props) => {
 
     const history = useHistory();
 
+    const onLocationChange = (CCAA) => {
+      setSearchValues({
+      ...searchValues,
+      CCAA
+    })
+  };
+
     const onDatesChange = ({ startDate, endDate }) => {
       setSearchValues({
         ...searchValues,
@@ -39,14 +46,8 @@ const SearchProvider = (props) => {
       }));
     }
   
-    const onSearchHandler = ({ CCAA }) => {
-      setSearchValues({
-        ...searchValues,
-        CCAA
-      });
-
-      const { startDate, endDate } = searchValues;
-
+    const onClickSearchHandler = () => {
+      const { startDate, endDate, CCAA } = searchValues;
       history.push({
         pathname: '/search',
         search: `?arrive=${moment(startDate).format("DD-MM-YYYY")}&departure=${moment(endDate).format("DD-MM-YYYY")}&location=${CCAA}`,
@@ -55,7 +56,7 @@ const SearchProvider = (props) => {
  
     return (
       <SearchContext.Provider
-        value={{ searchValues, onDatesChange, onFocusChange, onSearchHandler, ...props }}
+        value={{ searchValues, onLocationChange, onDatesChange, onFocusChange, onClickSearchHandler, ...props }}
       >
         {props.children}
       </SearchContext.Provider>
