@@ -34,12 +34,12 @@ export default function Mapp(props) {
     }
 
     return (
-        <div>
+        <div className="mb-6">
             <ReactMapGL
                 {...viewport}
                 mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
                 mapStyle="mapbox://styles/laialloret/ckra9l67v5nix19p36ntg3a0p"
-                width="60vw"
+                width="100%"
                 height="50vh"
                 onViewportChange={(viewport) => setViewport(viewport)}
             >

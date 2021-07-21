@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Container from '../components/Container';
+import Header from '../components/Header';
 import Map from '../components/Map';
 import apiClient from '../services/apiClient';
 
@@ -36,11 +37,13 @@ export class RouteDetail extends Component {
         const { data, status, dataMunicipalities } = this.state;
 
         return (
-            <div>
+            <>
+            <Header />
+            <main>
                 {status === 'loading' && <p>Loading data</p>}
                 {status === 'loaded' && (
                     <>
-                        <p>{data.name}</p>
+                        <h1 className="mb-5">{data.name}</h1>
                         <Map data={[data]}/>
                         <Container title={"Municipios por donde pasa esta ruta"}>
                             <PrintMunicipalityCard data={dataMunicipalities} />
@@ -51,7 +54,8 @@ export class RouteDetail extends Component {
                     </>
                 )}
                 
-            </div>
+            </main>
+            </>
         )
     }
 }

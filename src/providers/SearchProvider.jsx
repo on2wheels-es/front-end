@@ -51,7 +51,6 @@ const SearchProvider = (props) => {
 
       apiClient.getMunicipalitiesFromSearch([884, 7257, 4547, 4613])
                .then((response) => {
-                 console.log(response)
                  setSearchValues({
                   ...searchValues,
                   status: "loaded",

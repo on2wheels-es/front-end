@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 export class RouteCardContent extends Component {
   render() {
     const { name, province, distance, mountain_passes_ids:mountainPassesIds } = this.props.data;
-    console.log(mountainPassesIds)
     return (
       <div className="inline-block">
       <div className="flex flex-col w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl">

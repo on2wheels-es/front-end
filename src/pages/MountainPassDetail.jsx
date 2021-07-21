@@ -28,7 +28,6 @@ export class MountainPassDetail extends Component {
 
     render() {
         const { data, status } = this.state;
-        console.log(data)
 
         return (
             <div>

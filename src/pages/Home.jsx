@@ -122,8 +122,6 @@ export default class Home extends Component {
     }
   }
 
-
-
   render() {
     const { status, dataMunicipalities, dataMountainPasses, dataRoutes  } = this.state;
 
