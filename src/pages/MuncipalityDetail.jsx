@@ -15,30 +15,39 @@ export class MunicipalityDetail extends Component {
             status: 'loading',
             data: undefined,
             dataRoutes: undefined,
-            dataMountainPasses: undefined,
+            dataMountainPasses: [],
         }
     }
-    
-    getMountainPassesId = ({dataRoutes}) => {
-      return  dataRoutes.map(route => route.mountain_passes_ids )
+
+    getUniqueMountainPasses = (response) => {
+      const uniqueMountainPasses = []
+      response.routes_ids.map(route => {
+          return route.mountain_passes_ids.map(mountainPass => {
+                                          return this.checkIfExists(uniqueMountainPasses, mountainPass)
+                                      })
+      })
+      return uniqueMountainPasses;
     }
+
+    checkIfExists = (array, data) => {
+      const existingIds = array.map((obj) => obj._id);
+
+      if (! existingIds.includes(data._id)) {
+          array.push(data);
+      }
+    };
 
     async componentDidMount() {
         try {
             const { id } = this.props.match.params;
 
             const response = await apiClient.getMunicipality(id);
-            await this.setState({
-                data: response,
-                dataRoutes: response.routes_ids
-            })
-
-            const mountainPassesIds = await this.getMountainPassesId(this.state);
-            console.log(mountainPassesIds)
-
+            
             this.setState({
-              status: 'loaded',
-              dataMountainPasses: mountainPassesIds
+                status: 'loaded',
+                data: response,
+                dataRoutes: response.routes_ids,
+                dataMountainPasses: this.getUniqueMountainPasses(response)
             })
 
         } catch(error) {
