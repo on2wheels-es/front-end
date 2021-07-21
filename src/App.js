@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import MountainPassDetail from './pages/MountainPassDetail';
 import { withAuth } from './providers/AuthProvider';
-import SearchResults from './components/SearchResults';
+import SearchResults from './pages/SearchResults';
 import MunicipalityDetail from './pages/MuncipalityDetail';
 import RouteDetail from './pages/RouteDetail';
 
@@ -19,7 +19,7 @@ class App extends Component {
 			<>
 				<Switch>
 					<Route exact path="/" component={Home} />
-					<Route exact path="/results" component={SearchResults} />
+					<Route exact path="/search" component={SearchResults} />
 					<Route exact path="/mountainPasses/:id" component={MountainPassDetail} />
 					<Route exact path="/municipalities/:id" component={MunicipalityDetail} />
 					<Route exact path="/routes/:id" component={RouteDetail} />

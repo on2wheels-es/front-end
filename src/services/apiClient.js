@@ -8,6 +8,13 @@ class ApiClient {
     }
 
     // ROUTES
+    getSearchResults() {
+        return this.apiClient
+                  .get('/search')
+                  .then(({data}) => data)
+    }
+
+    // ROUTES
     getAllRoutes() {
         return this.apiClient
                     .get('/routes')

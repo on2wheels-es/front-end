@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import apiClient from "../services/apiClient";
 
 import moment from 'moment'
 import 'moment/locale/es'
@@ -15,7 +14,6 @@ export const useSearchBar = () => {
 
 const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({
-      middleDate: '',
       CCAA: '',
       startDate: null,
       endDate: null,
@@ -42,35 +40,19 @@ const SearchProvider = (props) => {
     }
   
     const onSearchHandler = ({ CCAA }) => {
-      const middleDate = calculateMiddleDate();
       setSearchValues({
         ...searchValues,
-        middleDate,
         CCAA
       });
 
-      apiClient.getMunicipalitiesFromSearch([884, 7257, 4547, 4613])
-               .then((response) => {
-                 setSearchValues({
-                  ...searchValues,
-                  status: "loaded",
-                  municipalities: response
-              });
-            })
-            .then(() => {
-              history.push("/results");
-            }) 
-    };
-
-    const calculateMiddleDate = () => {
       const { startDate, endDate } = searchValues;
-      const date1 = new Date(startDate._d);
-      const date2 = new Date(endDate._d);
-      const middleDate = new Date(date2 - (date2-date1)/2);
 
-      return moment(middleDate).format('L');
-    }
-  
+      history.push({
+        pathname: '/search',
+        search: `?arrive=${moment(startDate).format("DD-MM-YYYY")}&departure=${moment(endDate).format("DD-MM-YYYY")}&location=${CCAA}`,
+      });
+    };
+ 
     return (
       <SearchContext.Provider
         value={{ searchValues, onDatesChange, onFocusChange, onSearchHandler, ...props }}
