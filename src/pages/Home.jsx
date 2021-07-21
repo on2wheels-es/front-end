@@ -7,7 +7,6 @@ import SearchBar from '../components/SearchBar'
 import Container from '../components/Container'
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard'
-import PrintRouteCard from '../components/Card/PrintRouteCard'
 
 export default class Home extends Component {
 
@@ -17,92 +16,6 @@ export default class Home extends Component {
       status: 'loading',
       dataMunicipalities: [],
       dataMountainPasses: [],
-      dataRoutes: [
-        {
-          "_id": 23,
-          "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
-          "ccaa": "Cantabria",
-          "province": "Noja",
-          "trailrank": 49,
-          "distance": 88,
-          "gradient": 1531,
-          "min_alt": 0,
-          "max_alt": 688,
-          "municipality": "",
-          "mountain_passes_ids": [859, 1034],
-          "municipalities_ids": ""
-        },
-        {
-          "_id": 24,
-          "name": "Collsacreu",
-          "ccaa": "Catalunya",
-          "province": "Barcelona",
-          "trailrank": 50,
-          "distance": 100,
-          "gradient": 1451,
-          "min_alt": 90,
-          "max_alt": 68,
-          "municipality": "",
-          "mountain_passes_ids": [859, 1034],
-          "municipalities_ids": ""
-        },
-        {
-          "_id": 23,
-          "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
-          "ccaa": "Cantabria",
-          "province": "Noja",
-          "trailrank": 49,
-          "distance": 88,
-          "gradient": 1531,
-          "min_alt": 0,
-          "max_alt": 688,
-          "municipality": "",
-          "mountain_passes_ids": [859, 1034],
-          "municipalities_ids": ""
-        },
-        {
-          "_id": 23,
-          "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
-          "ccaa": "Cantabria",
-          "province": "Noja",
-          "trailrank": 49,
-          "distance": 88,
-          "gradient": 1531,
-          "min_alt": 0,
-          "max_alt": 688,
-          "municipality": "",
-          "mountain_passes_ids": [859, 1034],
-          "municipalities_ids": ""
-        },
-        {
-          "_id": 23,
-          "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
-          "ccaa": "Cantabria",
-          "province": "Noja",
-          "trailrank": 49,
-          "distance": 88,
-          "gradient": 1531,
-          "min_alt": 0,
-          "max_alt": 688,
-          "municipality": "",
-          "mountain_passes_ids": [859, 1034],
-          "municipalities_ids": ""
-        },
-        {
-          "_id": 23,
-          "name": "20-AGO-13. Noja-Alisas-Cruz de Usaño-Fuente las varas- Noja",
-          "ccaa": "Cantabria",
-          "province": "Noja",
-          "trailrank": 49,
-          "distance": 88,
-          "gradient": 1531,
-          "min_alt": 0,
-          "max_alt": 688,
-          "municipality": "",
-          "mountain_passes_ids": [859, 1034],
-          "municipalities_ids": ""
-        }
-      ]
     }
   }
 
@@ -123,7 +36,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const { status, dataMunicipalities, dataMountainPasses, dataRoutes  } = this.state;
+    const { status, dataMunicipalities, dataMountainPasses  } = this.state;
 
     return (
       <>
@@ -138,9 +51,6 @@ export default class Home extends Component {
               </Container>
               <Container title={"Los puertos de montaña que no te puedes perder"}>
                   <PrintMountainPassCard data={dataMountainPasses} />
-              </Container>
-              <Container title={"Rutas"}>
-                <PrintRouteCard  data={dataRoutes}/>
               </Container>
             </>
           )}
