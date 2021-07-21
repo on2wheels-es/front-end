@@ -10,7 +10,7 @@ export default function Mapp(props) {
     const [viewport, setViewport] = useState({
       latitude: 40.416775,
       longitude: -3.703790,
-      zoom: 4,
+      zoom: 4.7,
     });
 
     const [selectedData, setSelectedData] = useState(null);
@@ -39,8 +39,8 @@ export default function Mapp(props) {
                 {...viewport}
                 mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
                 mapStyle="mapbox://styles/laialloret/ckra9l67v5nix19p36ntg3a0p"
-                width="100vw"
-                height="100vh"
+                width="60vw"
+                height="50vh"
                 onViewportChange={(viewport) => setViewport(viewport)}
             >
                 {data.map(data => (

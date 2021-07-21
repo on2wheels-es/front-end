@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
+import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Container from '../components/Container';
 import Map from '../components/Map';
 import apiClient from '../services/apiClient';
@@ -20,7 +21,7 @@ export class RouteDetail extends Component {
             const { id } = this.props.match.params;
 
             const response = await apiClient.getRoute(id);
-            console.log('response route', response)
+
             this.setState({
                 status: 'loaded',
                 data: { coords: response.route.start, ...response.route},
@@ -33,6 +34,7 @@ export class RouteDetail extends Component {
 
     render() {
         const { data, status, dataMunicipalities } = this.state;
+
         return (
             <div>
                 {status === 'loading' && <p>Loading data</p>}
@@ -40,11 +42,13 @@ export class RouteDetail extends Component {
                     <>
                         <p>{data.name}</p>
                         <Map data={[data]}/>
-                        <Container>
+                        <Container title={"Municipios por donde pasa esta ruta"}>
                             <PrintMunicipalityCard data={dataMunicipalities} />
                         </Container>
+                        <Container title={"Puertos de montaña que conquistaras"}>
+                            <PrintMountainPassCard  data={data.mountain_passes_ids} />
+                        </Container>
                     </>
-                    
                 )}
                 
             </div>
