@@ -23,7 +23,7 @@ const SearchBar = () => {
   return (
     <div className="searchBar-container">
       <div className="flex flex-col space-y-2 761md:flex-row 761md:justify-between 761md:items-center 761md:space-y-0 ">
-        <div className="flex flex-col pl-2 pt-2 border-2 rounded-lg 761md:border-none">
+        <div className="flex flex-col px-2 pt-2 border-2 rounded-lg 761md:border-none">
           <label className="text-xs w-2/6 pb-1 text-left text-gray-400 761md:w-2/5">¿A dónde quieres ir?</label>
             <CustomDropdownMenu data={ccaaOptions} defaultSelectedLocation={CCAA} handleSelectedLocation={(selectedLocation) => onLocationChange(selectedLocation) }/>
         </div>
