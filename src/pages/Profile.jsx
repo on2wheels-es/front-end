@@ -8,7 +8,7 @@ class Profile extends Component {
 
 		return (
 			<div>
-				<h1>Welcome {user.firstName}</h1>
+				<h1>Welcome {user.email}</h1>
 			</div>
 		);
 	}

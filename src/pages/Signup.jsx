@@ -6,17 +6,15 @@ class Signup extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: ""
-  };
+		email: "",
+		password: ""
+	};
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { firstName, lastName, email, password } = this.state;
-    this.props.signup({ firstName, lastName, email, password });
+    const { email, password } = this.state;
+    this.props.signup({ email, password });
   };
 
   handleChange = event => {
@@ -25,7 +23,7 @@ class Signup extends Component {
   };
 
   render() {
-    const { firstName, lastName, email, password } = this.state;
+    const { email, password } = this.state;
     return (
 			<div className="form-container">
 				<div className="text-center">
@@ -34,10 +32,6 @@ class Signup extends Component {
 				</div>
 				<form className="form" onSubmit={this.handleFormSubmit}>
 					<div className="rounded-md shadow-sm flex-col space-y-2">
-						<label className="block text-lg font-medium text-gray-700">Name</label>
-						<input type="text" name="firstName" value={firstName} onChange={this.handleChange} className="form-input" />
-						<label className="block text-lg font-medium text-gray-700">Last Name</label>
-						<input type="text" name="lastName" value={lastName} onChange={this.handleChange} className="form-input" />
 						<label className="block text-lg font-medium text-gray-700">Email:</label>
 						<input type="email" name="email" value={email} onChange={this.handleChange} className="form-input" />
 						<label className="block text-lg font-medium text-gray-700">Password</label>

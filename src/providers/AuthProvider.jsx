@@ -79,7 +79,7 @@ class AuthProvider extends Component {
         status: 'loading',
         user: null,
       })
-      const user = await apiClient.signup({ firstName, lastName, email, password })
+      const user = await apiClient.signup({ email, password })
       this.setState({
         status: 'loggedIn',
         user,
