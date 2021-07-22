@@ -64,8 +64,7 @@ export default function Mapp(props) {
                         onClose = {() => {setSelectedData(null)}}
                         >
                         <div>
-                            <h2>Name</h2>
-                            <p>Nº Routes</p>
+                            {props.children}
                         </div>
                     </Popup>
                 )}

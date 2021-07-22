@@ -5,6 +5,7 @@ import Container from '../components/Container';
 import Header from '../components/Header';
 import Map from '../components/Map';
 import apiClient from '../services/apiClient';
+import gif from '../images/bike-loading.gif';
 
 export class RouteDetail extends Component {
 
@@ -40,12 +41,16 @@ export class RouteDetail extends Component {
           <>
             <Header />
             <main>
-                {status === 'loading' && <p>Loading data</p>}
+                {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (
                       <>
                           <h1 className="mb-5">{data.name}</h1>
-                          <Map data={[data]}/>
-                          <Container title={"Municipios por donde pasa esta ruta"}>
+                          <Map data={[data]}>
+                              <h1>{data.name}</h1>
+                              <p>{data.distance} km</p>
+                              <p>{data.gradient} m</p>
+                          </Map>
+                          <Container title={"Municipios por donde pasaras"}>
                               <PrintMunicipalityCard data={dataMunicipalities} />
                           </Container>
                           <Container title={"Puertos de montaña que conquistaras"}>

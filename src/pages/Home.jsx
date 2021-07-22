@@ -7,6 +7,7 @@ import SearchBar from '../components/SearchBar'
 import Container from '../components/Container'
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard'
+import gif from '../images/bike-loading.gif';
 
 export default class Home extends Component {
 
@@ -43,7 +44,7 @@ export default class Home extends Component {
         <Header />
         <main className="flex flex-col space-y-4">
           <SearchBar />
-          { status === 'loading' && <p>data loading</p>}
+          { status === 'loading' && <img src={gif} alt="gif" /> }
           { status === 'loaded' && (
             <>
               <Container title={"Los mejores municipios para hacer un stage"}>
