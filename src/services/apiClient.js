@@ -7,10 +7,10 @@ class ApiClient {
         })
     }
 
-    // ROUTES
-    getSearchResults() {
+    // RESULTS
+    getSearchResults(query) {
         return this.apiClient
-                  .get('/search')
+                  .get(`/search${query}`)
                   .then(({data}) => data)
     }
 

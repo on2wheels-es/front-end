@@ -29,7 +29,7 @@ export default function SearchResults(props) {
   
   useEffect(() => {
     let mounted = true;
-    apiClient.getSearchResults(`/search${props.location.search}`)
+    apiClient.getSearchResults(props.location.search)
       .then(response => {
         if(mounted) {
           setMunicipalities(response)
