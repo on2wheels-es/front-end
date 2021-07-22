@@ -10,7 +10,9 @@ class Header extends Component {
 			<header className="py-2 mb-8 border-b">
 				<div className=" flex justify-between">
            <div className="site-title">
-              <p className="text-indigo-500">On<strong>2Wheels</strong></p>
+              <Link to="/">
+			  	<p className="text-indigo-500">On<strong>2Wheels</strong></p>
+			  </Link>
            </div>
 					<nav>
 						<ul className="flex justify-center p-0">
