@@ -20,18 +20,26 @@ const CustomDropdownMenu = ({data, handleSelectedLocation, defaultSelectedLocati
     ); 
   };
 
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      border: 0,
+      padding:0,
+      // Removes weird border around container
+      boxShadow: state.isFocused ? null : null,
+
+    })
+  };
+
   return (
-    <div className="py-1 rounded-xl mb-3 761md:border-b-2 761md:rounded-none 761md:w-72">
+    <div className="py-1 mb-3 border-b-2 rounded-none 761md:w-72 ">
       <Select
         value={selectedValue}
         onChange={handleChange}
         options={data}
         components={{ Option }}
         placeholder="Elige tu destino"
-        theme={theme => ({
-          ...theme,
-          border: 0,
-        })}
+        styles={customStyles}
       />
     </div>
   );
