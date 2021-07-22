@@ -14,7 +14,7 @@ export const useSearchBar = () => {
 
 const SearchProvider = (props) => {
     const [searchValues, setSearchValues] = useState({
-      CCAA: '',
+      CCAA: 'España',
       startDate: null,
       endDate: null,
       focusedInput: null,
