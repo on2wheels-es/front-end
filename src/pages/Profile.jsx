@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../components/Header'
 
 import { withAuth } from '../providers/AuthProvider';
 
@@ -7,9 +8,12 @@ class Profile extends Component {
 	  const { user } = this.props;
 
 		return (
-			<div>
-				<h1>Welcome {user.email}</h1>
-			</div>
+			<>
+				<Header />
+				<div>
+					<h1>Welcome {user.email}</h1>
+				</div>
+			</>
 		);
 	}
 }
