@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import queryString from 'query-string';
-
 import { useLocation } from "react-router-dom";
 
+import queryString from 'query-string';
 import apiClient from '../services/apiClient';
 
 import Map from "../components/Map"
