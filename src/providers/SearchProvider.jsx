@@ -50,7 +50,7 @@ const SearchProvider = (props) => {
       const { startDate, endDate, CCAA: { value } } = searchValues;
       history.push({
         pathname: '/search',
-        search: `?arrival=${moment(startDate).format("DD-MM-YYYY")}&departure=${moment(endDate).format("DD-MM-YYYY")}&location=${value}`,
+        search: `?arrival=${moment(startDate).format("YYYY-MM-DD")}&departure=${moment(endDate).format("YYYY-MM-DD")}&location=${value}`,
       });
     };
  
