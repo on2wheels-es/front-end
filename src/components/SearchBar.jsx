@@ -25,7 +25,12 @@ const SearchBar = () => {
       <div className="flex flex-col space-y-2 761md:flex-row 761md:justify-between 761md:items-center 761md:space-y-0 ">
         <div className="flex flex-col px-2 pt-2 border-2 rounded-lg 761md:border-none">
           <label className="text-xs w-2/6 pb-1 text-left text-gray-400 761md:w-2/5">¿A dónde quieres ir?</label>
-            <CustomDropdownMenu data={ccaaOptions} defaultSelectedLocation={CCAA[0]} handleSelectedLocation={(selectedLocation) => onLocationChange(selectedLocation) }/>
+            <CustomDropdownMenu 
+              data={ccaaOptions}  
+              handleSelectedValue={(selectedLocation) => onLocationChange(selectedLocation)} 
+              defaultSelectedValue={CCAA}
+              placeholder={'Elige tu destino'}
+            />
         </div>
         <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
         <div className="flex flex-col pl-2 pt-2 border-2 rounded-lg 761md:border-none">
