@@ -1,11 +1,8 @@
 import React, { Component } from "react";
+import CustomDropdownMenu from "./CustomDropdownMenu";
 import { withAuth } from "../providers/AuthProvider";
 import { genderOptions } from "../data/data"
-
-import CustomDropdownMenu from "./CustomDropdownMenu";
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-import '../react_dates_overrides.css'
+import { giveFormatToBirthday } from "../helpers"
 
 class UserDetailsPopUp extends Component  {
     constructor(props) {
@@ -29,13 +26,12 @@ class UserDetailsPopUp extends Component  {
     handleFormSubmit = (e) => {
       e.preventDefault()
       const { dayOfBirthday, monthOfBirthday, yearOfBirthday, firstName, lastName, gender } = this.state;
-      const birthday = `${dayOfBirthday}-${monthOfBirthday}-${yearOfBirthday}`;
+      const birthday = giveFormatToBirthday(dayOfBirthday, monthOfBirthday, yearOfBirthday);
       this.props.createUserProfile({ firstName, lastName, gender, birthday });
     }
 
     render() {
         const { firstName, lastName, dayOfBirthday, monthOfBirthday, yearOfBirthday } = this.state;
-        console.log(this.props)
         return (
             <div>
                 <form onSubmit={this.handleFormSubmit}>
