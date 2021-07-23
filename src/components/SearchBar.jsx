@@ -5,7 +5,7 @@ import '../react_dates_overrides.css'
 import CustomDropdownMenu from "./CustomDropdownMenu";
 import { useSearchBar } from "../providers/SearchProvider";
 import { DateRangePicker } from "react-dates";
-import { ccaaOptions } from "../data"
+import { ccaaOptions } from "../data/data"
 
 
 const SearchBar = () => {

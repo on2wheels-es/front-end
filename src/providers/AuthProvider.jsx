@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import apiClient from "../lib/apiClient";
+import apiClient from "../services/authApiClient";
 
 const { Consumer, Provider } = React.createContext();
 
