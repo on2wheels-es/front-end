@@ -37,12 +37,12 @@ export default class Home extends Component {
   }
 
   render() {
-    const { status, dataMunicipalities, dataMountainPasses  } = this.state;
+    const { status, dataMunicipalities, dataMountainPasses } = this.state;
 
     return (
       <>
         <Header />
-        <main className="flex flex-col space-y-4">
+        <main className="flex flex-col space-y-4 brand-primary-medium">
           <SearchBar />
           { status === 'loading' && <img src={gif} alt="gif" /> }
           { status === 'loaded' && (
