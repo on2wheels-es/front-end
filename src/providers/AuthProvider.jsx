@@ -17,6 +17,7 @@ export const withAuth = (Comp) => {
               logout={authProvider.logout}
               login={authProvider.login} 
               signup={authProvider.signup} 
+              createUserProfile={authProvider.createUserProfile}
               {...this.props}
             />
           )}
@@ -73,13 +74,33 @@ class AuthProvider extends Component {
     }
   }
 
-  signup = async ({ firstName, lastName, email, password  }) => {
+  signup = async ({ email, password  }) => {
     try {
       this.setState({
         status: 'loading',
         user: null,
       })
       const user = await apiClient.signup({ email, password })
+      this.setState({
+        status: 'loggedIn',
+        user,
+      })
+
+    } catch (e) {
+      this.setState({
+        status: 'loggedOut',
+        user: null,
+      })  
+    }
+  }
+
+  createUserProfile = async ({ firstName, lastName, birthday, gender }) => {
+    try {
+      this.setState({
+        status: 'loading',
+        user: null,
+      })
+      const user = await apiClient.createUserProfile({ firstName, lastName, birthday, gender })
       this.setState({
         status: 'loggedIn',
         user,
@@ -116,6 +137,7 @@ class AuthProvider extends Component {
           user,
           login: this.login, 
           signup: this.signup,
+          createUserProfile: this.createUserProfile,
           logout: this.logout }}>
         {this.props.children}
       </Provider>

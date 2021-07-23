@@ -6,18 +6,17 @@ import CustomDropdownMenu from "./CustomDropdownMenu";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import '../react_dates_overrides.css'
-import moment from 'moment'
 
 class UserDetailsPopUp extends Component  {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            surname: '',
-            dayOfBirthday: '',
-            monthOfBirthday: '',
-            yearOfBirthday:'',
-            gender: ''
+          firstName: '',
+          lastName: '',
+          dayOfBirthday: '',
+          monthOfBirthday: '',
+          yearOfBirthday:'',
+          gender: '',
         }
     }
 
@@ -29,22 +28,22 @@ class UserDetailsPopUp extends Component  {
 
     handleFormSubmit = (e) => {
       e.preventDefault()
-      const { dayOfBirthday, monthOfBirthday, yearOfBirthday } = this.state;
-      const birthdayDate = `${dayOfBirthday}-${monthOfBirthday}-${yearOfBirthday}`;  
-      console.log('user details', this.state)
-      console.log('birthday date', birthdayDate)
+      const { dayOfBirthday, monthOfBirthday, yearOfBirthday, firstName, lastName, gender } = this.state;
+      const birthday = `${dayOfBirthday}-${monthOfBirthday}-${yearOfBirthday}`;
+      this.props.createUserProfile({ firstName, lastName, gender, birthday });
     }
 
     render() {
-        const { name, surname, dayOfBirthday, monthOfBirthday, yearOfBirthday } = this.state;
+        const { firstName, lastName, dayOfBirthday, monthOfBirthday, yearOfBirthday } = this.state;
+        console.log(this.props)
         return (
             <div>
                 <form onSubmit={this.handleFormSubmit}>
                     <label className="block text-lg font-medium text-gray-700">Nombre</label>
-                    <input type="text" name="name" value={name} onChange={this.handleChange} className="form-input" />
+                    <input type="text" name="firstName" value={firstName} onChange={this.handleChange} className="form-input" />
 
                     <label className="block text-lg font-medium text-gray-700">Apellidos</label>
-                    <input type="text" name="surname" value={surname} onChange={this.handleChange} className="form-input" />
+                    <input type="text" name="lastName" value={lastName} onChange={this.handleChange} className="form-input" />
 
                     <div>
                       <p>Fecha de nacimiento</p>

@@ -17,6 +17,11 @@ class ApiClient {
 		return this.apiClient.post('/signup', { email, password }).then(({ data }) => data);
 	}
 
+	createUserProfile(user) {
+		const { firstName, lastName, birthday, gender } = user;
+		return this.apiClient.patch('/add-profile-details', { firstName, lastName, birthday, gender }).then(({ data }) => data);
+	}
+
 	login(user) {
 		const { email, password } = user;
 		return this.apiClient.post('/login', { email, password }).then(({ data }) => data);
