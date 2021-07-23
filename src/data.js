@@ -18,7 +18,7 @@ export const ccaaOptions = [
 ];
 
 export const genderOptions = [
-    { value: "España", label: "A cualquier lugar de España" },
-    { value: "Andalucia", label: "Andalucía" },  
-    { value: "Aragon", label: "Aragón" }
+    { value: "Hombre", label: "Hombre" },
+    { value: "Mujer", label: "Mujer" },  
+    { value: "Otro", label: "Otro" }
 ]

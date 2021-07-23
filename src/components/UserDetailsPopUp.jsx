@@ -15,10 +15,15 @@ class UserDetailsPopUp extends Component  {
         }
     }
 
-
+    handleChange = (e) =>{
+      this.setState({
+        [e.target.name]: e.target.value,
+      })
+    }
 
     render() {
         const { name, surname, birthday, gender } = this.state;
+        console.log('profile details', this.state)
         return (
             <div>
                 <form className="form" onSubmit={this.handleFormSubmit}>
@@ -31,8 +36,11 @@ class UserDetailsPopUp extends Component  {
                     <label className="block text-lg font-medium text-gray-700">Fecha de nacimiento</label>
                     <input type="date" name="birthday" value={birthday} onChange={this.handleChange} className="form-input" />
 
-                    <CustomDropdownMenu data={genderOptions} defaultSelectedLocation={genderOptions[0]} handleSelectedLocation={(selectedValue) => this.setState({ gender: selectedValue }) }/>
-
+                    <CustomDropdownMenu 
+                      data={genderOptions}  
+                      handleSelectedValue={(selectedValue) => this.setState({gender: selectedValue.value})} 
+                      placeholder={''}
+                    />
                 </form> 
             </div>
         )
