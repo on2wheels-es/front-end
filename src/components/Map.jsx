@@ -6,7 +6,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const REACT_APP_MAPBOX_TOKEN ='pk.eyJ1IjoibGFpYWxsb3JldCIsImEiOiJja3JhYTdhZHY0aDF6MzFvNmdxNXdhZXJnIn0.FxPZTopXMJT5Ypk3uK5dwg';
 
 const getBoundsLatLong = (data) => {
-    console.log(data)
     const coordinates=[]
     data.map(data => {
         const latLong = {'latitude': data.coords.coordinates[0][1], 'longitude':data.coords.coordinates[0][0]}
