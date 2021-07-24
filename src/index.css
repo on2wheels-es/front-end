@@ -14,39 +14,6 @@
 
 /* Base Components */
 @layer components {
-	.headline_regular {
-		@apply font-family-highlight leading-font-lineheight-base text-font-size-huge font-font-weight-regular;
-	}
-	.headline_bold {
-		@apply font-family-highlight font-lineheight-base font-size-huge font-weight-heavy;
-	}
-	.secondary_headline_regular {
-		@apply font-family-highlight font-family-highlight font-size-xxl font-weight-regular;
-	}
-	.secondary_headline_bold {
-		@apply font-family-highlight font-family-highlight font-size-xxl font-weight-heavy;
-	}
-	.tertiary_title_regular {
-		@apply font-family-highlight font-lineheight-medium font-size-l font-weight-regular;
-	}
-	.tertiary_title_bold {
-		@apply font-family-highlight font-lineheight-medium font-size-l font-weight-bold;
-	}
-	.subtitle_regular {
-		@apply font-family-base font-lineheight-medium font-size-md font-weight-regular;
-	}
-	.secondary_subtitle_regular {
-		@apply font-family-base font-lineheight-medium font-size-sm font-weight-regular;
-	}
-	.body_primary_regular {
-		@apply font-family-base font-lineheight-base font-size-xs font-weight-regular;
-	}
-	.secondary_body_regular {
-		@apply font-family-base font-lineheight-large font-size-xs font-weight-regular;
-	}
-	.caption_regular {
-		@apply font-family-base font-lineheight-long font-size-nano font-weight-regular;
-	}
 	.form-container {
 		@apply min-h-screen flex flex-col items-center justify-center sm:px-6 lg:px-8 rounded-lg;
 	}
