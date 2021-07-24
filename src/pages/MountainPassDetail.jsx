@@ -24,7 +24,7 @@ export class MountainPassDetail extends Component {
             const { id } = this.props.match.params;
 
             const response = await apiClient.getMountainPass(id);
-            console.log(response)
+
             this.setState({
                 status: 'loaded',
                 data: { coords: response.mountainPass.peak_coords, ...response.mountainPass},
@@ -88,7 +88,7 @@ export class MountainPassDetail extends Component {
                     <Container title={`Municipios cercanos`} >
                       <PrintMunicipalityCard data={dataMunicipalities} />
                     </Container>
-                    <Favourite />
+                    <Favourite type="mountainPasses" id={data._id}/>
                     </>
                     
                 )}
