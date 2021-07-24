@@ -16,3 +16,9 @@ export const ccaaOptions = [
     { value: "Navarra ", label: "Navarra " },
     { value: "Pais-Vasco", label: "País Vasco" },      
 ];
+
+export const genderOptions = [
+    { value: "Hombre", label: "Hombre" },
+    { value: "Mujer", label: "Mujer" },  
+    { value: "Otro", label: "Otro" }
+]

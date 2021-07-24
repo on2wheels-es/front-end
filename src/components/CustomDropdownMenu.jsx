@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Select, { components } from "react-select";
 
-const CustomDropdownMenu = ({data, handleSelectedLocation, defaultSelectedLocation}) => {
-  const [selectedValue, setSelectedValue ] = useState(defaultSelectedLocation);
+const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, placeholder}) => {
+  const [selectedValue, setSelectedValue ] = useState(defaultSelectedValue || '');
 
   const handleChange = (newSelectedValue) => {
     setSelectedValue(newSelectedValue)
-    handleSelectedLocation(newSelectedValue)
+    handleSelectedValue(newSelectedValue)
   }
  
   const Option = (props) => { 
@@ -38,7 +38,7 @@ const CustomDropdownMenu = ({data, handleSelectedLocation, defaultSelectedLocati
         onChange={handleChange}
         options={data}
         components={{ Option }}
-        placeholder="Elige tu destino"
+        placeholder={placeholder}
         styles={customStyles}
       />
     </div>
