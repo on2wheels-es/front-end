@@ -3,6 +3,7 @@ import PrintRouteCard from '../components/Card/PrintRouteCard';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 import Container from '../components/Container';
 import Map from '../components/Map';
+import Favourite from '../components/Favourite';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
 
@@ -87,6 +88,7 @@ export class MountainPassDetail extends Component {
                     <Container title={`Municipios cercanos`} >
                       <PrintMunicipalityCard data={dataMunicipalities} />
                     </Container>
+                    <Favourite />
                     </>
                     
                 )}
