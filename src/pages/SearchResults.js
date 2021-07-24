@@ -10,47 +10,55 @@ import Container from '../components/Container';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 
 export default function SearchResults(props) {
-  const [ municipalities, setMunicipalities ] = useState([]);
 
   const { search } = useLocation();
   const { arrival, departure } = queryString.parse(search);
 
-  /*
   const calculateMiddleDate = () => {
     const date1 = new Date (arrival)
     const date2 = new Date (departure)
     const middleDate = new Date (date2 - (date2-date1)/2);
     return middleDate;
   }
-  */
 
   // call the Weather API and pass it the middleName
   // eslint-disable-next-line no-unused-vars
   // const middleDate = calculateMiddleDate();
+
+  const [ municipalities, setMunicipalities ] = useState({
+    municipalitiesData: [],
+    status: 'loading'
+  });
   
   useEffect(() => {
-    let mounted = true;
-    apiClient.getSearchResults(props.location.search)
+    apiClient
+      .getSearchResults(props.location.search)
       .then(response => {
-        if(mounted) {
-          setMunicipalities(response)
-        }
+          setMunicipalities({
+            municipalitiesData: response,
+            status: 'loaded'
+          })
       })
       .catch(error => console.log(error))
-    // eslint-disable-next-line no-return-assign
-    return () => mounted = false;
   }, [])
   
   return (
     <>
-      <Header />
-      <main>
-        <h1 className="mb-5">Search Results</h1>
-        <Map data={municipalities}></Map>
-        < Container>
-          <PrintMunicipalityCard data={municipalities} />
-        </Container>
-      </main>
+      { municipalities.status === 'loading' 
+        ? (<p>loading data</p>) 
+        : (
+            <>
+              <Header />
+              <main>
+                <h1 className="mb-5">Search Results</h1>
+                <Map data={municipalities.municipalitiesData}></Map>
+                <Container>
+                  <PrintMunicipalityCard data={municipalities.municipalitiesData} />
+                </Container>
+              </main>
+            </>
+          )}
+
     </>
   )
 }

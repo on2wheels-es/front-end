@@ -1,16 +1,37 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import { getCenterOfBounds } from 'geolib';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 const REACT_APP_MAPBOX_TOKEN ='pk.eyJ1IjoibGFpYWxsb3JldCIsImEiOiJja3JhYTdhZHY0aDF6MzFvNmdxNXdhZXJnIn0.FxPZTopXMJT5Ypk3uK5dwg';
 
+const getBoundsLatLong = (data) => {
+    console.log(data)
+    const coordinates=[]
+    data.map(data => {
+        const latLong = {'latitude': data.coords.coordinates[0][1], 'longitude':data.coords.coordinates[0][0]}
+        return coordinates.push(latLong)
+    })
+    
+    const center = getCenterOfBounds(coordinates) // {latitude: 41.928384, longitude: 2.255736}
+
+    const bounds = {
+        latitude: center.latitude,
+        longitude: center.longitude,
+        zoom: 7,
+    }
+    return bounds;
+}
+
 export default function Mapp(props) {
     const { data } = props
+    
+    const bounds = getBoundsLatLong(data)
 
     const [viewport, setViewport] = useState({
-      latitude: 40.416775,
-      longitude: -3.703790,
-      zoom: 4.7,
+        width: '100%',
+        height: '50vh',
+        ...bounds
     });
 
     const [selectedData, setSelectedData] = useState(null);
@@ -39,8 +60,6 @@ export default function Mapp(props) {
                 {...viewport}
                 mapboxApiAccessToken={REACT_APP_MAPBOX_TOKEN}
                 mapStyle="mapbox://styles/laialloret/ckra9l67v5nix19p36ntg3a0p"
-                width="100%"
-                height="50vh"
                 onViewportChange={(viewport) => setViewport(viewport)}
             >
                 {data.map(data => (
