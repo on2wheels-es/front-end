@@ -15,7 +15,7 @@
 /* Base Components */
 @layer components {
 	.headline_regular {
-		@apply font-font-family-highlight leading-font-lineheight-base text-font-size-huge font-font-weight-regular;
+		@apply font-family-highlight leading-font-lineheight-base text-font-size-huge font-font-weight-regular;
 	}
 	.headline_bold {
 		@apply font-family-highlight font-lineheight-base font-size-huge font-weight-heavy;

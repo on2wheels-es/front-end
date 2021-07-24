@@ -21,8 +21,8 @@ module.exports = {
 		'color-feedback-success-light': '#85E30E',
 	},
 	fontFamily: {
-		'font-family-base': [ 'Open Sans', 'sans-serif' ],
-		'font-family-highlight': [ 'Bitter' ],
+		'family-base': [ 'Open Sans', 'sans-serif' ],
+		'family-highlight': [ 'Bitter' ],
 	},
 	screens: {
 		sm: '640px',
@@ -50,21 +50,21 @@ module.exports = {
 		'font-lineheight-large': '1.75rem',
 	},
 	fontSize: {
-		'font-size-nano': '0.875rem',
-		'font-size-xs': '1rem',
-		'font-size-s': '1.125rem',
-		'font-size-sm': '1.5rem',
-		'font-size-md': '2rem',
-		'font-size-l': '2.25rem',
-		'font-size-lg': '2.5rem',
-		'font-size-xl': '3rem',
-		'font-size-xxl': '3.75rem',
-		'font-size-huge': '4.5rem'
+		'nano': '0.875rem',
+		'xs': '1rem',
+		's': '1.125rem',
+		'sm': '1.5rem',
+		'-md': '2rem',
+		'l': '2.25rem',
+		'lg': '2.5rem',
+		'xl': '3rem',
+		'xxl': '3.75rem',
+		'huge': '4.5rem'
 	},
 	fontWeight: {
-		'font-weight-bold': 600,
-		'font-weight-medium': 500,
-		'font-weight-regular': 400,
+		'bold': 600,
+		'medium': 500,
+		'regular': 400,
 	},
 	  extend: {
 		spacing: {
