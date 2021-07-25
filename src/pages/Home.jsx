@@ -47,6 +47,11 @@ export default class Home extends Component {
               <p className="text-s md:text-s leading-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <SearchBar />
+            <div className="mt-8">
+              <div className="border bg-green-200 w-9/12 mx-auto h-2/4 px-24 py-24 overflow-hidden margin-bottom ">
+                    <p>Here goes the map</p>
+              </div>
+            </div>
         </Header>
         <main className="flex flex-col space-y-4 brand-primary-medium">
             { status === 'loading' && <img src={gif} alt="gif" /> }
