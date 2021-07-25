@@ -14,7 +14,7 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
     return ( 
     <div> 
       <components.Option {...props}> 
-        <input type="checkbox" checked={props.isSelected} onChange={() => null} className="bg-black"/> <label>{props.label}</label> 
+        <input type="checkbox" checked={props.isSelected} onChange={() => null}/> <label>{props.label}</label> 
       </components.Option> 
     </div> 
     ); 
@@ -25,6 +25,9 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
       ...base,
       border: 0,
       padding:0,
+      backgroundColor: '#313030',
+      fontFamily: 'Open sans',
+      fontSize: '16px',
       // Removes weird border around container
       boxShadow: state.isFocused ? null : null,
 
@@ -32,7 +35,7 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
   };
 
   return (
-    <div className="py-1 mb-3 border-b-2 rounded-none 761md:w-72 ">
+    <div className="761md:w-72">
       <Select
         value={selectedValue}
         onChange={handleChange}

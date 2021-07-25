@@ -5,7 +5,13 @@
 /* Base Typography */
 @layer base {
 	:root {
-		@apply text-xs;
+		@apply text-xs m-0;
+	}
+	main {
+		@apply wrapper;
+	}
+	h1 {
+		@apply text-md font-base leading-none md:leading-tight md:leading-base md:text-xxl font-heavy;
 	}
 	p {
 		@apply body_primary_regular;
@@ -25,10 +31,10 @@
 		@apply font-highlight leading-base text-huge font-heavy;
 	}
 	.secondary_headline_regular {
-		@apply font-highlight leading-base text-xxl font-regular;
+		@apply font-highlight leading-tight md:leading-base text-xxl font-regular;
 	}
 	.secondary_headline_bold {
-		@apply font-highlight leading-base text-xxl font-heavy;
+		@apply font-highlight leading-tight md:leading-base text-xxl font-heavy;
 	}
 	.tertiary_title_regular {
 		@apply font-highlight leading-medium text-l font-regular;
@@ -62,8 +68,14 @@
 	.wrapper {
 		@apply max-w-screen-lg mx-auto p-4;
 	}
-
-
+	/* Search bar */
+	.searchBar-container {
+		@apply mb-4 py-3 px-2 bg-neutral-medium-opacity rounded-xl shadow-md  w-full mx-auto md:w-full md:w-11/12 lg:w-10/12 md:py-1 md:px-1;
+	}
+	.searchBar-container-flex {
+		@apply flex flex-col space-y-3.5 md:flex-row md:justify-between md:items-center md:space-y-0;
+	}
+	/* Forms */
 	.form-container {
 		@apply min-h-screen flex flex-col items-center justify-center sm:px-6 lg:px-8 rounded-lg;
 	}
@@ -73,12 +85,7 @@
 	.form-input {
 		@apply mt-1  block w-full shadow-sm border-2 border-neutral-lightest rounded-md py-2 pl-4;
 	}
-	.searchBar-container {
-		@apply mb-4 py-3 px-2 bg-primary-medium rounded-xl shadow-md border w-full mx-auto md:w-full md:w-11/12 lg:w-10/12 md:py-1 md:px-1;
-	}
-	.searchBar-container-flex {
-		@apply flex flex-col space-y-2 md:flex-row md:justify-between md:items-center md:space-y-0;
-	}
+	/* Cards */
 	.card-content-details {
 		@apply flex flex-col align-bottom;
 	}

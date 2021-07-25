@@ -41,14 +41,14 @@ export default class Home extends Component {
 
     return (
       <>
-      <div className="bg-secundary-medium">
-        <div className="wrapper">
-            <Header />
+        <Header>
+            <div className="text-neutral-medium mt-14 mb-8 md:mb-16 md:mt-32 md:text-center md:mx-auto md:w-9/12">
+              <h1 className="mb-2 md:mb-10">Descubre tu ruta</h1>
+              <p className="text-s md:text-s leading-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
             <SearchBar />
-        </div>
-      </div>
-      <div>
-        <main className="flex flex-col space-y-4 brand-primary-medium wrapper">
+        </Header>
+        <main className="flex flex-col space-y-4 brand-primary-medium">
             { status === 'loading' && <img src={gif} alt="gif" /> }
             { status === 'loaded' && (
               <>
@@ -64,7 +64,6 @@ export default class Home extends Component {
               <p>Cycling Tips</p>
             </div>
           </main>
-        </div>
       </>
     )
 

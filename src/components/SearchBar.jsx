@@ -22,9 +22,8 @@ const SearchBar = () => {
 
   return (
     <div className="searchBar-container">
-      <div className="flex flex-col space-y-2 761md:flex-row 761md:justify-between 761md:items-center 761md:space-y-0 ">
-        <div className="flex flex-col px-2 pt-2 border-2 rounded-lg 761md:border-none">
-          <label className="text-xs w-2/6 pb-1 text-left text-gray-400 761md:w-2/5">¿A dónde quieres ir?</label>
+      <div className="searchBar-container-flex">
+        <div className="bg-neutral-medium-opacity pb-1 mx-2 border-b-2 761md:border-none">
             <CustomDropdownMenu 
               data={ccaaOptions}  
               handleSelectedValue={(selectedLocation) => onLocationChange(selectedLocation)} 
@@ -33,8 +32,7 @@ const SearchBar = () => {
             />
         </div>
         <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
-        <div className="flex flex-col pl-2 pt-2 border-2 rounded-lg 761md:border-none">
-          <label className="text-xs w-2/6 pb-1 text-left text-gray-400 761md:w-2/5">¿Cuándo quieres ir?</label>
+        <div className="bg-neutral-medium-opacity mx-2 border-b-2 761md:border-none">
           <DateRangePicker
             startDate={startDate}
             startDateId="start-date"
@@ -53,7 +51,7 @@ const SearchBar = () => {
         </div>
         <button
           onClick={onSearchSubmit}
-          className="inline-block bg-indigo-500 mt-2 px-1 py-3 761md:py-6 rounded-xl uppercase text-white font-semibold m-0 761md:w-1/6"
+          className="button-accent"
         > 
         Buscar
         </button>

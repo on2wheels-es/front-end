@@ -37,6 +37,7 @@
   width: 100%;
   border-radius: none;
   border-width: 0;
+  background-color: '#313030';
 }
 
 @media (min-width: 761px) { 
@@ -52,14 +53,19 @@
 .DateRangePickerInput_1, 
 .DateRangePickerInput__withBorder,
 .DateRangePickerInput__withBorder_2 
- {
+{
   border: none;
   display: flex;
-  align-items: left;
+  justify-content: space-between;
+  background-color: #313030;
+  margin-left: 10px;
+  font-family: 'Open sans';
+  overflow: hidden;
 }
 
 .DateInput {
   width: 80px;
+  background-color: #313030;
 }
 
 .DateInput_input {
@@ -68,6 +74,12 @@
   margin-bottom: 10px;
   padding: 5px 1px;
   font-size: 16px;
+  background-color: #313030;
+}
+
+.DateInput_input::placeholder {
+  color: hsl(0, 0%, 50%);
+
 }
 
 @media (min-width: 761px) { 
@@ -98,6 +110,7 @@
 
 .DateRangePickerInput_arrow_svg {
   margin-right: 1.5em;
+  fill: hsl(0, 0%, 50%);
 }
 
 .CalendarMonth_caption,
