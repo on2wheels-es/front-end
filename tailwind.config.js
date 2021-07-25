@@ -45,6 +45,7 @@ module.exports = {
 			'huge': '4.5rem'
 		},
 		fontWeight: {
+			'heavy': 700,
 			'bold': 600,
 			'medium': 500,
 			'regular': 400,

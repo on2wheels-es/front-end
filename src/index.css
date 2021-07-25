@@ -7,6 +7,12 @@
 	body {
 		@apply max-w-screen-lg mx-auto p-4;
 	}
+	h1 {
+		@apply headline_regular;
+	}
+	p {
+		@apply body_primary_regular;
+	}
 	a {
 		@apply underline hover:underline focus:underline;
 	}
@@ -14,6 +20,39 @@
 
 /* Base Components */
 @layer components {
+	.headline_regular {
+		@apply font-highlight leading-base text-huge font-regular;
+	}
+	.headline_bold {
+		@apply font-highlight leading-base text-huge font-heavy;
+	}
+	.secondary_headline_regular {
+		@apply font-highlight leading-base text-xxl font-regular;
+	}
+	.secondary_headline_bold {
+		@apply font-highlight leading-base text-xxl font-heavy;
+	}
+	.tertiary_title_regular {
+		@apply font-highlight leading-medium text-l font-regular;
+	}
+	.tertiary_title_bold {
+		@apply font-highlight leading-medium text-l font-bold;
+	}
+	.subtitle_regular {
+		@apply font-base leading-medium text-md font-regular;
+	}
+	.secondary_subtitle_regular {
+		@apply font-base leading-medium text-sm font-regular;
+	}
+	.body_primary_regular {
+		@apply font-base leading-base text-xs font-regular;
+	}
+	.secondary_body_regular {
+		@apply font-base leading-large text-xs font-regular;
+	}
+	.caption_regular {
+		@apply font-base leading-long text-nano font-regular;
+	}
 	.form-container {
 		@apply min-h-screen flex flex-col items-center justify-center sm:px-6 lg:px-8 rounded-lg;
 	}
