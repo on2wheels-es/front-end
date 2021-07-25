@@ -23,8 +23,8 @@ class App extends Component {
 					<Route exact path="/mountainPasses/:id" component={MountainPassDetail} />
 					<Route exact path="/municipalities/:id" component={MunicipalityDetail} />
 					<Route exact path="/routes/:id" component={RouteDetail} />
-					<AnonRoute path="/signup" component={Signup} />
-					<AnonRoute path="/login" component={Login} />
+					<AnonRoute path="/signup"  redirect='/profile' component={Signup} />
+					<AnonRoute path="/login" redirect='/' component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
 				</Switch>
 			</>

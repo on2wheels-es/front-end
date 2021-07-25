@@ -64,6 +64,26 @@ class ApiClient {
                     .get(`/municipalities/${id}`)
                     .then(({data}) => data)
     }
+
+    // FAVOURITES
+    addToFavourites(id,type,userID) {
+        return this.apiClient
+                    .patch(`/addToFavourites/${id}/${type}`, {userID})
+                    .then(({data}) => data)
+    }
+
+    removeFromFavourites(id,type,userID) {
+        return this.apiClient
+                    .patch(`/removeFromFavourites/${id}/${type}`, {userID})
+                    .then(({data}) => data)
+    }
+
+
+    checkIfFav(id,type,userID) {
+        return this.apiClient
+                    .post(`/checkIfFav`, {id, type, userID})
+                    .then(({data}) => data.isFavourited)
+    }
 }
 
 const apiClient = new ApiClient();
