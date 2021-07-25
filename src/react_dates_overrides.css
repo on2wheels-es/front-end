@@ -41,14 +41,6 @@
 	background-color: '#313030';
 }
 
-@media (min-width: 761px) {
-	.DateRangePicker,
-	.DateRangePicker_1 {
-		width: 40%;
-		border-radius: none;
-	}
-}
-
 .DateRangePickerInput,
 .DateRangePickerInput_1,
 .DateRangePickerInput__withBorder,
@@ -88,6 +80,8 @@
 @media (min-width: 761px) {
 	.DateInput {
 		width: 100%;
+    border-left: 1px solid gray;
+    padding-left: 2.5em;
 	}
 	.DateInput_input {
 		text-align: left;
@@ -110,6 +104,11 @@
 	fill: hsl(0, 0%, 50%);
 }
 
+@media (min-width: 761px) {
+  .DateRangePickerInput_arrow_svg {
+    visibility: hidden;
+  }
+}
 .CalendarMonth_caption,
 .CalendarMonth_caption_1 {
 	margin-bottom: 6px;

@@ -3,6 +3,7 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import '../react_dates_overrides.css'
 import CustomDropdownMenu from "./CustomDropdownMenu";
+import SearchIcon from "./iconsSVG/SearchIcon";
 import { useSearchBar } from "../providers/SearchProvider";
 import { DateRangePicker } from "react-dates";
 import { ccaaOptions } from "../data/data"
@@ -23,7 +24,7 @@ const SearchBar = () => {
   return (
     <div className="searchBar-container">
       <div className="searchBar-container-flex">
-        <div className="bg-neutral-medium-opacity pb-1 mx-2 border-b-2 md:border-b-0 md:border-r-2 md:w-5/12">
+        <div className="bg-neutral-medium-opacity pb-1 mx-2 border-b-2 md:border-b-0 md:w-5/12">
             <CustomDropdownMenu 
               data={ccaaOptions}  
               handleSelectedValue={(selectedLocation) => onLocationChange(selectedLocation)} 
@@ -50,9 +51,9 @@ const SearchBar = () => {
         </div>
         <button
           onClick={onSearchSubmit}
-          className="button-accent"
+          className="button-accent-searchBar"
         > 
-        Buscar
+          <SearchIcon text="Buscar" />
         </button>
       </div>
     </div>
