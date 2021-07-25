@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import apiClient from '../services/apiClient';
 
 import Map from "../components/Map"
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import Container from '../components/Container';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 

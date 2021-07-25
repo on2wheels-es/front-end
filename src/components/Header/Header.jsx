@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import { withAuth } from '../providers/AuthProvider';
+import { withAuth } from '../../providers/AuthProvider';
 
 class Header extends Component {
 	render() {
 		const { user, isLoggedIn, logout } = this.props;
 		return (
 			<header className="py-2 mb-8 bg-transparent">
-				<div className="flex justify-between">
-           <div className="site-title">
-              <Link to="/" className="no-underline">
-			  	<p className="text-primary-medium">On<strong>2Wheels</strong></p>
-			  </Link>
-           </div>
+				<div className="flex justify-between items-center">
+           			<div className="site-title">
+						<Link to="/" className="no-underline">
+							<p className="text-neutral-medium">On<strong>2Wheels</strong></p>
+						</Link>
+           			</div>
 					<nav>
 						<ul className="flex justify-center p-0">
 							{isLoggedIn ? (
@@ -29,6 +29,10 @@ class Header extends Component {
 							)}
 						</ul>
 					</nav>
+				</div>
+				<div className="text-neutral-medium">
+					<h1>Descubre tu ruta</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
 			</header>
 		);

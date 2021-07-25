@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../components/Header'
+import Header from '../components/Header/Header';
 import UserDetailsPopUp from '../components/UserDetailsPopUp';
 
 import { withAuth } from '../providers/AuthProvider';

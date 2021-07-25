@@ -3,7 +3,7 @@ import Map from '../components/Map';
 import Container from '../components/Container';
 import PrintRouteCard from '../components/Card/PrintRouteCard';
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import gif from '../images/bike-loading.gif';
 
 import apiClient from '../services/apiClient';

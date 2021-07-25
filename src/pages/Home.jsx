@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import apiClient from '../services/apiClient';
 
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 import SearchBar from '../components/SearchBar'
 import Container from '../components/Container'
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard'
@@ -41,24 +41,30 @@ export default class Home extends Component {
 
     return (
       <>
-        <Header />
-        <main className="flex flex-col space-y-4 brand-primary-medium">
-          <SearchBar />
-          { status === 'loading' && <img src={gif} alt="gif" /> }
-          { status === 'loaded' && (
-            <>
-              <Container title={"Los mejores municipios para hacer un stage"}>
-                 <PrintMunicipalityCard data={dataMunicipalities}/>
-              </Container>
-              <Container title={"Los puertos de montaña que no te puedes perder"}>
-                  <PrintMountainPassCard data={dataMountainPasses} />
-              </Container>
-            </>
-          )}
-          <div className="py-10 border-2">
-            <p>Cycling Tips</p>
-          </div>
-        </main>
+      <div className="bg-secundary-medium">
+        <div className="wrapper">
+            <Header />
+            <SearchBar />
+        </div>
+      </div>
+      <div>
+        <main className="flex flex-col space-y-4 brand-primary-medium wrapper">
+            { status === 'loading' && <img src={gif} alt="gif" /> }
+            { status === 'loaded' && (
+              <>
+                <Container title={"Los mejores municipios para hacer un stage"}>
+                  <PrintMunicipalityCard data={dataMunicipalities}/>
+                </Container>
+                <Container title={"Los puertos de montaña que no te puedes perder"}>
+                    <PrintMountainPassCard data={dataMountainPasses} />
+                </Container>
+              </>
+            )}
+            <div className="py-10 border-2">
+              <p>Cycling Tips</p>
+            </div>
+          </main>
+        </div>
       </>
     )
 

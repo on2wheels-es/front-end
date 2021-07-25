@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Container from '../components/Container';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import Map from '../components/Map';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
