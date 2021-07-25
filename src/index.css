@@ -89,6 +89,7 @@
 	.card-content-details {
 		@apply flex flex-col align-bottom;
 	}
+
 }
 
 .marker-btn {
@@ -100,3 +101,4 @@
 	width: 20px;
 	height: 20px;
 }
+

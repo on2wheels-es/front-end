@@ -2,33 +2,35 @@
   border: 1px solid white;
 } 
 .CalendarDay__selected_span {
-  background: #A5B4FC; 
+  background: #f3a885; 
   color: white; 
   border: 1px solid white;
 }
 
 .CalendarDay__selected_span:hover {
-  background: #8095fc; 
+  background: #f3a885; 
   color: white; 
   border: 1px solid white;
 }
 
 .CalendarDay__selected {
-  background: #6366F1;
+  background: #EF8451;
   color: white;
   border: 1px solid white;
 }
 
 .CalendarDay__selected:hover, 
 .CalendarDay__selected:active {
-  background: #4F46E5;
+  background: #EF8451;
   color: white;
   border: 1px solid white;
 }
 
 .CalendarDay__hovered_span:hover,
 .CalendarDay__hovered_span {
-  background: #A5B4FC;
+  background: #f3a885;
+  border: 1px double #EF8451;
+  color: white;
 }
 
 
@@ -64,17 +66,18 @@
 }
 
 .DateInput {
-  width: 80px;
+  width: 80%;
   background-color: #313030;
 }
 
 .DateInput_input {
   text-align: left;
-  width: 90px;
+  width: 100%;
   margin-bottom: 10px;
   padding: 5px 1px;
   font-size: 16px;
   background-color: #313030;
+  color:white;
 }
 
 .DateInput_input::placeholder {
@@ -92,13 +95,11 @@
     margin-bottom: 5px;
     padding: 5px 1px 2px 0;
     font-size: 16px;
-    border-bottom: 2px #e7e9ed solid;
-
   }
 }
 
 .DateInput_input__focused {
-  border-bottom: 2px solid #4F46E5;
+  border-bottom: 2px solid #EF8451;
 }
 
 .DateRangePickerInput_arrow, 
@@ -122,7 +123,7 @@
 .DayPickerNavigation_svg__vertical {
   height: 40px;
   width: 40px;
-  fill: #4F46E5;
+  fill: #EF8451;
 }
 
 .DayPicker_weekHeader_li {
