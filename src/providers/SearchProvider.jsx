@@ -47,10 +47,12 @@ const SearchProvider = (props) => {
     }
   
     const onClickSearchHandler = () => {
-      const { startDate, endDate, CCAA: { value } } = searchValues;
+      // eslint-disable-next-line no-unused-vars
+      const { startDate, endDate, CCAA } = searchValues;
+      // console.log('search values', CCAA) returns an array with all location
       history.push({
         pathname: '/search',
-        search: `?arrival=${moment(startDate).format("YYYY-MM-DD")}&departure=${moment(endDate).format("YYYY-MM-DD")}&location=${value}`,
+        search: `?arrival=${moment(startDate).format("YYYY-MM-DD")}&departure=${moment(endDate).format("YYYY-MM-DD")}&location=Asturias`,
       });
     };
  

@@ -3,7 +3,6 @@ import Select, { components } from "react-select";
 
 const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, placeholder}) => {
   const [selectedValue, setSelectedValue ] = useState(defaultSelectedValue || null);
-  console.log(selectedValue)
 
   const handleChange = (newSelectedValue) => {
     setSelectedValue(newSelectedValue)
@@ -34,7 +33,6 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
    }) 
    }
   
-
   return (
     <div className="761md:w-72">
       <Select
