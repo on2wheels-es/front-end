@@ -34,7 +34,6 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
    }
   
   return (
-    <div className="761md:w-72">
       <Select
         value={selectedValue}
         onChange={handleChange}
@@ -44,7 +43,6 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
         styles={colourStyles}
         isMulti
       />
-    </div>
   );
 };
 

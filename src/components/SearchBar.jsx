@@ -23,7 +23,7 @@ const SearchBar = () => {
   return (
     <div className="searchBar-container">
       <div className="searchBar-container-flex">
-        <div className="bg-neutral-medium-opacity pb-1 mx-2 border-b-2 761md:border-none">
+        <div className="bg-neutral-medium-opacity pb-1 mx-2 border-b-2 md:border-b-0 md:border-r-2 md:w-5/12">
             <CustomDropdownMenu 
               data={ccaaOptions}  
               handleSelectedValue={(selectedLocation) => onLocationChange(selectedLocation)} 
@@ -31,8 +31,7 @@ const SearchBar = () => {
               placeholder={'Elige tu destino'}
             />
         </div>
-        <span className="hidden 761md:block 761md:border-l-2 761md:py-5 761md:px-1 761md:ml-2 761md:mr-1 lg:ml-1.5 lg:mr-0.5"></span>
-        <div className="bg-neutral-medium-opacity mx-2 border-b-2 761md:border-none">
+        <div className="bg-neutral-medium-opacity mx-2 border-b-2 md:border-b-0 md:w-5/12 ">
           <DateRangePicker
             startDate={startDate}
             startDateId="start-date"
