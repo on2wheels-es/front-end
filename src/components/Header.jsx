@@ -7,11 +7,11 @@ class Header extends Component {
 	render() {
 		const { user, isLoggedIn, logout } = this.props;
 		return (
-			<header className="py-2 mb-8 border-b">
-				<div className=" flex justify-between">
+			<header className="py-2 mb-8 bg-transparent">
+				<div className="flex justify-between">
            <div className="site-title">
-              <Link to="/">
-			  	<p className="text-indigo-500">On<strong>2Wheels</strong></p>
+              <Link to="/" className="no-underline">
+			  	<p className="text-primary-medium">On<strong>2Wheels</strong></p>
 			  </Link>
            </div>
 					<nav>
@@ -19,12 +19,12 @@ class Header extends Component {
 							{isLoggedIn ? (
 								<>
 									<Link to="/profile"><li  className="text-center py-1 px-4 ml-8 rounded-lg hover:bg-indigo-500 hover:underline">Hola, {user.firstName}</li></Link>
-									<button onClick={logout} className="button-indigo">Cerrar sesión</button>
+									<button onClick={logout} className="button ml-2">Cerrar sesión</button>
 								</>
 							) : (
 								<>
-									<Link to="/login"><li className="text-center py-1 px-3 ml-1 rounded-lg hover:bg-indigo-500 hover:underline">Mi cuenta</li></Link>
-									<Link to="/signup"><li  className="text-center py-1 px-3 ml-1 rounded-lg hover:bg-indigo-500 hover:underline">Regístrate</li></Link>
+									<Link to="/login"><li className="button mr-2">Mi cuenta</li></Link>
+									<Link to="/signup"><li  className="button-accent">Regístrate</li></Link>
 								</>
 							)}
 						</ul>

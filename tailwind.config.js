@@ -33,16 +33,16 @@ module.exports = {
 			'large': '1.75rem',
 		},
 		fontSize: {
-			'nano': '0.875rem',
-			'xs': '1rem',
-			's': '1.125rem',
-			'sm': '1.5rem',
-			'md': '2rem',
-			'l': '2.25rem',
-			'lg': '2.5rem',
-			'xl': '3rem',
-			'xxl': '3.75rem',
-			'huge': '4.5rem'
+			'nano': '14px',
+			'xs': '16px',
+			's': '18px',
+			'sm': '24px',
+			'md': '32px',
+			'l': '36px',
+			'lg': '40px',
+			'xl': '48px',
+			'xxl': '60px',
+			'huge': '72px'
 		},
 		fontWeight: {
 			'heavy': 700,
