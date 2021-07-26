@@ -71,7 +71,7 @@
 		@apply py-2 px-4 leading-medium rounded-xl text-neutral-white hover:shadow-xl text-xs font-bold hover:bg-primary-medium focus:shadow-xl focus:bg-primary-medium inline-block;
 	}
 	.button-accent-searchBar {
-		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
+		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
 	}
 	/* Layout */
 	.wrapper {
