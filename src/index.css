@@ -23,7 +23,7 @@
 		@apply body_primary_regular;
 	}
 	a {
-		@apply underline hover:underline focus:underline;
+		@apply no-underline hover:underline focus:underline;
 	}
 }
 
@@ -57,11 +57,14 @@
 	.body_primary_regular {
 		@apply font-base leading-base text-xs font-regular;
 	}
+	.body_primary_semibold {
+		@apply font-highlight leading-medium text-s font-bold;
+	}
 	.secondary_body_regular {
 		@apply font-base leading-large text-xs font-regular;
 	}
 	.caption_regular {
-		@apply font-base leading-long text-nano font-regular;
+		@apply font-base leading-long text-nano font-regular text-secundary-lightest;
 	}
 	/* Buttons*/
 	.button-accent {

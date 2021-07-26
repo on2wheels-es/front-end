@@ -3,8 +3,8 @@ import React from 'react'
 function AltitudeIcon(props) {
     return (
         <span className="flex items-center text-sm" aria-label="Altitud del paso de montaña" role="img">
-            <span className="flex items-end mt-1">
-            <svg width="18" height="18" viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
+            <span className="flex items-end">
+            <svg width="18" height="18" style={{'fill': '#6B7280'}} viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
                 <path d="M469.093,309.224l-110.03-202.745c-1.312-2.417-3.842-3.922-6.592-3.922s-5.28,1.505-6.592,3.923l-25.688,47.335
                     c-1.976,3.641-0.626,8.193,3.015,10.169c3.642,1.977,8.193,0.625,10.169-3.015l19.097-35.189l59.565,109.756l-30.081,26.961
                     c-3.084,2.765-3.344,7.506-0.579,10.591c1.481,1.653,3.53,2.494,5.588,2.494c1.782,0,3.571-0.632,5.003-1.915l27.424-24.58
@@ -25,7 +25,7 @@ function AltitudeIcon(props) {
                 <path d="M141.381,370.05c-4.411,0-8,3.589-8,8s3.589,8,8,8s8-3.589,8-8S145.792,370.05,141.381,370.05z"/>
                 <path d="M342.276,350.436c-4.411,0-8,3.589-8,8s3.589,8,8,8s8-3.589,8-8S346.687,350.436,342.276,350.436z"/>
                 </svg>
-                <span className="subtitle ml-2" aria-hidden="true">{props.text}</span>
+                <p className="secondary_body_regular"><span className="caption_regular ml-1">Altitud:</span> {props.text}m</p>
             </span>
         </span>
     )

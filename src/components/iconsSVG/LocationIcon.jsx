@@ -3,8 +3,8 @@ import React from 'react'
 function LocationIcon(props) {
     return (
       <span className="flex items-center text-sm" aria-label="Provincia del paso de montaña" role="img">
-        <span className="flex items-center mt-1">
-          <svg width="18" height="18" viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
+        <span className="flex items-center">
+          <svg width="20" height="20" style={{'fill': '#6B7280'}} viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
             <path d="M184.08,0c-74.992,0-136,61.008-136,136c0,24.688,11.072,51.24,11.536,52.36c3.576,8.488,10.632,21.672,15.72,29.4
             l93.248,141.288c3.816,5.792,9.464,9.112,15.496,9.112s11.68-3.32,15.496-9.104l93.256-141.296
             c5.096-7.728,12.144-20.912,15.72-29.4c0.464-1.112,11.528-27.664,11.528-52.36C320.08,61.008,259.072,0,184.08,0z
@@ -15,7 +15,7 @@ function LocationIcon(props) {
             C256.08,96.312,223.784,64.008,184.08,64.008z M184.08,192.008c-30.872,0-56-25.12-56-56s25.128-56,56-56s56,25.12,56,56
             S214.952,192.008,184.08,192.008z"></path>
           </svg>
-          <span className="subtitle" aria-hidden="true">{props.text}</span>
+          <p className="secondary_body_regular"><span className="caption_regular ml-1">Provincia:</span> {props.text}</p>
         </span>
       </span>
     )

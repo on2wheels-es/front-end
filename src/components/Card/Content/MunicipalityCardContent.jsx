@@ -12,7 +12,7 @@ export class MunicipalityCardContent extends Component {
         </div>
         <div className="flex justify-between items-end py-2 px-6">
           <div>
-            <p className="text-md font-bold">{municipality}</p>
+            <p className="body_primary_semibold">{municipality}</p>
           </div>
           <div className="card-content-details">
           </div>
