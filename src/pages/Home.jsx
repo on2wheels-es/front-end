@@ -64,9 +64,6 @@ export default class Home extends Component {
                 </Container>
               </>
             )}
-            <div className="py-10 border-2">
-              <p>Cycling Tips</p>
-            </div>
           </main>
       </>
     )

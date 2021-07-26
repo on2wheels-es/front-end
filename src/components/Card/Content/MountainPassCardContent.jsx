@@ -29,4 +29,4 @@ export class MountainPassCardContent extends Component {
 }
 
 
-export default MountainPassCardContent
+export default MountainPassCardContent 
