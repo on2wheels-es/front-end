@@ -4,7 +4,7 @@ export default function RouteDistance(props) {
     return (
         <span className="flex items-center text-sm" aria-label="Distancia total de la ruta" role="img">
         <span className="flex items-end mt-1">
-          <svg width="18" height="18" viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
+          <svg width="18" height="18" style={{'fill': '#6B7280'}} viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
           <path d="M426.667,0c-47.052,0-85.333,38.281-85.333,85.333c0,40.814,60.469,123.419,74.637,142.22
             c-0.004,6.073,0,12.036-0.147,17.509c-0.156,5.885,4.49,10.792,10.385,10.948c0.094,0,0.188,0,0.292,0
             c5.75,0,10.5-4.594,10.656-10.385c0.147-5.616,0.143-11.746,0.147-17.992C451.378,208.961,512,126.195,512,85.333
@@ -33,7 +33,7 @@ export default function RouteDistance(props) {
             c-25.198-25.708-106.667-114.5-106.667-187.625C21.333,238.854,68.188,192,128,192s106.667,46.854,106.667,106.667
             C234.667,371.792,153.198,460.583,128,486.292z"/>
             </svg>
-            <span className="subtitle ml-2" aria-hidden="true">{props.text}km</span>
+            <p className="secondary_body_regular"><span className="caption_regular ml-1">Distancia:</span> {props.text}km</p>
         </span>
       </span>
     )
