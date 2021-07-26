@@ -5,20 +5,15 @@ export class MunicipalityCardContent extends Component {
   render() {
     const { municipality, province, routes_number: routesNumber } = this.props.data;
     return (
-      <div className="inline-block">
-      <div className="flex flex-col w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl">
-        <div className="md:flex-shrink-0">
-          <img className="w-full object-cover" src="https://images.unsplash.com/photo-1561390368-a315cfe6833b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" styles={{"height": "320px", "width": "420px"}} alt="default image" />
+      <div className="inline-block flex flex-col w-72 h-96 max-w-xs bg-white hover:shadow-xl">
+        <div>
+          <img className="w-full object-cover " src="https://images.unsplash.com/photo-1561390368-a315cfe6833b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" styles={{"height": "320px", "width": "420px"}} alt="default image" />
         </div>
-        <div className="flex justify-between items-end py-2 px-6">
-          <div>
-            <p className="body_primary_semibold">{municipality}</p>
-          </div>
-          <div className="card-content-details">
-          </div>
+        <div className="p-5 md:h-48">
+          <h3 className="tertiary_title_card">{municipality}</h3>
+          <p className="caption_regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo parturient gravida malesuada.</p>
         </div>
       </div>
-    </div>
     )
   }
 }

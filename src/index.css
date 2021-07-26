@@ -23,7 +23,7 @@
 		@apply body_primary_regular;
 	}
 	a {
-		@apply no-underline hover:underline focus:underline;
+		@apply no-underline;
 	}
 }
 
@@ -48,8 +48,11 @@
 	.tertiary_title_bold {
 		@apply font-base leading-tight text-md md:leading-medium md:text-l font-bold;
 	}
+	.tertiary_title_card {
+		@apply font-highlight text-sm font-bold;
+	}
 	.subtitle_regular {
-		@apply font-base  leading-medium text-md font-regular;
+		@apply font-base leading-medium text-md font-regular;
 	}
 	.secondary_subtitle_regular {
 		@apply font-base leading-medium text-sm font-regular;
