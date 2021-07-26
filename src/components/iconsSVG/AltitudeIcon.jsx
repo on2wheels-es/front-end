@@ -4,7 +4,7 @@ function AltitudeIcon(props) {
     return (
         <span className="flex items-center text-sm" aria-label="Altitud del paso de montaña" role="img">
             <span className="flex items-end">
-            <svg width="18" height="18" style={{'fill': '#6B7280'}} viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-end">
+            <svg width="18" height="18" style={{'fill': '#6B7280'}} viewBox="0 0 500 500" role="presentation" aria-hidden="true" focusable="false" className="self-center">
                 <path d="M469.093,309.224l-110.03-202.745c-1.312-2.417-3.842-3.922-6.592-3.922s-5.28,1.505-6.592,3.923l-25.688,47.335
                     c-1.976,3.641-0.626,8.193,3.015,10.169c3.642,1.977,8.193,0.625,10.169-3.015l19.097-35.189l59.565,109.756l-30.081,26.961
                     c-3.084,2.765-3.344,7.506-0.579,10.591c1.481,1.653,3.53,2.494,5.588,2.494c1.782,0,3.571-0.632,5.003-1.915l27.424-24.58
