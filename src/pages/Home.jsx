@@ -8,6 +8,7 @@ import Container from '../components/Container'
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard'
 import gif from '../images/bike-loading.gif';
+import Footer from '../components/Footer';
 
 export default class Home extends Component {
 
@@ -65,6 +66,7 @@ export default class Home extends Component {
               </>
             )}
           </main>
+          <Footer />
       </>
     )
 

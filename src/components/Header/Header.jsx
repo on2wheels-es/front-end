@@ -12,7 +12,7 @@ class Header extends Component {
 				<div className="wrapper">
 					<div className="flex justify-between items-center">
 						<div className="site-title">
-							<Link to="/" className="no-underline">
+							<Link to="/">
 								<p className="text-neutral-medium">On<strong>2Wheels</strong></p>
 							</Link>
 						</div>

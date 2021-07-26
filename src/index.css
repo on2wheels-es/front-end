@@ -69,6 +69,9 @@
 	.caption_regular {
 		@apply font-base leading-long text-nano font-regular text-secundary-lightest;
 	}
+	.footer_links {
+		@apply font-highlight leading-tight text-s md:leading-medium md:text-sm font-regular;
+	}
 	/* Buttons*/
 	.button-accent {
 		@apply bg-primary-medium py-2 px-4 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
