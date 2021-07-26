@@ -14,7 +14,7 @@ const SearchBar = () => {
   const { startDate, endDate, focusedInput, CCAA } = searchValues;
 
   const width = window.innerWidth;
-  const breakpoint = 761;
+  const breakpoint = 768;
 
   const onSearchSubmit = (e) => { 
     e.preventDefault();
