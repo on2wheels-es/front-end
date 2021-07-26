@@ -52,7 +52,7 @@ export default class Home extends Component {
                 <p>Here goes the map</p>
             </div>
         </Header>
-        <main className="flex flex-col space-y-4 brand-primary-medium relative">
+        <main className="">
             { status === 'loading' && <img src={gif} alt="gif" /> }
             { status === 'loaded' && (
               <>
