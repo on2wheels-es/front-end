@@ -38,22 +38,21 @@ export default class Home extends Component {
 
   render() {
     const { status, dataMunicipalities, dataMountainPasses } = this.state;
+    const stylesHeader = 'relative pb-64 mb-52';
 
     return (
       <>
-        <Header>
+        <Header homeHeader={stylesHeader}>
             <div className="text-neutral-medium mt-14 mb-8 md:mb-16 md:mt-32 md:text-center md:mx-auto md:w-9/12">
               <h1 className="mb-2 md:mb-10">Descubre tu ruta</h1>
               <p className="text-s md:text-s leading-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <SearchBar />
-            <div className="mt-8">
-              <div className="border bg-green-200 w-9/12 mx-auto h-2/4 px-24 py-24 overflow-hidden margin-bottom ">
-                    <p>Here goes the map</p>
-              </div>
+            <div className="border bg-green-200 w-11/12 md:w-9/12 mx-auto h-3/5 px-24 py-36 overflow-hidden absolute top-2/3 inset-x-2">
+                <p>Here goes the map</p>
             </div>
         </Header>
-        <main className="flex flex-col space-y-4 brand-primary-medium">
+        <main className="flex flex-col space-y-4 brand-primary-medium relative">
             { status === 'loading' && <img src={gif} alt="gif" /> }
             { status === 'loaded' && (
               <>

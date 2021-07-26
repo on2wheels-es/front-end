@@ -6,8 +6,9 @@ import { withAuth } from '../../providers/AuthProvider';
 class Header extends Component {
 	render() {
 		const { user, isLoggedIn, logout } = this.props;
+		const homeStyles = this.props.homeHeader ? this.props.homeHeader : '';
 		return (
-			<header className="py-2 mb-8 bg-secundary-medium">
+			<header className={`py-2 mb-8 bg-secundary-medium ${homeStyles}`}>
 				<div className="wrapper">
 					<div className="flex justify-between items-center">
 						<div className="site-title">
