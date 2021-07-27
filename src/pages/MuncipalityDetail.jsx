@@ -63,17 +63,17 @@ export class MunicipalityDetail extends Component {
         return (
           <>
             <Header>
-            <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-              {status === 'loaded' &&
-              <> 
-                <div className="caption_regular font-bold inline-block px-4 py-1 bg-neutral-white text-black mb-6 md:mb-12">
-                   {data.ccaa}
-                </div>
-                <h1 className="mb-2">{data.municipality}</h1>
-              </>
-              }
-            </div>
-                </Header>
+              <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
+                {status === 'loaded' &&
+                <> 
+                  <div className="caption_regular font-bold inline-block px-4 py-1 bg-neutral-white text-black mb-6 md:mb-12">
+                    {data.ccaa}
+                  </div>
+                  <h1 className="mb-2">{data.municipality}</h1>
+                </>
+                }
+              </div>
+            </Header>
             <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (
