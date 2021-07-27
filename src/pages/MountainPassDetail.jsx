@@ -95,4 +95,4 @@ export class MountainPassDetail extends Component {
     }
 }
 
-export default MountainPassDetail
+export default MountainPassDetail;

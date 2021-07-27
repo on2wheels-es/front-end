@@ -4,6 +4,7 @@ import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Container from '../components/Container';
 import Header from '../components/Header/Header';
 import Map from '../components/Map';
+import DownloadBtn from '../components/DownloadBtn';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
@@ -71,6 +72,7 @@ export class RouteDetail extends Component {
                             </ul>
                           </div>
                         </div>
+                        <DownloadBtn gpx={data.gpx} name={data.name}/>
                         <Container title={"Municipios por donde pasaras"}>
                             <PrintMunicipalityCard data={dataMunicipalities} />
                         </Container>

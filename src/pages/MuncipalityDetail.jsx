@@ -21,24 +21,6 @@ export class MunicipalityDetail extends Component {
         }
     }
 
-    getUniqueMountainPasses = (response) => {
-      const uniqueMountainPasses = []
-      response.routes_ids.map(route => {
-          return route.mountain_passes_ids.map(mountainPass => {
-                                          return this.checkIfExists(uniqueMountainPasses, mountainPass)
-                                      })
-      })
-      return uniqueMountainPasses;
-    }
-
-    checkIfExists = (array, data) => {
-      const existingIds = array.map((obj) => obj._id);
-
-      if (! existingIds.includes(data._id)) {
-          array.push(data);
-      }
-    };
-
     async componentDidMount() {
         try {
             const { id } = this.props.match.params;
@@ -49,7 +31,7 @@ export class MunicipalityDetail extends Component {
                 status: 'loaded',
                 data: response,
                 dataRoutes: response.routes_ids,
-                dataMountainPasses: this.getUniqueMountainPasses(response)
+                dataMountainPasses: response.mountain_passes_ids
             })
 
         } catch(error) {

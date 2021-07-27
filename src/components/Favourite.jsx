@@ -1,44 +1,56 @@
 import React, { Component } from 'react'
 import { withAuth } from "../providers/AuthProvider";
 import apiClient from '../services/apiClient';
+import authApiClient from '../services/authApiClient';
+import { withRouter } from "react-router-dom";
 
 class Favourite extends Component {
     constructor(props) {
         super(props)
         this.state = {
             favourited: null,
-            status: 'loading'
+            status: 'loading',
         }
     }
 
     async componentDidMount() {
         const { id, type} = this.props
-        const userID = this.props.user._id
 
-        const favourited = await apiClient.checkIfFav(id,type, userID)
-        console.log(favourited)
-
-        this.setState({
-            favourited: favourited,
-            status: 'loaded'
-        })
+        try {
+            const user = await authApiClient.me()
+            const userID = user._id
+            const favourited = await apiClient.checkIfFav(id,type, userID)
+            this.setState({
+                favourited: favourited,
+                status: 'loaded'
+            })
+          } catch (e) {
+            this.setState({
+                favourited: false,
+                status: 'loaded'
+            })
+            console.log(e);
+          }
     }
 
     clickToFav = async () => {
         const { id, type} = this.props
-        const userID = this.props.user._id
 
-        await apiClient.addToFavourites(id,type, userID)
+        if (this.props.user) {
+            const userID = this.props.user._id
 
-        await this.setState({
-            favourited: true
-        })
-
-        const favourited = await apiClient.checkIfFav(id,type, userID)
-
-        await this.setState({
-            favourited: favourited
-        })
+            await apiClient.addToFavourites(id,type, userID)
+            await this.setState({
+                favourited: true
+            })
+    
+            const favourited = await apiClient.checkIfFav(id,type,userID)
+            await this.setState({
+                favourited: favourited
+            })
+        } else {
+            return this.props.history.push("/login"); 
+        }
     }
 
     clickToUnfav = async () => {
@@ -59,8 +71,9 @@ class Favourite extends Component {
     }
 
     render() {
+        console.log(this.props.user)
         const { favourited, status } = this.state;
-        console.log('favourited',favourited, 'status',status)
+
         return (
             <>
             {status ==="loading" ? (<p>loading</p>) : (
@@ -81,4 +94,4 @@ class Favourite extends Component {
     }
 }
 
-export default withAuth(Favourite)
+export default withRouter(withAuth(Favourite));
