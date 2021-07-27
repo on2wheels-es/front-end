@@ -12,11 +12,14 @@ class Favourite extends Component {
     }
 
     async componentDidMount() {
+        console.log(this.props)
         const { id, type} = this.props
-        const userID = this.props.user._id
-
-        const favourited = await apiClient.checkIfFav(id,type, userID)
-        console.log(favourited)
+        let favourited = false;
+        
+        if (this.props.user) {
+            const userID = this.props.user._id
+            favourited = await apiClient.checkIfFav(id,type, userID)
+        } 
 
         this.setState({
             favourited: favourited,
@@ -34,7 +37,7 @@ class Favourite extends Component {
             favourited: true
         })
 
-        const favourited = await apiClient.checkIfFav(id,type, userID)
+        const favourited = await apiClient.checkIfFav(id,type,userID)
 
         await this.setState({
             favourited: favourited
