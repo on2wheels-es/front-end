@@ -6,6 +6,7 @@ import Map from '../components/Map';
 import Favourite from '../components/Favourite';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
+import { withAuth } from "../providers/AuthProvider";
 
 export class MountainPassDetail extends Component {
 
@@ -98,4 +99,4 @@ export class MountainPassDetail extends Component {
     }
 }
 
-export default MountainPassDetail
+export default MountainPassDetail;
