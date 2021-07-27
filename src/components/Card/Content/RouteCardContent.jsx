@@ -15,7 +15,7 @@ export class RouteCardContent extends Component {
             Fácil
           </div>
           <div className="flex flex-col space-y-6 md:space-y-8 md:mt-1">
-            <p className="body_primary_semibold">{name}</p>
+            <h3>{name}</h3>
             <div className="flex flex-col">
               <LocationIcon text={province}/>
               <RouteDistance text={distance}/>
