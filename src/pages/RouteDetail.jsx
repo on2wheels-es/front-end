@@ -56,7 +56,7 @@ export class RouteDetail extends Component {
                     <>
                       <div className="mb-8 md:flex items-start md:mb-16">
                         <div className="w-full mb-4 md:mb-0 md:w-7/12 md:mr-8 md:h-1/6 md:overflow-hidden">
-                            <Map data={[data]}>
+                            <Map data={[data]} zoom={7}>
                                 <h1>{data.name}</h1>
                                 <p>{data.distance} km</p>
                                 <p>{data.gradient} m</p>

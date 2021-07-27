@@ -44,7 +44,9 @@ export default function SearchResults(props) {
               <Header />
               <main>
                 <h1 className="mb-5">Search Results</h1>
-                <Map data={municipalities.municipalitiesData}></Map>
+                <Map data={municipalities.municipalitiesData} zoom={7}>
+                  
+                </Map>
                 <Container>
                   <PrintMunicipalityCard data={municipalities.municipalitiesData} />
                 </Container>

@@ -71,7 +71,6 @@ class Favourite extends Component {
     }
 
     render() {
-        console.log(this.props.user)
         const { favourited, status } = this.state;
 
         return (

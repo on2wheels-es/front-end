@@ -9,6 +9,9 @@ import PrintMountainPassCard from '../components/Card/PrintMountainPassCard'
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard'
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
+import Map from '../components/Map';
+import RoutesIcon from '../components/iconsSVG/RoutesIcon';
+import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon';
 
 export default class Home extends Component {
 
@@ -49,8 +52,14 @@ export default class Home extends Component {
               <p className="text-s md:text-s leading-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <SearchBar />
-            <div className="border bg-green-200 w-11/12 md:w-9/12 mx-auto h-3/5 px-24 py-36 overflow-hidden absolute top-2/3 inset-x-2">
-                <p>Here goes the map</p>
+            <div className="w-11/12 md:w-9/12 mx-auto h-3/5 overflow-hidden absolute top-2/3 inset-x-2">
+                { status === 'loading' && <img src={gif} alt="gif" /> }
+                {status === 'loaded' && 
+                  <Map data={dataMunicipalities} zoom={4.7}>
+                    <RoutesIcon text={dataMunicipalities.routes_number} />
+                    <MountainPassesIcon text={dataMunicipalities.length} />
+                 </Map>
+                }
             </div>
         </Header>
         <main>

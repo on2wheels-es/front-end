@@ -5,7 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 const REACT_APP_MAPBOX_TOKEN ='pk.eyJ1IjoibGFpYWxsb3JldCIsImEiOiJja3JhYTdhZHY0aDF6MzFvNmdxNXdhZXJnIn0.FxPZTopXMJT5Ypk3uK5dwg';
 
-const getBoundsLatLong = (data) => {
+const getBoundsLatLong = (data, zoom) => {
     const coordinates=[]
     data.map(data => {
         const latLong = {'latitude': data.coords.coordinates[0][1], 'longitude':data.coords.coordinates[0][0]}
@@ -17,15 +17,15 @@ const getBoundsLatLong = (data) => {
     const bounds = {
         latitude: center.latitude,
         longitude: center.longitude,
-        zoom: 7,
+        zoom: zoom,
     }
     return bounds;
 }
 
-export default function Mapp(props) {
-    const { data } = props
+export default function Map(props) {
+    const { data, zoom } = props
     
-    const bounds = getBoundsLatLong(data)
+    const bounds = getBoundsLatLong(data, zoom)
 
     const [viewport, setViewport] = useState({
         width: '100%',
