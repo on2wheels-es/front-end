@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiClient from "../services/authApiClient";
+import apiClientNotAuth from "../services/apiClient";
 
 const { Consumer, Provider } = React.createContext();
 
@@ -18,6 +19,8 @@ export const withAuth = (Comp) => {
               login={authProvider.login} 
               signup={authProvider.signup} 
               createUserProfile={authProvider.createUserProfile}
+              addToFavourites={authProvider.addToFavourites}
+              removeFromFavourites={authProvider.removeFromFavourites}
               {...this.props}
             />
           )}
@@ -94,6 +97,40 @@ class AuthProvider extends Component {
     }
   }
 
+  addToFavourites = async ({id,type, userID}) => {
+    console.log('addToFavourites')
+    try {
+      const user = await apiClientNotAuth.addToFavourites(id,type,userID)
+      console.log('add', user)
+      this.setState({
+        status: 'loggedIn',
+        user,
+      })
+    } catch (e) {
+        console.log('add failed')
+        this.setState({
+          status: 'loggedOut',
+          user: null,
+      })
+    }
+  }
+
+  removeFromFavourites = async ({id,type, userID}) => {
+    console.log('remove')
+    try {
+      const user = await apiClientNotAuth.removeFromFavourites(id,type, userID)
+      this.setState({
+        status: 'loggedIn',
+        user,
+      })
+    } catch (e) {
+        this.setState({
+          status: 'loggedOut',
+          user: null,
+      }) 
+    }
+  }
+
   createUserProfile = async ({ firstName, lastName, birthday, gender }) => {
     try {
       this.setState({
@@ -138,7 +175,10 @@ class AuthProvider extends Component {
           login: this.login, 
           signup: this.signup,
           createUserProfile: this.createUserProfile,
-          logout: this.logout }}>
+          logout: this.logout,
+          addToFavourites: this.addToFavourites,
+          removeFromFavourites: this.removeFromFavourites,
+      }}>
         {this.props.children}
       </Provider>
     )

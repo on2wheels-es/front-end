@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import { withAuth } from "../providers/AuthProvider";
-import apiClient from '../services/apiClient';
-import authApiClient from '../services/authApiClient';
-import { withRouter } from "react-router-dom";
 
 class Favourite extends Component {
     constructor(props) {
@@ -14,60 +11,76 @@ class Favourite extends Component {
     }
 
     async componentDidMount() {
-        const { id, type} = this.props
+       await this.checkIfFav()
+    }
 
-        try {
-            const user = await authApiClient.me()
-            const userID = user._id
-            const favourited = await apiClient.checkIfFav(id,type, userID)
-            this.setState({
-                favourited: favourited,
-                status: 'loaded'
-            })
-          } catch (e) {
-            this.setState({
+    checkIfFav = () => {
+        const { id, type, user, isLoggedIn } = this.props
+        console.log(user);
+        if (isLoggedIn) {
+            if (type === 'mountainPasses' && user.favouritePasses.length > 0) {
+                console.log('mountainPasses')
+                if (user.favouritePasses.includes(id)) {
+                    this.setState({
+                        favourited: true,
+                        status: 'loaded'
+                    })
+                    console.log('favourited')
+                }  else {
+                    this.setState({
+                        favourited: false,
+                        status: 'loaded'
+                    })
+                }
+            }
+            if (type === 'routes' && user.favouriteRoutes.length > 0) {
+                if (user.favouriteRoutes.includes(id)) {
+                    this.setState({
+                        favourited: true,
+                        status: 'loaded'
+                    })
+                }  else {
+                    this.setState({
+                        favourited: false,
+                        status: 'loaded'
+                    })
+                }
+            }
+            if (type === 'municipality' && user.favouriteLocations.length > 0) {
+                if (user.favouriteLocations.includes(id)) {
+                    this.setState({
+                        favourited: true,
+                        status: 'loaded'
+                    })
+                } else {
+                    this.setState({
+                        favourited: false,
+                        status: 'loaded'
+                    })
+                }
+            }
+            return this.setState({
                 favourited: false,
                 status: 'loaded'
             })
-            console.log(e);
-          }
+        } 
+        return this.setState({
+            favourited: false,
+            status: 'loaded'
+        })
     }
 
-    clickToFav = async () => {
-        const { id, type} = this.props
+    clickToFav = () => {
+        const { id, type } = this.props
+        const userID = this.props.user._id
+        this.props.addToFavourites({id,type, userID});
 
-        if (this.props.user) {
-            const userID = this.props.user._id
-
-            await apiClient.addToFavourites(id,type, userID)
-            await this.setState({
-                favourited: true
-            })
-    
-            const favourited = await apiClient.checkIfFav(id,type,userID)
-            await this.setState({
-                favourited: favourited
-            })
-        } else {
-            return this.props.history.push("/login"); 
-        }
     }
 
-    clickToUnfav = async () => {
+    clickToUnfav = () => {
         const { id, type} = this.props
         const userID = this.props.user._id
-
-        await apiClient.removeFromFavourites(id,type, userID)
-
-        await this.setState({
-            favourited: false
-        })
-
-        const favourited = await apiClient.checkIfFav(id,type, userID)
-
-        await this.setState({
-            favourited: favourited
-        })
+        this.props.removeFromFavourites({id,type, userID})
     }
 
     render() {
@@ -93,4 +106,4 @@ class Favourite extends Component {
     }
 }
 
-export default withRouter(withAuth(Favourite));
+export default withAuth(Favourite);
