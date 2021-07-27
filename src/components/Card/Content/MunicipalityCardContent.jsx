@@ -17,9 +17,13 @@ export class MunicipalityCardContent extends Component {
         </Link>
         <div className="p-5 w-80 md:w-auto md:h-48">
           <h3>{municipality}</h3>
-          <p className="caption_regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div className="flex flex-col justify-between items-end">
+              <p className="caption_regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div className="mt-10 md:mt-12">
+                <Favourite type="municipality" id={_id}/>
+              </div>
+          </div>
         </div>
-        <Favourite type="municipality" id={_id}/>
       </div>
     )
   }
