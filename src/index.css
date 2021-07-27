@@ -19,6 +19,9 @@
 	h2 {
 		@apply tertiary_title_bold;
 	}
+	h3 {
+		@apply font-highlight text-s font-bold;
+	}
 	p {
 		@apply body_primary_regular;
 	}

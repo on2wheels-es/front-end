@@ -1,11 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import LocationIcon from '../../iconsSVG/LocationIcon'
 import AltitudeIcon from '../../iconsSVG/AltitudeIcon'
 
 export class MountainPassCardContent extends Component {
   render() {
-    const { name, province, altitude, mountain_slope: mountainSlope } = this.props.data;
+    const { name, province, altitude} = this.props.data;
     return (
       <div className="inline-block flex w-96 h-44 md:flex-col md:w-72 md:h-96 bg-white hover:shadow-xl">
         <div>

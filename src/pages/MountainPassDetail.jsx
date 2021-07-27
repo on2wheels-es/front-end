@@ -3,9 +3,6 @@ import PrintRouteCard from '../components/Card/PrintRouteCard';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 import Container from '../components/Container';
 import Map from '../components/Map';
-// eslint-disable-next-line no-unused-vars
-import Favourite from '../components/Favourite';
-// <Favourite type="mountainPasses" id={data._id}/>
 import Header from '../components/Header/Header';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
