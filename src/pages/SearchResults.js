@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import queryString from 'query-string';
 import apiClient from '../services/apiClient';
-
-import Map from "../components/Map"
 import Header from '../components/Header/Header';
 import Container from '../components/Container';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 
 import { calculateMiddleDate } from '../helpers'
+import MultiplePointMap from '../components/MultiplePointMap';
 
 export default function SearchResults(props) {
   const { search } = useLocation();
@@ -44,16 +43,14 @@ export default function SearchResults(props) {
               <Header />
               <main>
                 <h1 className="mb-5">Search Results</h1>
-                <Map data={municipalities.municipalitiesData} zoom={7}>
-                  
-                </Map>
+                <MultiplePointMap data={municipalities.municipalitiesData}/>
                 <Container>
                   <PrintMunicipalityCard data={municipalities.municipalitiesData} />
                 </Container>
               </main>
             </>
-          )}
-
+          )
+      }
     </>
   )
 }
