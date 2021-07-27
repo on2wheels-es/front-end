@@ -53,7 +53,7 @@ export default class Home extends Component {
                 <p>Here goes the map</p>
             </div>
         </Header>
-        <main className="">
+        <main>
             { status === 'loading' && <img src={gif} alt="gif" /> }
             { status === 'loaded' && (
               <>

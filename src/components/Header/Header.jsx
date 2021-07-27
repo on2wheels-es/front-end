@@ -8,7 +8,7 @@ class Header extends Component {
 		const { user, isLoggedIn, logout } = this.props;
 		const homeStyles = this.props.homeHeader ? this.props.homeHeader : '';
 		return (
-			<header className={`py-2 mb-8 bg-secundary-medium ${homeStyles}`}>
+			<header className={`py-2 mb-2 bg-secundary-medium ${homeStyles}`}>
 				<div className="wrapper">
 					<div className="flex justify-between items-center">
 						<div className="site-title">
@@ -32,7 +32,7 @@ class Header extends Component {
 							</ul>
 						</nav>
 					</div>
-					<div>
+					<div >
 						{this.props.children}
 					</div>
 				</div>

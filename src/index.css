@@ -8,13 +8,13 @@
 		@apply text-xs m-0;
 	}
 	main {
-		@apply wrapper-main-content flex flex-col space-y-4;
+		@apply wrapper flex flex-col;
 	}
 	body {
 		@apply bg-neutral-light;
 	}
 	h1 {
-		@apply text-lg font-base leading-none md:leading-tight md:leading-base md:text-xxl font-heavy;
+		@apply text-lg font-base leading-none md:leading-tight md:leading-base md:text-xl font-heavy;
 	}
 	h2 {
 		@apply tertiary_title_bold;
