@@ -1,5 +1,5 @@
 export const ccaaOptions = [
-    { value: "España", label: "A cualquier lugar de España" },
+    { value: "España", label: "A cualquier lugar de España", id: 0 },
     { value: "Andalucia", label: "Andalucía", id: 1 },  
     { value: "Aragon", label: "Aragón", id: 2 },  
     { value: "Asturias", label: "Asturias", id: 3 },  

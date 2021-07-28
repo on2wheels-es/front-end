@@ -11,10 +11,17 @@ export const calculateMiddleDate = (arrival, departure) => {
     return middleDateQueryFormat;
 }
 
+export const createQueryStrings = (selectedCCAA) => {
+    return selectedCCAA.map(ccaa => ccaa.value).join('&');
+}
+
 export const getCCAAIds = (selectedCCAA) => {
     let ccaaIds;
     if (selectedCCAA.some(el => el.value === 'España')) {
-        ccaaIds = ccaaOptions.map(location => location.id)
+        // We filter out 'Spain' as there is no such value for the API
+        // Instead we get all CCAA ids to run this search
+        const filteredCCAA = ccaaOptions.filter(ccaa => ccaa.id > 0);
+        ccaaIds = filteredCCAA.map(location => location.id);
     } else {
       ccaaIds = selectedCCAA.map(location => location.id);
     }

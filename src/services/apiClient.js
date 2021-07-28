@@ -3,14 +3,15 @@ import axios from 'axios'
 class ApiClient {
     constructor() {
         this.apiClient = axios.create({
-            baseURL: 'http://localhost:5000'
+            baseURL: process.env.REACT_APP_API_URI,
+			withCredentials: true,
         })
     }
 
     // RESULTS
-    getSearchResults(query) {
+    getSearchResults(middleDateForApiRequest, idsForApiRequest) {
         return this.apiClient
-                  .get(`/search${query}`)
+                  .post(`/search`, { middleDateForApiRequest, idsForApiRequest })
                   .then(({data}) => data)
     }
 

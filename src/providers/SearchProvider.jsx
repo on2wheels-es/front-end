@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { getCCAAIds } from '../helpers'
+import { createQueryStrings } from '../helpers'
 
 import moment from 'moment'
 import 'moment/locale/es'
@@ -49,10 +49,11 @@ const SearchProvider = (props) => {
   
     const onClickSearchHandler = () => {
       const { startDate, endDate, CCAA } = searchValues;
-      const locations = getCCAAIds(CCAA);
+      const locations = createQueryStrings(CCAA);
       history.push({
         pathname: '/search',
-        search: `?arrival=${moment(startDate).format("YYYY-MM-DD")}&departure=${moment(endDate).format("YYYY-MM-DD")}&locations=[${locations}]`,
+        search: `?arrival=${moment(startDate).format("YYYY-MM-DD")}&departure=${moment(endDate).format("YYYY-MM-DD")}&locations=${locations}`,
+        state: { selectedCCAA: CCAA }
       });
     };
  

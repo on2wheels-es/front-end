@@ -2,22 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 import queryString from 'query-string';
 import apiClient from '../services/apiClient';
+import moment from 'moment'
 import Header from '../components/Header/Header';
 import Container from '../components/Container';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 
-import { calculateMiddleDate } from '../helpers'
+import { calculateMiddleDate, getCCAAIds } from '../helpers'
 import MultiplePointMap from '../components/MultiplePointMap';
 
 export default function SearchResults(props) {
   const { search } = useLocation();
-  const { arrival, departure, locations } = queryString.parse(search);
-  console.log('search results', locations)
-
-  // call the Weather API and pass it the middleName
-  // eslint-disable-next-line no-unused-vars
+  const { arrival, departure } = queryString.parse(search);
+  const { selectedCCAA } = props.location.state;
+  const idsForApiRequest = getCCAAIds(selectedCCAA)
   const middleDateForApiRequest = calculateMiddleDate(arrival, departure);
-  console.log('api request', middleDateForApiRequest, locations)
 
   const [ municipalities, setMunicipalities ] = useState({
     municipalitiesData: [],
@@ -25,16 +23,16 @@ export default function SearchResults(props) {
   });
   
   useEffect(() => {
-    
     apiClient
-      .getSearchResults(props.location.search)
-      .then(response => {
-          setMunicipalities({
-            municipalitiesData: response,
-            status: 'loaded'
+            .getSearchResults(middleDateForApiRequest, idsForApiRequest)
+            .then(response => {
+             setMunicipalities({
+              municipalitiesData: response,
+              status: 'loaded'
+            });
           })
-      })
-      .catch(error => console.log(error))
+          .catch(error => console.log(error));
+      
   }, [])
   
   return (
@@ -45,7 +43,7 @@ export default function SearchResults(props) {
             <>
               <Header />
               <main>
-                <h1 className="mb-5">Search Results</h1>
+                <h3 className="mb-5 ">Los municipios con mejor tiempo para las fechas escogidas del {moment(arrival).format('DD-MM')} al {moment(departure).format('DD-MM')}</h3>
                 <MultiplePointMap data={municipalities.municipalitiesData}/>
                 <Container>
                   <PrintMunicipalityCard data={municipalities.municipalitiesData} />
