@@ -3,7 +3,7 @@ import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Container from '../components/Container';
 import Header from '../components/Header/Header';
-import Map from '../components/Map';
+import RouteGpxConverter from '../components/RouteGpxConverter';
 import DownloadBtn from '../components/DownloadBtn';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
@@ -56,11 +56,7 @@ export class RouteDetail extends Component {
                     <>
                       <div className="mb-8 md:flex items-start md:mb-16">
                         <div className="w-full mb-4 md:mb-0 md:w-7/12 md:mr-8 md:h-1/6 md:overflow-hidden">
-                            <Map data={[data]} zoom={7}>
-                                <h1>{data.name}</h1>
-                                <p>{data.distance} km</p>
-                                <p>{data.gradient} m</p>
-                            </Map>
+                            <RouteGpxConverter gpx='http://116.202.234.203/gpx/120.gpx' data={data}/>
                           </div>
                           <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
                             <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.name}</p>

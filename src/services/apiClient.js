@@ -27,6 +27,12 @@ class ApiClient {
                     .then(({data}) => data)
     }
 
+    drawBikeRoute(gpxFile) {
+        return this.apiClient
+                    .post(`/routes/drawBikeRoute`, {gpxFile})
+                    .then(({data}) => data)
+    }
+
     // MOUNTAIN PASSES
     getAllMountainPasses() {
         return this.apiClient
@@ -76,13 +82,6 @@ class ApiClient {
         return this.apiClient
                     .patch(`/removeFromFavourites/${id}/${type}`, {userID})
                     .then(({data}) => data)
-    }
-
-
-    checkIfFav(id,type,userID) {
-        return this.apiClient
-                    .post(`/checkIfFav`, {id, type, userID})
-                    .then(({data}) => data.isFavourited)
     }
 }
 
