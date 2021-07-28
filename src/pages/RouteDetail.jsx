@@ -68,7 +68,7 @@ export class RouteDetail extends Component {
                             </ul>
                           </div>
                         </div>
-                        <DownloadBtn gpx={data.gpx} name={data.name}/>
+                        <DownloadBtn gpx='http://116.202.234.203/gpx/120.gpx' name={data.name}/>
                         <Container title={"Municipios por donde pasaras"}>
                             <PrintMunicipalityCard data={dataMunicipalities} />
                         </Container>
