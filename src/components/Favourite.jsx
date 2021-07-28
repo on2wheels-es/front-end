@@ -39,7 +39,7 @@ class Favourite extends Component {
         }
     }
 
-    clickToUnfav = async (e) => {
+    clickToUnfav = async () => {
         const { id, type} = this.props
         const userID = this.props.user._id
         await this.props.removeFromFavourites({id,type, userID});
