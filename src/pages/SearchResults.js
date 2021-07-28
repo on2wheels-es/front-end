@@ -16,7 +16,8 @@ export default function SearchResults(props) {
 
   // call the Weather API and pass it the middleName
   // eslint-disable-next-line no-unused-vars
-  const middleDate = calculateMiddleDate(arrival, departure);
+  const middleDateForApiRequest = calculateMiddleDate(arrival, departure);
+  console.log('api request', middleDateForApiRequest, locations)
 
   const [ municipalities, setMunicipalities ] = useState({
     municipalitiesData: [],
@@ -24,6 +25,7 @@ export default function SearchResults(props) {
   });
   
   useEffect(() => {
+    
     apiClient
       .getSearchResults(props.location.search)
       .then(response => {
