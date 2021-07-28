@@ -11,7 +11,8 @@ import MultiplePointMap from '../components/MultiplePointMap';
 
 export default function SearchResults(props) {
   const { search } = useLocation();
-  const { arrival, departure } = queryString.parse(search);
+  const { arrival, departure, locations } = queryString.parse(search);
+  console.log('search results', locations)
 
   // call the Weather API and pass it the middleName
   // eslint-disable-next-line no-unused-vars
