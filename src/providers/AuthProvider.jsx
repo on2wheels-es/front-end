@@ -98,16 +98,14 @@ class AuthProvider extends Component {
   }
 
   addToFavourites = async ({id,type, userID}) => {
-    console.log('addToFavourites')
     try {
       const user = await apiClientNotAuth.addToFavourites(id,type,userID)
-      console.log('add', user)
+      console.log(user)
       this.setState({
         status: 'loggedIn',
         user,
       })
     } catch (e) {
-        console.log('add failed')
         this.setState({
           status: 'loggedOut',
           user: null,
@@ -116,9 +114,9 @@ class AuthProvider extends Component {
   }
 
   removeFromFavourites = async ({id,type, userID}) => {
-    console.log('remove')
     try {
       const user = await apiClientNotAuth.removeFromFavourites(id,type, userID)
+      console.log(user)
       this.setState({
         status: 'loggedIn',
         user,

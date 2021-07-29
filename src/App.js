@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
 import Profile from './pages/Profile';
+import Favourites from './pages/Favourites';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
@@ -26,6 +27,7 @@ class App extends Component {
 					<AnonRoute path="/signup"  redirect='/profile' component={Signup} />
 					<AnonRoute path="/login" redirect='/' component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
+					<Route path="/favourites" component={Favourites} />
 				</Switch>
 			</>
 		);
