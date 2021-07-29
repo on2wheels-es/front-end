@@ -13,7 +13,6 @@ export class EditProfileForm extends Component {
           firstName,
           lastName,
           email,
-          municipality,
           gender,
           dayOfBirth,
           monthOfBirth,
@@ -27,36 +26,19 @@ export class EditProfileForm extends Component {
         })
     }
 
-    checkValuesToUpdate = (obj) => {
-        let valuesToUpdate;
-        // make a for loop
-        for (const key in obj) {
-            console.log('obj[key', obj[key])
-            if (obj[key] === null || obj[key] === "") {
-                console.log('empty')
-             return alert(`${[key]} is empty`) 
-            } 
-            valuesToUpdate = { [key]: obj[key] };  
-        }
-        return valuesToUpdate;
-    }
-
     handleFormSubmit = (e) => {
         e.preventDefault()
-        console.log('state is', this.state)
-        const valuesToUpdate = this.checkValuesToUpdate(this.state);
-        console.log('values to update', valuesToUpdate)
-    
-        /*
-
-        const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
+        const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender, email } = this.state;
+        if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender || !email) {
+          return alert(`Por favor rellena todos los campos`)
+        }
         const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
-        this.props.updateUserProfile({ dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender, email, birthday });
-        */
+        const valuesToUpdate = {...this.state, birthday };
+  
+        this.props.updateUserProfile(valuesToUpdate);
     }
 
     render() {
-        console.log('edit profile',this.props.user)
         const { firstName, lastName , email, municipality, gender, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
 
         return (
@@ -82,17 +64,9 @@ export class EditProfileForm extends Component {
             <label className="block text-lg font-medium text-gray-700">Email</label>
             <input 
               type="text" 
-              name="lastName" 
+              name="email" 
               value={email} 
               onChange={this.handleChange} 
-            />
-
-            <label className="block text-lg font-medium text-gray-700">Provincia</label>
-            <input 
-              type="text" 
-              name="municipality" 
-              value={municipality} 
-              onChange={this.handleChange}
             />
 
             <div>

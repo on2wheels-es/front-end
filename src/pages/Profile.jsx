@@ -27,7 +27,6 @@ class Profile extends Component {
 	}
 
 	render() {
-    console.log(this.state)
 	  const { user: { firstName, lastName , email, municipality, birthday, gender, isNewUser, favouriteRoutes, favouritePasses, favouriteLocations } } = this.props;
     const view = this.state.mode === 'view';
 
@@ -88,7 +87,7 @@ class Profile extends Component {
                   />
                   <label className="block text-lg font-medium text-gray-700">Fecha de nacimiento</label>
                   <input 
-                    type="date" 
+                    type="text" 
                     name="birthday" 
                     value={birthday || 'Fecha de nacimiento'} 
                     placeholder={birthday || 'Fecha de nacimiento'} 
