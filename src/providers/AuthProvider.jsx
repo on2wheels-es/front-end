@@ -36,6 +36,7 @@ class AuthProvider extends Component {
     this.state = {
       status: 'loading',
       user: null,
+      renderChild: false,
     }
   }
 
@@ -45,12 +46,13 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedIn',
         user,
+        renderChild: true
       })
     } catch (e) {
       this.setState({
         status: 'loggedOut',
         user: null,
-        
+        renderChild: true
       })  
       console.log(e);
     }
@@ -162,23 +164,28 @@ class AuthProvider extends Component {
   }
 
   render() {
-    const { user, status } = this.state;
+    const { user, status, renderChild } = this.state;
      
     return (
-      <Provider value={{ 
-          isLoading: status === 'loading',
-          isLoggedIn: status === 'loggedIn',
-          isLoggedOut: status === 'loggedOut',
-          user,
-          login: this.login, 
-          signup: this.signup,
-          createUserProfile: this.createUserProfile,
-          logout: this.logout,
-          addToFavourites: this.addToFavourites,
-          removeFromFavourites: this.removeFromFavourites,
-      }}>
-        {this.props.children}
-      </Provider>
+      <>
+        {renderChild 
+          ? (
+              <Provider value={{ 
+                isLoading: status === 'loading',
+                isLoggedIn: status === 'loggedIn',
+                isLoggedOut: status === 'loggedOut',
+                user,
+                login: this.login, 
+                signup: this.signup,
+                createUserProfile: this.createUserProfile,
+                logout: this.logout,
+                addToFavourites: this.addToFavourites,
+                removeFromFavourites: this.removeFromFavourites,
+            }}>
+              {this.props.children}
+            </Provider>) 
+        : "Loading" }
+      </>
     )
   }
 }

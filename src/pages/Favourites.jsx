@@ -25,10 +25,9 @@ class Favourites extends Component {
     async componentDidMount() {
         try {
             const userID = await this.props.user._id
-            console.log(userID)
 
             const response = await apiClient.getUser(userID);
-            console.log(response)
+
             this.setState({
                 status: 'loaded',
                 favouriteMunicipalities: response.favouriteLocations,
@@ -97,6 +96,7 @@ class Favourites extends Component {
     render() {
         const { status } = this.state
         const providerStatusLoading = this.props.isLoading
+
         return (
           <>
             <Header>

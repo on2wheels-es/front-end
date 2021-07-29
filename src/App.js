@@ -27,7 +27,7 @@ class App extends Component {
 					<AnonRoute path="/signup"  redirect='/profile' component={Signup} />
 					<AnonRoute path="/login" redirect='/' component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
-					<Route path="/favourites" component={Favourites} />
+					<PrivateRoute path="/favourites" component={Favourites} />
 				</Switch>
 			</>
 		);
