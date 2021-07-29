@@ -36,6 +36,7 @@ class AuthProvider extends Component {
     this.state = {
       status: 'loading',
       user: null,
+      renderChild: false,
     }
   }
 
@@ -45,12 +46,13 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedIn',
         user,
+        renderChild: true
       })
     } catch (e) {
       this.setState({
         status: 'loggedOut',
         user: null,
-        
+        renderChild: true
       })  
       console.log(e);
     }
@@ -98,16 +100,14 @@ class AuthProvider extends Component {
   }
 
   addToFavourites = async ({id,type, userID}) => {
-    console.log('addToFavourites')
     try {
       const user = await apiClientNotAuth.addToFavourites(id,type,userID)
-      console.log('add', user)
       this.setState({
         status: 'loggedIn',
         user,
       })
+      console.log(user)
     } catch (e) {
-        console.log('add failed')
         this.setState({
           status: 'loggedOut',
           user: null,
@@ -116,9 +116,9 @@ class AuthProvider extends Component {
   }
 
   removeFromFavourites = async ({id,type, userID}) => {
-    console.log('remove')
     try {
       const user = await apiClientNotAuth.removeFromFavourites(id,type, userID)
+      console.log(user)
       this.setState({
         status: 'loggedIn',
         user,
@@ -164,23 +164,28 @@ class AuthProvider extends Component {
   }
 
   render() {
-    const { user, status } = this.state;
+    const { user, status, renderChild } = this.state;
      
     return (
-      <Provider value={{ 
-          isLoading: status === 'loading',
-          isLoggedIn: status === 'loggedIn',
-          isLoggedOut: status === 'loggedOut',
-          user,
-          login: this.login, 
-          signup: this.signup,
-          updateUserProfile: this.updateUserProfile,
-          logout: this.logout,
-          addToFavourites: this.addToFavourites,
-          removeFromFavourites: this.removeFromFavourites,
-      }}>
-        {this.props.children}
-      </Provider>
+      <>
+        {renderChild 
+          ? (
+              <Provider value={{ 
+                isLoading: status === 'loading',
+                isLoggedIn: status === 'loggedIn',
+                isLoggedOut: status === 'loggedOut',
+                user,
+                login: this.login, 
+                signup: this.signup,
+                updateUserProfile: this.updateUserProfile,
+                logout: this.logout,
+                addToFavourites: this.addToFavourites,
+                removeFromFavourites: this.removeFromFavourites,
+            }}>
+              {this.props.children}
+            </Provider>) 
+        : "Loading" }
+      </>
     )
   }
 }
