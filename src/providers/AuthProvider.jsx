@@ -18,7 +18,7 @@ export const withAuth = (Comp) => {
               logout={authProvider.logout}
               login={authProvider.login} 
               signup={authProvider.signup} 
-              createUserProfile={authProvider.createUserProfile}
+              updateUserProfile={authProvider.updateUserProfile}
               addToFavourites={authProvider.addToFavourites}
               removeFromFavourites={authProvider.removeFromFavourites}
               {...this.props}
@@ -131,13 +131,13 @@ class AuthProvider extends Component {
     }
   }
 
-  createUserProfile = async ({ firstName, lastName, birthday, gender }) => {
+  updateUserProfile = async (userInfo) => {
     try {
       this.setState({
         status: 'loading',
         user: null,
       })
-      const user = await apiClient.createUserProfile({ firstName, lastName, birthday, gender })
+      const user = await apiClient.updateUserProfile(userInfo)
       this.setState({
         status: 'loggedIn',
         user,
@@ -174,7 +174,7 @@ class AuthProvider extends Component {
           user,
           login: this.login, 
           signup: this.signup,
-          createUserProfile: this.createUserProfile,
+          updateUserProfile: this.updateUserProfile,
           logout: this.logout,
           addToFavourites: this.addToFavourites,
           removeFromFavourites: this.removeFromFavourites,

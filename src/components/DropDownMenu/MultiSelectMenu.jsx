@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Select, { components } from "react-select";
 
-const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, placeholder}) => {
+const MultiSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, placeholder}) => {
   const [selectedValue, setSelectedValue ] = useState(defaultSelectedValue || null);
 
   const handleChange = (newSelectedValue) => {
@@ -46,4 +46,4 @@ const CustomDropdownMenu = ({data, handleSelectedValue, defaultSelectedValue, pl
   );
 };
 
-export default CustomDropdownMenu;
+export default MultiSelectMenu;

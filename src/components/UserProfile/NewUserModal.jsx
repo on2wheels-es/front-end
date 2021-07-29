@@ -1,19 +1,20 @@
 import React, { Component } from "react";
-import CustomDropdownMenu from "./CustomDropdownMenu";
-import { withAuth } from "../providers/AuthProvider";
-import { genderOptions } from "../data/data"
-import { giveFormatToBirthday } from "../helpers"
+import SingleSelectMenu from "../DropDownMenu/SingleSelectMenu";
+import { withAuth } from "../../providers/AuthProvider";
+import { genderOptions } from "../../data/data"
+import { giveFormatToBirthday } from "../../helpers"
 
-class UserDetailsPopUp extends Component  {
+class NewUserModal extends Component  {
     constructor(props) {
         super(props);
         this.state = {
           firstName: '',
           lastName: '',
-          dayOfBirthday: '',
-          monthOfBirthday: '',
-          yearOfBirthday:'',
+          dayOfBirth: '',
+          monthOfBirth: '',
+          yearOfBirth:'',
           gender: '',
+          popupOpen: true,
         }
     }
 
@@ -25,15 +26,22 @@ class UserDetailsPopUp extends Component  {
 
     handleFormSubmit = (e) => {
       e.preventDefault()
-      const { dayOfBirthday, monthOfBirthday, yearOfBirthday, firstName, lastName, gender } = this.state;
-      const birthday = giveFormatToBirthday(dayOfBirthday, monthOfBirthday, yearOfBirthday);
-      this.props.createUserProfile({ firstName, lastName, gender, birthday });
+      const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
+      const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
+      this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth });
+    }
+
+    popupClose = () => {
+      this.setState({
+        popupOpen: false
+      })
     }
 
     render() {
-        const { firstName, lastName, dayOfBirthday, monthOfBirthday, yearOfBirthday } = this.state;
+        const { firstName, lastName, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
         return (
-            <div>
+            <div className=" bg-red-400 w-full h-full">
+              <div className="modal-content">
                 <form onSubmit={this.handleFormSubmit}>
                     <label className="block text-lg font-medium text-gray-700">Nombre</label>
                     <input type="text" name="firstName" value={firstName} onChange={this.handleChange} className="form-input" />
@@ -45,22 +53,22 @@ class UserDetailsPopUp extends Component  {
                       <p>Fecha de nacimiento</p>
                       <div>
                         <label className="block text-lg font-medium text-gray-700">Día</label>
-                        <input type="number" maxLength="2" name="dayOfBirthday" value={dayOfBirthday} onChange={this.handleChange} className="form-input" />
+                        <input type="number" maxLength="2" name="dayOfBirth" value={dayOfBirth} onChange={this.handleChange} className="form-input" />
                       </div>
                       <div>
                         <label className="block text-lg font-medium text-gray-700">Mes</label>
-                        <input type="number" maxLength="2" name="monthOfBirthday" value={monthOfBirthday} onChange={this.handleChange} className="form-input" />
+                        <input type="number" maxLength="2" name="monthOfBirth" value={monthOfBirth} onChange={this.handleChange} className="form-input" />
                       </div>
                       <div>
                         <label className="block text-lg font-medium text-gray-700">Año</label>
-                        <input type="number" maxLength="4" name="yearOfBirthday" value={yearOfBirthday} onChange={this.handleChange} className="form-input" />
+                        <input type="number" maxLength="4" name="yearOfBirth" value={yearOfBirth} onChange={this.handleChange} className="form-input" />
                       </div>
                     </div>
 
-                    <CustomDropdownMenu 
+                    <SingleSelectMenu 
                       data={genderOptions}  
                       handleSelectedValue={(selectedValue) => this.setState({gender: selectedValue.value})} 
-                      placeholder={''}
+                      placeholder={'Género'}
                     />
 
                     <div>
@@ -69,10 +77,12 @@ class UserDetailsPopUp extends Component  {
                     </div>
 
                 </form> 
+                <button className="close" onClick={this.popupClose}>Close</button>
+              </div>
             </div>
         )
     }
 }
 
-export default withAuth(UserDetailsPopUp);
+export default withAuth(NewUserModal);
 
