@@ -20,18 +20,22 @@ const BikeRouteMap = (props) => {
 
     map.on("load", () => {
 
-        map.addSource("running-routes", {
+        map.addSource("route", {
         type: "geojson",
         data: props.geoJsonData
         });
     
         map.addLayer({
-        id: "running-routes-line",
-        type: "line",
-        source: "running-routes",
+        'id': 'route',
+        'type': 'line',
+        'source': 'route',
+        'layout': {
+        'line-join': 'round',
+        'line-cap': 'round',
+        },
         paint: {
-            "line-color": "#15cc09",
-            "line-width": 4,
+            "line-color": "#ef8451",
+            "line-width": 6,
         },
         })
     })
@@ -44,7 +48,7 @@ const BikeRouteMap = (props) => {
         return () => map.remove()
     }, [])
 
-    return <div ref={mapContainer} style={{ width: "100%", height: "100vh" }} />
+    return <div ref={mapContainer} style={{ width: "100%", height: "50vh" }} />
 }
 
 export default BikeRouteMap

@@ -56,7 +56,7 @@ export class RouteDetail extends Component {
                     <>
                       <div className="mb-8 md:flex items-start md:mb-16">
                         <div className="w-full mb-4 md:mb-0 md:w-7/12 md:mr-8 md:h-1/6 md:overflow-hidden">
-                            <RouteGpxConverter gpx='http://116.202.234.203/gpx/120.gpx' data={data}/>
+                            <RouteGpxConverter gpx='http://docs.mapbox.com/help/data/run.gpx' data={data}/>
                           </div>
                           <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
                             <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.name}</p>
@@ -68,7 +68,7 @@ export class RouteDetail extends Component {
                             </ul>
                           </div>
                         </div>
-                        <DownloadBtn gpx='http://116.202.234.203/gpx/120.gpx' name={data.name}/>
+                        <DownloadBtn gpx='http://docs.mapbox.com/help/data/run.gpx' name={data.name}/>
                         <Container title={"Municipios por donde pasaras"}>
                             <PrintMunicipalityCard data={dataMunicipalities} />
                         </Container>
