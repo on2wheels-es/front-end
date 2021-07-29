@@ -84,6 +84,13 @@ class ApiClient {
                     .patch(`/removeFromFavourites/${id}/${type}`, {userID})
                     .then(({data}) => data)
     }
+
+    // USERS
+    getUser(userID) {
+        return this.apiClient
+                    .post(`/user`, {userID})
+                    .then(({data}) => data)
+    }
 }
 
 const apiClient = new ApiClient();

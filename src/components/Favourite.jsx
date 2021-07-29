@@ -18,6 +18,7 @@ class Favourite extends Component {
             } else if (type === 'routes' && user.favouriteRoutes.length > 0) {
                 return user.favouriteRoutes.includes(id);
             } else if (type === 'municipality' && user.favouriteLocations.length > 0) {
+                console.log('user',user,'id', id, 'Albolote fav', user.favouriteLocations.includes(id))
                 return user.favouriteLocations.includes(id);
             } else {
                 return false;
