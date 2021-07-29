@@ -100,11 +100,11 @@ class AuthProvider extends Component {
   addToFavourites = async ({id,type, userID}) => {
     try {
       const user = await apiClientNotAuth.addToFavourites(id,type,userID)
-      console.log(user)
       this.setState({
         status: 'loggedIn',
         user,
       })
+      console.log(user)
     } catch (e) {
         this.setState({
           status: 'loggedOut',

@@ -24,7 +24,8 @@ class Favourites extends Component {
 
     async componentDidMount() {
         try {
-            const userID = '60fbd8e5380c340eac216678' // this.props.user._id
+            const userID = await this.props.user._id
+            console.log(userID)
 
             const response = await apiClient.getUser(userID);
             console.log(response)
@@ -94,8 +95,8 @@ class Favourites extends Component {
     }
 
     render() {
-        const { favouriteMunicipalities, favouritePasses, favouriteRoutes, status } = this.state
-        console.log(favouriteMunicipalities, favouritePasses, favouriteRoutes)
+        const { status } = this.state
+        const providerStatusLoading = this.props.isLoading
         return (
           <>
             <Header>
@@ -104,8 +105,8 @@ class Favourites extends Component {
                 </div>
             </Header>
             <main>
-                {status === 'loading' && <img src={gif} alt="gif" />}
-                {status === 'loaded' && (
+                {(status === 'loading' && providerStatusLoading) && <img src={gif} alt="gif" />}
+                {(status === 'loaded' && !providerStatusLoading) && (
                     <>
                         <Container title={"Municipios"}>
                             {this.printMunicipalities()}
