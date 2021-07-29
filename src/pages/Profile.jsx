@@ -67,7 +67,7 @@ class Profile extends Component {
               { view ?
                (
                  <div>  
-                  <label className="block text-lg font-medium text-gray-700">Nombre</label>
+                  <label>Nombre</label>
                   <input 
                     type="text" 
                     name="firstName" 
@@ -76,7 +76,7 @@ class Profile extends Component {
                     readOnly
                   />
 
-                  <label className="block text-lg font-medium text-gray-700">Apellidos</label>
+                  <label>Apellidos</label>
                   <input 
                     type="text" 
                     name="lastName" 
@@ -85,7 +85,7 @@ class Profile extends Component {
                     readOnly
                   />
 
-                  <label className="block text-lg font-medium text-gray-700">Email</label>
+                  <label>Email</label>
                   <input 
                     type="text" 
                     name="email" 
@@ -94,7 +94,7 @@ class Profile extends Component {
                     readOnly
                   />
 
-                  <label className="block text-lg font-medium text-gray-700">Provincia</label>
+                  <label>Provincia</label>
                   <input 
                     type="text" 
                     name="municipality" 
@@ -102,7 +102,7 @@ class Profile extends Component {
                     placeholder={municipality || 'Provincia donde vives'} 
                     readOnly
                   />
-                  <label className="block text-lg font-medium text-gray-700">Fecha de nacimiento</label>
+                  <label>Fecha de nacimiento</label>
                   <input 
                     type="text" 
                     name="birthday" 
@@ -111,7 +111,7 @@ class Profile extends Component {
                     readOnly
                   />
 
-                  <label className="block text-lg font-medium text-gray-700">Género</label>
+                  <label>Género</label>
                   <input 
                     type="text" 
                     name="gender" 

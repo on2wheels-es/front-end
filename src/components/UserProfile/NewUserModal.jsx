@@ -39,44 +39,61 @@ class NewUserModal extends Component  {
     render() {
         const { firstName, lastName, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
         return (
-            <div className=" bg-red-400 w-full h-full">
-              <div className="modal-content">
-                <form onSubmit={this.handleFormSubmit}>
-                    <label className="block text-lg font-medium text-gray-700">Nombre</label>
+            <div className="popup">
+              <div className="relative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:p-16 rounded-xl shadow-xl">
+                <h2 className="mb-4">Completa tu perfil</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                
+                <form onSubmit={this.handleFormSubmit} className="flex flex-col space-y-6 mt-4">
+                  <div>
+                    <label>Nombre</label>
                     <input type="text" name="firstName" value={firstName} onChange={this.handleChange} className="form-input" />
-
-                    <label className="block text-lg font-medium text-gray-700">Apellidos</label>
+                  </div>
+                  <div>
+                    <label>Apellidos</label>
                     <input type="text" name="lastName" value={lastName} onChange={this.handleChange} className="form-input" />
+                  </div>
 
-                    <div>
-                      <p>Fecha de nacimiento</p>
-                      <div>
-                        <label className="block text-lg font-medium text-gray-700">Día</label>
-                        <input type="number" maxLength="2" name="dayOfBirth" value={dayOfBirth} onChange={this.handleChange} className="form-input" />
-                      </div>
-                      <div>
-                        <label className="block text-lg font-medium text-gray-700">Mes</label>
-                        <input type="number" maxLength="2" name="monthOfBirth" value={monthOfBirth} onChange={this.handleChange} className="form-input" />
-                      </div>
-                      <div>
-                        <label className="block text-lg font-medium text-gray-700">Año</label>
-                        <input type="number" maxLength="4" name="yearOfBirth" value={yearOfBirth} onChange={this.handleChange} className="form-input" />
+                  <div>
+                    <p className="body_primary_semibold mb-2 font-base">Fecha de nacimiento</p>
+                      <div className="flex space-x-8">
+                        <div>
+                          <label>Día</label>
+                          <input type="number" maxLength="2" name="dayOfBirth" value={dayOfBirth} onChange={this.handleChange} className="form-input" />
+                        </div>
+                        <div>
+                          <label>Mes</label>
+                          <input type="number" maxLength="2" name="monthOfBirth" value={monthOfBirth} onChange={this.handleChange} className="form-input" />
+                        </div>
+                        <div>
+                          <label>Año</label>
+                          <input 
+                            type="number" 
+                            name="yearOfBirth" 
+                            value={yearOfBirth} 
+                            onChange={this.handleChange} 
+                            className="form-input" 
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    <SingleSelectMenu 
-                      data={genderOptions}  
-                      handleSelectedValue={(selectedValue) => this.setState({gender: selectedValue.value})} 
-                      placeholder={'Género'}
-                    />
-
                     <div>
-                      <a href="#">Completar más tarde</a>
-                      <button type="submit">Guadar información</button>
+                      <label>Género</label>
+                      <div className="form-input pr-2">
+                        <SingleSelectMenu 
+                          data={genderOptions}  
+                          handleSelectedValue={(selectedValue) => this.setState({gender: selectedValue.value})} 
+                          placeholder={'Género'}
+                        />
+                      </div>
                     </div>
 
+                    <div className="flex justify-around">
+                      <button className="button text-primary-medium" onClick={this.handlePopUpClose}>Completar más tarde</button>
+                      <button type="submit" className="button-accent">Guadar información</button>
+                    </div>
                 </form> 
-                <button className="close" onClick={this.handlePopUpClose}>Close</button>
               </div>
             </div>
         )

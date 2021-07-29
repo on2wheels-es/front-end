@@ -11,7 +11,7 @@
 		@apply wrapper flex flex-col;
 	}
 	body {
-		@apply bg-neutral-light;
+		@apply bg-secundary-white;
 	}
 	h1 {
 		@apply text-lg font-base leading-none md:leading-tight md:leading-base md:text-xl font-heavy;
@@ -27,6 +27,9 @@
 	}
 	a {
 		@apply no-underline;
+	}
+	label {
+		@apply caption_regular_dark;
 	}
 }
 
@@ -72,6 +75,9 @@
 	.caption_regular {
 		@apply font-base leading-long text-nano font-regular text-secundary-lightest;
 	}
+	.caption_regular_dark {
+		@apply font-base leading-long text-nano md:text-xs font-regular text-neutral-semilight;
+	}
 	.footer_links {
 		@apply font-highlight leading-tight text-s md:leading-medium md:text-sm font-regular;
 	}
@@ -80,7 +86,7 @@
 		@apply bg-primary-medium py-2 px-4 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
 	}
 	.button {
-		@apply py-2 px-4 leading-medium rounded-xl text-neutral-white hover:shadow-xl text-xs font-bold hover:bg-primary-medium focus:shadow-xl focus:bg-primary-medium inline-block;
+		@apply py-2 px-4 leading-medium rounded-xl text-xs font-bold hover:underline focus:underline inline-block;
 	}
 	.button-accent-searchBar {
 		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
@@ -114,6 +120,11 @@
 		@apply flex flex-col align-bottom;
 	}
 
+	/* User profile */ 
+	.popup {
+		@apply bg-gray-500 bg-opacity-25  w-full h-full justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+	} 
+
 }
 
 .marker-btn {
@@ -125,34 +136,3 @@
 	width: 20px;
 	height: 20px;
 }
-
-.modal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-
-
-  /* Modal Content/Box */
-.modal-content {
-	background-color: #fefefe;
-	margin: 15% auto; /* 15% from the top and centered */
-	padding: 20px;
-	border: 1px solid #888;
-	width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button */
-  .close {
-	color: #aaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
-  }

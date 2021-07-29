@@ -20,12 +20,12 @@ class Header extends Component {
 							<ul className="flex justify-center p-0">
 								{isLoggedIn ? (
 									<>
-										<Link to="/profile"><li  className="text-center py-1 px-4 ml-8 rounded-lg hover:bg-indigo-500 hover:underline">Hola, {user.firstName}</li></Link>
-										<button onClick={logout} className="button ml-2">Cerrar sesión</button>
+										<Link to="/profile"><li  className="button text-neutral-medium mr-2">Hola, {user.firstName}</li></Link>
+										<button onClick={logout} className="button text-neutral-medium ml-2">Cerrar sesión</button>
 									</>
 								) : (
 									<>
-										<Link to="/login"><li className="button mr-2">Mi cuenta</li></Link>
+										<Link to="/login"><li className="button text-neutral-medium mr-2">Mi cuenta</li></Link>
 										<Link to="/signup"><li  className="button-accent">Regístrate</li></Link>
 									</>
 								)}

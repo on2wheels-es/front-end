@@ -9,15 +9,19 @@ const SingleSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, plac
     handleSelectedValue(newSelectedValue)
   }
  
-  const Option  = ({ children, ...props }) => { 
+  const Option = ({ children, ...props }) => { 
     return ( 
-    <div> 
+    <div className="mx-2"> 
       <components.Option {...props}> 
-        <input onChange={() => null} /> <label className="mx-1">{props.label}</label> 
+        <input type="checkbox" checked={props.isSelected} onChange={() => null} /> <label>{props.label}</label> 
       </components.Option> 
     </div> 
     ); 
   };
+
+  const colourStyles = {
+    control: styles => ({ ...styles, border: 0 }),
+   }
   
   return (
       <Select
@@ -25,7 +29,8 @@ const SingleSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, plac
         onChange={handleChange}
         options={data}
         components={{ Option }}
-        placeholder={placeholder}
+        placeholder={''}
+        styles={colourStyles}
       />
   );
 };
