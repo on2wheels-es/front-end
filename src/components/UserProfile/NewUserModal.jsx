@@ -14,7 +14,6 @@ class NewUserModal extends Component  {
           monthOfBirth: '',
           yearOfBirth:'',
           gender: '',
-          popupOpen: true,
         }
     }
 
@@ -24,17 +23,17 @@ class NewUserModal extends Component  {
       })
     }
 
-    handleFormSubmit = (e) => {
+    handleFormSubmit =(e) => {
       e.preventDefault()
       const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
       const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
-      this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth });
+      this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth, isNewUser: false });
     }
 
-    popupClose = () => {
-      this.setState({
-        popupOpen: false
-      })
+    handlePopUpClose = async (e) => {
+      e.preventDefault()
+      await this.props.updateUserProfile({ isNewUser: false });
+      this.props.onPopUpClose()
     }
 
     render() {
@@ -77,7 +76,7 @@ class NewUserModal extends Component  {
                     </div>
 
                 </form> 
-                <button className="close" onClick={this.popupClose}>Close</button>
+                <button className="close" onClick={this.handlePopUpClose}>Close</button>
               </div>
             </div>
         )

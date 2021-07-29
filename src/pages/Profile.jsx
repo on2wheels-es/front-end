@@ -9,8 +9,24 @@ class Profile extends Component {
 		super(props);
 		this.state= {
 			mode: 'view',
+      popUpOpen: false,
 		}
 	}
+
+  componentDidMount() {
+    const { isNewUser } = this.props.user;
+    if( isNewUser ) {
+      this.setState({
+        popUpOpen: true
+      })
+    }
+  }
+
+  handleClosePopUp = () => {
+    this.setState({
+        popUpOpen: false,
+    })
+  }
 
   changeToEditMode = () => {
     console.log('edit mode')
@@ -27,14 +43,15 @@ class Profile extends Component {
 	}
 
 	render() {
-	  const { user: { firstName, lastName , email, municipality, birthday, gender, isNewUser, favouriteRoutes, favouritePasses, favouriteLocations } } = this.props;
+	  const { user: { firstName, lastName , email, municipality, birthday, gender, favouriteRoutes, favouritePasses, favouriteLocations } } = this.props;
+    const { popUpOpen } = this.state;
     const view = this.state.mode === 'view';
 
 		return (
 			<>
 				<Header />
 				<main>
-					{isNewUser && <NewUserModal />}
+					{ popUpOpen && <NewUserModal onPopUpClose={this.handleClosePopUp}/>}
 					<div>
 						<div>
 							<img src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="profile picture" />
