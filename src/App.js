@@ -14,6 +14,7 @@ import MountainPassDetail from './pages/MountainPassDetail';
 import SearchResults from './pages/SearchResults';
 import MunicipalityDetail from './pages/MuncipalityDetail';
 import RouteDetail from './pages/RouteDetail';
+import NotFound from './components/NotFound'
 
 class App extends Component {
 	render() {
@@ -29,6 +30,7 @@ class App extends Component {
 					<AnonRoute path="/login" redirect='/' component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
 					<PrivateRoute path="/favourites" component={Favourites} />
+					<Route  component={NotFound} />
 				</Switch>
 				<NotificationContainer />
 			</>
