@@ -11,7 +11,7 @@
 		@apply wrapper flex flex-col;
 	}
 	body {
-		@apply bg-secundary-white;
+		@apply bg-secundary-white m-0;
 	}
 	h1 {
 		@apply text-lg font-base leading-none md:leading-tight md:leading-base md:text-xl font-heavy;
@@ -78,12 +78,18 @@
 	.caption_regular_dark {
 		@apply font-base leading-long text-nano md:text-xs font-regular text-neutral-semilight;
 	}
+	.caption_regular_light {
+		@apply font-base leading-long text-nano md:text-xs font-regular text-neutral-white;
+	}
 	.footer_links {
 		@apply font-highlight leading-tight text-s md:leading-medium md:text-sm font-regular;
 	}
 	/* Buttons*/
 	.button-accent {
 		@apply bg-primary-medium py-2 px-4 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
+	}
+	.button-accent-big {
+		@apply bg-primary-medium py-3 px-4 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
 	}
 	.button {
 		@apply py-2 px-4 leading-medium rounded-xl text-xs font-bold hover:underline focus:underline inline-block;
@@ -113,7 +119,7 @@
 		@apply rounded bg-neutral-white overflow-hidden shadow-xl px-5 py-10 max-w-screen-md;
 	}
 	.form-input {
-		@apply mt-1  block w-full shadow-sm border-2 border-neutral-lightest rounded-md py-2 pl-4;
+		@apply mt-1 block w-full shadow-sm border-2 border-neutral-lightest rounded-md py-2 pl-4;
 	}
 	/* Cards */
 	.card-content-details {
