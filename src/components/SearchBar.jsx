@@ -7,6 +7,8 @@ import SearchIcon from "./iconsSVG/SearchIcon";
 import { useSearchBar } from "../providers/SearchProvider";
 import { DateRangePicker } from "react-dates";
 import { ccaaOptions } from "../data/data"
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
 
 
 const SearchBar = () => {
@@ -16,8 +18,15 @@ const SearchBar = () => {
   const width = window.innerWidth;
   const breakpoint = 768;
 
+  const showWarningNotification = () => {
+    NotificationManager.warning('Rellena todos los campos', '', 800) 
+  }
+
   const onSearchSubmit = (e) => { 
     e.preventDefault();
+    if ( !startDate || ! endDate || !CCAA ) {
+      return showWarningNotification()
+    }
     onClickSearchHandler();
   };
 
