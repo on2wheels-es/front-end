@@ -11,7 +11,7 @@
 		@apply wrapper flex flex-col;
 	}
 	body {
-		@apply bg-secundary-white m-0;
+		@apply m-0;
 	}
 	h1 {
 		@apply text-lg font-base leading-none md:leading-tight md:leading-base md:text-xl font-heavy;

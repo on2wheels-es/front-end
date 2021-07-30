@@ -33,7 +33,7 @@ class Login extends Component {
         <div className="hidden md:w-1/2 md:block">
           <img className="object-cover object-bottom w-full h-full" src={loginImage}/>
         </div>
-        <div className="wrapper px-8 py-8 text-white bg-secundary-medium md:px-36 md:w-1/2 md:h-screen xl:py-48">
+        <div className="wrapper px-8 py-8 text-white bg-secundary-medium md:px-36 md:w-1/2 md:h-screen">
             <Link to="/"> 
                <p className="mb-8 hover:underline">{`< Volver a la página`}</p>
             </Link>
