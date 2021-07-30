@@ -40,7 +40,7 @@ export default class Home extends Component {
 
   render() {
     const { status, dataMunicipalities, dataMountainPasses } = this.state;
-    const stylesHeader = 'relative pb-64 mb-60';
+    const stylesHeader = 'relative pb-60 mb-44 md:mb-72';
 
     return (
       <>
@@ -50,7 +50,7 @@ export default class Home extends Component {
               <p className="text-s md:text-s leading-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <SearchBar />
-            <div className="w-11/12 md:w-9/12 mx-auto h-3/5 overflow-hidden absolute top-2/3 inset-x-2">
+            <div className="wrapper overflow-hidden absolute top-2/3 inset-x-2">
                 { status === 'loading' && <img src={gif} alt="gif" /> }
                 {status === 'loaded' && 
                   <MultiplePointMap data={dataMunicipalities} />
