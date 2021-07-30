@@ -7,14 +7,12 @@ import AuthProvider from './providers/AuthProvider';
 import SearchProvider from './providers/SearchProvider';
 
 ReactDOM.render(
-	<React.StrictMode>
 		<Router>
 			<SearchProvider>
 				<AuthProvider>
 					<App />
 				</AuthProvider>
 			</SearchProvider>
-		</Router>
-	</React.StrictMode>,
+		</Router>,
 	document.getElementById('root')
 );

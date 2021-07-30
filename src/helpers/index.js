@@ -1,5 +1,7 @@
 import moment from 'moment'
 import { ccaaOptions } from '../data/data'
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
 
 export const calculateMiddleDate = (arrival, departure) => {
     const date1 = new Date(arrival);
@@ -30,4 +32,25 @@ export const getCCAAIds = (selectedCCAA) => {
 
 export const giveFormatToBirthday = (day, month, year) => {
     return moment(new Date(`${year}-${month}-${day}`)).format('L');
+}
+
+export const createErrorNotification = (type) => {
+    switch (type) {
+        case 409:
+            NotificationManager.warning('Por favor, accede a tu cuenta', 'Este email ya esta registrado', 800);
+            break;
+        case 422:
+            NotificationManager.warning('Email o contraseña vacíos', 'Rellena todos los campos', 800);
+            break;
+        case 404:
+            NotificationManager.error('Si no tienes cuenta registrate', 'Email o contraseña no validos', 800);
+             break;
+       case (type.toString().charAt(0) === '5'):
+            NotificationManager.error('Si no tienes cuenta registrate', 'Email o contraseña no validos', 800);
+            break;
+        default:
+            NotificationManager.error('Intentalo más tarde', `Ha habido un error ${type}`, 800);
+            break;
+
+  }
 }

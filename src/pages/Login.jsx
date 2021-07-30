@@ -8,14 +8,14 @@ class Login extends Component {
     super(props)
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
 
-  handleFormSubmit = event => {
+  handleFormSubmit = async(event) => {
     event.preventDefault();
     const { email, password } = this.state;
-    this.props.login({
+    await this.props.login({
       email, 
       password
     })

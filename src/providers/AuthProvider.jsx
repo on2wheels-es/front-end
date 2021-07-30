@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import apiClient from "../services/authApiClient";
 import apiClientNotAuth from "../services/apiClient";
+import { createErrorNotification } from "../helpers"
+import 'react-notifications/lib/notifications.css';
 
 const { Consumer, Provider } = React.createContext();
 
@@ -14,6 +16,7 @@ export const withAuth = (Comp) => {
               isLoading={authProvider.isLoading} 
               isLoggedIn={authProvider.isLoggedIn}
               isLoggedOut={authProvider.isLoggedOut}
+              error={authProvider.error}
               user={authProvider.user}
               logout={authProvider.logout}
               login={authProvider.login} 
@@ -37,6 +40,7 @@ class AuthProvider extends Component {
       status: 'loading',
       user: null,
       renderChild: false,
+      error: null,
     }
   }
 
@@ -46,7 +50,8 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedIn',
         user,
-        renderChild: true
+        renderChild: true,
+        error: null
       })
     } catch (e) {
       this.setState({
@@ -54,16 +59,15 @@ class AuthProvider extends Component {
         user: null,
         renderChild: true
       })  
-      console.log(e);
     }
   }
 
   login = async ({ email, password }) => {
-
     try {
       this.setState({
         status: 'loading',
         user: null,
+        error: null,
       })
       const user = await apiClient.login({ email, password })
       this.setState({
@@ -75,6 +79,7 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedOut',
         user: null,
+        error: e.response.status
       })  
     }
   }
@@ -84,6 +89,7 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loading',
         user: null,
+        error: null,
       })
       const user = await apiClient.signup({ email, password })
       this.setState({
@@ -95,6 +101,7 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedOut',
         user: null,
+        error: e.response.status,
       })  
     }
   }
@@ -105,12 +112,14 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedIn',
         user,
+        error: null,
       })
       console.log(user)
     } catch (e) {
         this.setState({
           status: 'loggedOut',
           user: null,
+          error: e.response.status,
       })
     }
   }
@@ -122,11 +131,13 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedIn',
         user,
+        error: null,
       })
     } catch (e) {
         this.setState({
           status: 'loggedOut',
           user: null,
+          error: e.response.status,
       }) 
     }
   }
@@ -136,6 +147,7 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loading',
         user: null,
+        error: null,
       })
       const user = await apiClient.updateUserProfile(userInfo)
       this.setState({
@@ -147,6 +159,7 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedOut',
         user: null,
+        error: e.response.status,
       })  
     }
   }
@@ -157,14 +170,18 @@ class AuthProvider extends Component {
       this.setState({
         status: 'loggedOut',
         user: null,
+        error: null,
       })
-    } catch (e) {
 
+    } catch (e) {
+      this.setState({
+        error: e.response.status,
+      })
     }
   }
 
   render() {
-    const { user, status, renderChild } = this.state;
+    const { user, status, renderChild, error } = this.state;
      
     return (
       <>
@@ -175,6 +192,7 @@ class AuthProvider extends Component {
                 isLoggedIn: status === 'loggedIn',
                 isLoggedOut: status === 'loggedOut',
                 user,
+                error,
                 login: this.login, 
                 signup: this.signup,
                 updateUserProfile: this.updateUserProfile,
@@ -182,7 +200,9 @@ class AuthProvider extends Component {
                 addToFavourites: this.addToFavourites,
                 removeFromFavourites: this.removeFromFavourites,
             }}>
+              { (status !== 'loading' && error) && <div>{createErrorNotification(error)}</div>}
               {this.props.children}
+
             </Provider>) 
         : "Loading" }
       </>

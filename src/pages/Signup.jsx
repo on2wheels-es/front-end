@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import 'react-notifications/lib/notifications.css';
 import { Link } from "react-router-dom";
 import { withAuth } from "../providers/AuthProvider";
+
 
 class Signup extends Component {
   constructor(props) {
