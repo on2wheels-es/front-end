@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-
+import { withAuth } from './providers/AuthProvider';
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
 import Profile from './pages/Profile';
@@ -9,7 +11,6 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import MountainPassDetail from './pages/MountainPassDetail';
-import { withAuth } from './providers/AuthProvider';
 import SearchResults from './pages/SearchResults';
 import MunicipalityDetail from './pages/MuncipalityDetail';
 import RouteDetail from './pages/RouteDetail';
@@ -29,6 +30,7 @@ class App extends Component {
 					<PrivateRoute path="/profile" component={Profile} />
 					<PrivateRoute path="/favourites" component={Favourites} />
 				</Switch>
+				<NotificationContainer />
 			</>
 		);
 	}

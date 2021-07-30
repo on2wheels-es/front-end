@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
 import { withAuth } from "../providers/AuthProvider";
 import { withRouter } from 'react-router'
 
@@ -26,6 +28,14 @@ class Favourite extends Component {
         } 
     }
 
+    showSuccessNotification = () => {
+        NotificationManager.success('Añadido a tus favoritos', '', 800)
+    }
+
+    showInfoNotification = () => {
+        NotificationManager.info('Eliminado de tus  favoritos', '', 800)
+    }
+
     clickToFav = async (e) => {
         const { id, type, isLoggedIn } = this.props
         if (isLoggedIn) {
@@ -34,7 +44,7 @@ class Favourite extends Component {
             this.setState({            
                 favourited: true,
             })
-
+            this.showSuccessNotification()
         } else {
             return this.props.history.push('/login')
         }
@@ -47,6 +57,7 @@ class Favourite extends Component {
         this.setState({            
             favourited: false,
         })
+        this.showInfoNotification()
     }
 
     render() {
