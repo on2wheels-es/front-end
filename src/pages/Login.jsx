@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { withAuth } from "../providers/AuthProvider";
-import Header from '../components/Header'
+import Header from '../components/Header/Header'
 
 class Login extends Component {
   constructor(props) {
