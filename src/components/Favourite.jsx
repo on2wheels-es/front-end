@@ -29,11 +29,11 @@ class Favourite extends Component {
     }
 
     showSuccessNotification = () => {
-        NotificationManager.success('Añadido a tus favoritos', '', 800)
+        NotificationManager.success('Añadido a favoritos', '', 800)
     }
 
-    showInfoNotification = () => {
-        NotificationManager.info('Eliminado de tus  favoritos', '', 800)
+    showWarningNotification = () => {
+        NotificationManager.warning('Eliminado de favoritos', '', 800)
     }
 
     clickToFav = async (e) => {
@@ -57,7 +57,7 @@ class Favourite extends Component {
         this.setState({            
             favourited: false,
         })
-        this.showInfoNotification()
+        this.showWarningNotification()
     }
 
     render() {
