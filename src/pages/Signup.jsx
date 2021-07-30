@@ -71,7 +71,7 @@ class Signup extends Component {
                   <hr className="w-5/12"></hr>
               </div>
               <Link to="/signup">
-                <p className="text-center font-normal hover:font-heavy hover:text-primary-medium hover:underline focus:underline focus:text-primary-medium">Ya tienes una cuenta? Accede a ella!</p>
+                <p className="link-as-button">Ya tienes una cuenta? Accede a ella!</p>
               </Link>
             </div>
           </div>

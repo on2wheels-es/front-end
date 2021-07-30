@@ -71,7 +71,7 @@ class Login extends Component {
                 <hr className="w-5/12"></hr>
               </div>
               <Link to="/signup">
-                <p className="text-center font-normal hover:font-heavy hover:text-primary-medium hover:underline focus:underline focus:text-primary-medium">Crea una nueva cuenta</p>
+                <p className="link-as-button">Crea una nueva cuenta</p>
               </Link>
           </div>
         </div>

@@ -40,9 +40,8 @@ class NewUserModal extends Component  {
         const { firstName, lastName, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
         return (
             <div className="popup">
-              <div className="relative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:p-16 rounded-xl shadow-xl">
-                <h2 className="mb-4">Completa tu perfil</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div className="relative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:px-8 md:py-6 rounded-xl shadow-xl">
+                <h2 className="mb-6">Completa tu perfil</h2>
                 
                 <form onSubmit={this.handleFormSubmit} className="flex flex-col space-y-6 mt-4">
                   <div>
@@ -89,9 +88,9 @@ class NewUserModal extends Component  {
                       </div>
                     </div>
 
-                    <div className="flex justify-around">
-                      <button className="button text-primary-medium" onClick={this.handlePopUpClose}>Completar más tarde</button>
-                      <button type="submit" className="button-accent">Guadar información</button>
+                    <div className="flex justify-end">
+                      <button className="link-as-button" onClick={this.handlePopUpClose}>Completar más tarde</button>
+                      <button type="submit" className="button-accent-big ml-8">Guadar información</button>
                     </div>
                 </form> 
               </div>
