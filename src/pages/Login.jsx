@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-
 import { withAuth } from "../providers/AuthProvider";
-import SearchBar from '../components/SearchBar'
+import Header from '../components/Header'
 
 class Login extends Component {
   constructor(props) {
@@ -31,8 +30,8 @@ class Login extends Component {
     const { email, password } = this.state;
     return (
       <>
-      <SearchBar />
-			<div className="form-container">
+      <Header />
+			<div className="">
 				<div className="text-center">
 					<Link to="/">on2Wheels Logo</Link>
 					<h2 className="mt-6 text-center font-extrabold text-gray-900">Login to your account</h2>

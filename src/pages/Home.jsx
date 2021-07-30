@@ -51,7 +51,7 @@ export default class Home extends Component {
             </div>
             <SearchBar />
             <div className="wrapper overflow-hidden absolute top-2/3 inset-x-2">
-                { status === 'loading' && <img src={gif} alt="gif" /> }
+                { status === 'loading' && <p>Loading</p> }
                 {status === 'loaded' && 
                   <MultiplePointMap data={dataMunicipalities} />
                 }

@@ -7,7 +7,7 @@ class Header extends Component {
 		const { user, isLoggedIn, logout } = this.props;
 
 		return (
-		 <header className="py-2 mb-8 border-b bg-hero-image">
+		 <header className="py-2 mb-8 border-b">
 				<div className=" flex justify-between">
            <div className="site-title">
               <Link to="/">
