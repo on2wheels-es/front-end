@@ -71,7 +71,10 @@ module.exports = {
       },
       borderRadius: {
         '4xl': '2rem',
-      }
+      },
+      backgroundImage: (theme) => ({
+        'hero-image': `url("/src/images/hero-image.jpg")`,
+     }),
 	  }
 	},
 	variants: {

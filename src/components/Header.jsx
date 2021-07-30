@@ -8,7 +8,7 @@ class Header extends Component {
 		console.log(user);
 
 		return (
-			<header className="py-2 mb-8 border-b">
+			<header className="py-2 mb-8 border-b bg-hero-image">
 				<div className=" flex justify-between">
            <div className="site-title">
               <Link to="/">
