@@ -58,17 +58,19 @@ export class RouteDetail extends Component {
                         <div className="w-full mb-4 md:mb-0 md:w-7/12 md:mr-8 md:h-1/6 md:overflow-hidden">
                             <RouteGpxConverter gpx={data.gpx} data={data}/>
                           </div>
-                          <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                            <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.name}</p>
-                            <ul>
-                              <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance}m</li>
-                              <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {data.max_alt}m</li>
-                              <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {data.gradient}%</li>
-                              <li className="secondary_body_regular"><span className="caption_regular ml-1">Muncipios por los que pasa:</span> {data.municipalities_ids.length}</li>
-                            </ul>
+                          <div className="flex-col md:w-5/12">
+                            <div className=" bg-white p-6 rounded-xl shadow-xl mb-8">
+                                <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.name}</p>
+                                <ul>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance}m</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {data.max_alt}m</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {data.gradient}%</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Muncipios por los que pasa:</span> {data.municipalities_ids.length}</li>
+                                </ul>
+                            </div>
+                            <DownloadBtn gpx={data.gpx} name={data.name}/>
                           </div>
                         </div>
-                        <DownloadBtn gpx={data.gpx} name={data.name}/>
                         <Container title={"Municipios por donde pasaras"}>
                             <PrintMunicipalityCard data={dataMunicipalities} />
                         </Container>
