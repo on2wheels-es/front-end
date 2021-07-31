@@ -127,6 +127,8 @@
 
 }
 
+/* Overrides mapBox styles*/
+
 .marker-btn {
 	background: none;
 	border: none;
@@ -135,4 +137,14 @@
 .marker-btn img {
 	width: 20px;
 	height: 20px;
+}
+
+
+.mapboxgl-popup-content {
+	padding: 0;
+	width: 180px;
+}
+  
+.mapboxgl-popup-content-wrapper {
+	padding: 0;
 }
