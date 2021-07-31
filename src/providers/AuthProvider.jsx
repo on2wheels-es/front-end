@@ -144,20 +144,12 @@ class AuthProvider extends Component {
 
   updateUserProfile = async (userInfo) => {
     try {
-      this.setState({
-        status: 'loading',
-        user: null,
-        error: null,
-      })
       const user = await apiClient.updateUserProfile(userInfo)
       this.setState({
-        status: 'loggedIn',
         user,
       })
-
     } catch (e) {
       this.setState({
-        status: 'loggedOut',
         user: null,
         error: e.response.status,
       })  

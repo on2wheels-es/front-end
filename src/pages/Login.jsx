@@ -45,7 +45,7 @@ class Login extends Component {
               </div>
               <form className="flex flex-col space-y-8" onSubmit={this.handleFormSubmit}>
                 <div>
-                  <label className="caption_regular_light">Email</label>
+                  <label className="caption_regular_light text-white">Email</label>
                   <input 
                     className="form-input" 
                     type="text" 
@@ -54,7 +54,7 @@ class Login extends Component {
                     onChange={this.handleChange} />
                 </div>
                 <div>
-                  <label className="caption_regular_light">Password</label>
+                  <label className="caption_regular_light text-white">Password</label>
                   <input
                     type="password"
                     name="password"
@@ -63,7 +63,7 @@ class Login extends Component {
                     className="form-input"
                   />
                 </div>
-                <input className="button-accent-big" type="submit" value="Accede a tu cuenta" />
+                <input className="button-accent" type="submit" value="Accede a tu cuenta" />
               </form>
               <div className="flex my-6 items-center justify-between">
                 <hr className="w-5/12"></hr>

@@ -5,7 +5,7 @@ import { withAuth } from '../../providers/AuthProvider';
 
 class Header extends Component {
 	render() {
-		const { user, isLoggedIn, logout } = this.props;
+		const { isLoggedIn, logout } = this.props;
 		const homeStyles = this.props.homeHeader ? this.props.homeHeader : '';
 		return (
 			<header className={`py-2 mb-2 bg-secundary-medium ${homeStyles}`}>
@@ -20,7 +20,8 @@ class Header extends Component {
 							<ul className="flex justify-center p-0">
 								{isLoggedIn ? (
 									<>
-										<Link to="/profile"><li  className="button text-neutral-medium mr-2">Hola, {user.firstName}</li></Link>
+										<Link to="/profile"><li  className="button text-neutral-medium mr-2">Profile</li></Link>
+										<Link to="/favourites"><li  className="button text-neutral-medium mr-2">Favoritos</li></Link>
 										<button onClick={logout} className="button text-neutral-medium ml-2">Cerrar sesión</button>
 									</>
 								) : (

@@ -4,6 +4,7 @@ import SingleSelectMenu from "../DropDownMenu/SingleSelectMenu";
 import { withAuth } from "../../providers/AuthProvider";
 import { genderOptions } from "../../data/data";
 import { giveFormatToBirthday } from "../../helpers";
+import { withRouter } from 'react-router'
 
 export class EditProfileForm extends Component {
     constructor(props) {
@@ -36,6 +37,7 @@ export class EditProfileForm extends Component {
         const valuesToUpdate = {...this.state, birthday };
   
         this.props.updateUserProfile(valuesToUpdate);
+        return this.props.history.push('/profile')
     }
 
     render() {
@@ -99,4 +101,4 @@ export class EditProfileForm extends Component {
     }
 }
 
-export default withAuth(EditProfileForm)
+export default withRouter(withAuth(EditProfileForm));

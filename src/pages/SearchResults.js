@@ -7,15 +7,15 @@ import Header from '../components/Header/Header';
 import Container from '../components/Container';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 
-import { calculateMiddleDate, getCCAAIds } from '../helpers'
+// import { calculateMiddleDate, getCCAAIds } from '../helpers'
 import MultiplePointMap from '../components/MultiplePointMap';
 
 export default function SearchResults(props) {
   const { search } = useLocation();
   const { arrival, departure } = queryString.parse(search);
-  const { selectedCCAA } = props.location.state;
-  const idsForApiRequest = getCCAAIds(selectedCCAA)
-  const middleDateForApiRequest = calculateMiddleDate(arrival, departure);
+  // const { selectedCCAA } = props.location.state;
+  // const idsForApiRequest = getCCAAIds(selectedCCAA)
+  // const middleDateForApiRequest = calculateMiddleDate(arrival, departure);
 
   const [ municipalities, setMunicipalities ] = useState({
     municipalitiesData: [],
@@ -23,16 +23,24 @@ export default function SearchResults(props) {
   });
   
   useEffect(() => {
+    // apiClient
+    //         .getSearchResults(middleDateForApiRequest, idsForApiRequest)
+    //         .then(response => {
+    //          setMunicipalities({
+    //           municipalitiesData: response,
+    //           status: 'loaded'
+    //         });
+    //       })
+    //       .catch(error => console.log(error));
+    
     apiClient
-            .getSearchResults(middleDateForApiRequest, idsForApiRequest)
-            .then(response => {
-             setMunicipalities({
-              municipalitiesData: response,
-              status: 'loaded'
-            });
-          })
-          .catch(error => console.log(error));
-      
+      .getPopularMunicipalities()
+      .then(response => {
+        setMunicipalities({
+        municipalitiesData: response,
+        status: 'loaded'
+        });
+      })
   }, [])
   
   return (

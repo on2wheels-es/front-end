@@ -15,7 +15,7 @@ export default function MultiplePointMap(props) {
         height: '50vh',
         latitude: 40.415524,
         longitude: -3.707488,
-        zoom: 4.5
+        zoom: 4
     });
 
     const [selectedData, setSelectedData] = useState(null);
@@ -71,7 +71,7 @@ export default function MultiplePointMap(props) {
                             <p className="text-nano rounded-full h-5 w-5 flex items-center justify-center bg-gray-200 " onClick={() => {setSelectedData(null)}}>x</p>
                           </div>
                           <RoutesIcon text={selectedData.routes_number} />
-                          <MountainPassesIcon text={selectedData.length} />
+                          <MountainPassesIcon text={selectedData.mountain_passes_ids.length} />
                           <Link to={`/municipalities/${selectedData._id}`}>
                             <button className="button-accent text-s inline-block">+ Info</button>
                           </Link>
