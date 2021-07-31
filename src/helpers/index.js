@@ -54,3 +54,7 @@ export const createErrorNotification = (type) => {
 
   }
 }
+
+export const formatNumber = (num) => {
+    return num.toLocaleString();
+}
