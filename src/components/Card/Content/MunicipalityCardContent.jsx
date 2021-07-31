@@ -1,10 +1,11 @@
+/* eslint-disable camelcase */
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Favourite from '../../Favourite';
 
 export class MunicipalityCardContent extends Component {
   render() {
-    const { municipality, _id } = this.props.data;
+    const { municipality, _id, province, municipality_inhabitants } = this.props.data;
     return (
       <div className="inline-block flex w-96 h-44 md:flex-col md:w-72 md:h-96 bg-white hover:shadow-xl">
         <Link to={`/municipalities/${_id}`}>
@@ -18,7 +19,7 @@ export class MunicipalityCardContent extends Component {
         <div className="p-5 w-80 md:w-auto md:h-48">
           <h3>{municipality}</h3>
           <div className="flex flex-col justify-between items-end">
-              <p className="caption_regular">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p className="caption_regular">Municipio situado en {province} con una población de {municipality_inhabitants} habitantes.</p>
               <div className="mt-10 md:mt-12">
                 <Favourite type="municipality" id={_id}/>
               </div>
