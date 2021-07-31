@@ -8,6 +8,7 @@ import DownloadBtn from '../components/DownloadBtn';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
+import { formatNumber } from '../helpers'
 
 export class RouteDetail extends Component {
 
@@ -60,11 +61,11 @@ export class RouteDetail extends Component {
                           </div>
                           <div className="flex-col md:w-5/12">
                             <div className=" bg-white p-6 rounded-xl shadow-xl mb-8">
-                                <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.name}</p>
+                                <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
                                 <ul>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance}m</li>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {data.max_alt}m</li>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {data.gradient}%</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance} km</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {data.max_alt} m</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {formatNumber(data.gradient)} m</li>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Muncipios por los que pasa:</span> {data.municipalities_ids.length}</li>
                                 </ul>
                             </div>
