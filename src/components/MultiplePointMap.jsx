@@ -65,14 +65,15 @@ export default function MultiplePointMap(props) {
                         latitude={selectedData.coords.coordinates[0][1]}
                         longitude={selectedData.coords.coordinates[0][0]}
                         closeButton={false}
-                        // onClose = {() => {setSelectedData(null)}}
                         >
-                        <div>
+                        <div className="flex flex-col items-center space-y-2 mx-auto p-2">
+                          <div className="self-end">
+                            <p className="text-nano rounded-full h-5 w-5 flex items-center justify-center bg-gray-200 " onClick={() => {setSelectedData(null)}}>x</p>
+                          </div>
                           <RoutesIcon text={selectedData.routes_number} />
                           <MountainPassesIcon text={selectedData.length} />
-                          <button onClick={() => {setSelectedData(null)}}>Close</button>
                           <Link to={`/municipalities/${selectedData._id}`}>
-                             <button className="button-accent">+ Info</button>
+                            <button className="button-accent text-s inline-block">+ Info</button>
                           </Link>
                         </div>
                     </Popup>

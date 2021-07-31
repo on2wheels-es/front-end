@@ -77,6 +77,7 @@ export default function Map(props) {
 
                 {selectedData && (
                     <Popup 
+                        className="patata"
                         latitude={selectedData.coords.coordinates[0][1]}
                         longitude={selectedData.coords.coordinates[0][0]}
                         onClose = {() => {setSelectedData(null)}}
