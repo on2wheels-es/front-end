@@ -10,6 +10,8 @@ import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard'
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
 import MultiplePointMap from '../components/MultiplePointMap';
+import mapPlaceholder from "../images/map-placeholder.png"
+
 
 export default class Home extends Component {
 
@@ -51,7 +53,7 @@ export default class Home extends Component {
             </div>
             <SearchBar />
             <div className="wrapper overflow-hidden absolute top-2/3 inset-x-2">
-                { status === 'loading' && <p>Loading</p> }
+                { status === 'loading' && <img className="object-cover w-full h-full" src={mapPlaceholder}/> }
                 {status === 'loaded' && 
                   <MultiplePointMap data={dataMunicipalities} />
                 }
