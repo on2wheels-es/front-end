@@ -46,8 +46,8 @@ export default class Home extends Component {
       <>
         <Header homeHeader={stylesHeader}>
             <div className="text-neutral-medium mt-14 mb-8 md:mb-16 md:mt-32 md:text-center md:mx-auto md:w-9/12">
-              <h1 className="mb-2 md:mb-10">Descubre tu ruta</h1>
-              <p className="text-s md:text-s leading-short">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h1 className="mb-2 md:mb-10">Disfruta pedaleando</h1>
+              <p className="text-s md:text-s leading-short">Encuentra las destinaciones con mejor tiempo para salir a rodar</p>
             </div>
             <SearchBar />
             <div className="wrapper overflow-hidden absolute top-2/3 inset-x-2">

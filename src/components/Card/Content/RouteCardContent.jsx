@@ -5,6 +5,17 @@ import LocationIcon from '../../iconsSVG/LocationIcon'
 import RouteDistance from '../../iconsSVG/RouteDistance'
 
 export class RouteCardContent extends Component {
+
+  formatTitleLength = (name) => {
+    if(name.length > 45) {
+      const title = name.substring(0, 45) + ' ...'
+      return title
+    } else {
+      const title = name.split('.').join("");
+      return title
+    }
+  }
+
   render() {
     const { name, province, distance, _id } = this.props.data;
     return (
@@ -17,7 +28,7 @@ export class RouteCardContent extends Component {
             Fácil
           </div>
           <div className="flex flex-col space-y-6 md:space-y-8 md:mt-1">
-            <h3>{name}</h3>
+            <h3>{this.formatTitleLength(name)}</h3>
             <div className="flex justify-between items-end">
               <div >
                 <LocationIcon text={province}/>
