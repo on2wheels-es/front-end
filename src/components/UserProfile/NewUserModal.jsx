@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import SingleSelectMenu from "../DropDownMenu/SingleSelectMenu";
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
 import { withAuth } from "../../providers/AuthProvider";
 import { genderOptions } from "../../data/data"
-import { giveFormatToBirthday } from "../../helpers"
+import { giveFormatToBirthday, checkDayValues, checkMonthValues, checkYearValues } from "../../helpers";
 
 class NewUserModal extends Component  {
     constructor(props) {
@@ -18,6 +20,25 @@ class NewUserModal extends Component  {
     }
 
     handleChange = (e) =>{
+      if ( e.target.name === 'dayOfBirth') {
+        checkDayValues(e.target.value);
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+      }
+      if ( e.target.name === 'monthOfBirth') {
+        checkMonthValues(e.target.value);
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+      }
+      if ( e.target.name === 'yearOfBirth') {
+        checkYearValues(e.target.value);
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+      } 
+
       this.setState({
         [e.target.name]: e.target.value,
       })
@@ -26,6 +47,9 @@ class NewUserModal extends Component  {
     handleFormSubmit =(e) => {
       e.preventDefault()
       const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
+      if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender ) {
+        return NotificationManager.error('Para completar tu perfil, rellena todos los campos', '', 1000)
+      }
       const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
       this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth, isNewUser: false });
       return this.props.history.push('/profile')
