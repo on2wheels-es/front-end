@@ -15,7 +15,7 @@ function LocationIcon(props) {
             C256.08,96.312,223.784,64.008,184.08,64.008z M184.08,192.008c-30.872,0-56-25.12-56-56s25.128-56,56-56s56,25.12,56,56
             S214.952,192.008,184.08,192.008z"></path>
           </svg>
-          <p className="secondary_body_regular"><span className="caption_regular ml-1">Provincia:</span> {props.text}</p>
+          <p className="secondary_body_regular"><span className="caption_regular ml-1">{props.title || 'Provincia: '}</span> {props.text}</p>
         </span>
       </span>
     )

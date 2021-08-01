@@ -3,6 +3,9 @@ import Header from '../components/Header/Header';
 import NewUserModal from '../components/UserProfile/NewUserModal';
 import EditProfileForm from '../components/UserProfile/EditProfileForm';
 import { withAuth } from '../providers/AuthProvider';
+import RoutesIcon from '../components/iconsSVG/RoutesIcon'
+import LocationIcon from '../components/iconsSVG/LocationIcon'
+import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon'
 
 class Profile extends Component {
 	constructor(props) {
@@ -48,7 +51,7 @@ class Profile extends Component {
 	}
 
 	render() {
-	  const { user: { firstName, lastName , email, municipality, birthday, gender, favouriteRoutes, favouritePasses, favouriteLocations } } = this.props;
+	  const { user: { firstName, lastName, birthday, gender, favouriteRoutes, favouritePasses, favouriteLocations } } = this.props;
     const { popUpOpen } = this.state;
     const view = this.state.mode === 'view';
 
@@ -57,81 +60,69 @@ class Profile extends Component {
 				<Header />
 				<main>
 					{ popUpOpen && <NewUserModal onPopUpClose={this.handleClosePopUp}/>}
-          { view ?
-              (
+          
                 <div className="flex">
-                    <div className="w-2/5" >
-                      <img src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="profile picture" />
+                    <div className="w-2/5 items-start space-y-4" >
+                      <img className="w-1/3" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="profile picture" />
                       <div>
-                        <ul>
-                          <li>{favouriteRoutes.length || 0} Rutas guardadas</li>
-                          <li>{favouritePasses.length || 0} Puertos de montañas guardados</li>
-                          <li>{favouriteLocations.length || 0} Muncipios guardados</li>
-                        </ul>
+                        <h3>Elementos guardados</h3>
+                        <div className="flex flex-col items-start space-y-2">
+                          <RoutesIcon title={'Rutas: '} text={favouriteRoutes.length || 0}/>
+                          <MountainPassesIcon title={'Puertos: '}text={favouritePasses.length || 0} />
+                          <LocationIcon  title={'Muncipios: '} text={favouriteLocations.length || 0}/>
+                        </div>
                       </div>
                     </div>
-                    <div className="flex flex-col w-3/5">
-                        <label>Nombre</label>
-                        <input 
-                          type="text" 
-                          name="firstName" 
-                          value={firstName || 'Tu nombre'}
-                          placeholder={firstName || 'Tu nombre'}
-                          readOnly
-                        />
-
-                        <label>Apellidos</label>
-                        <input 
-                          type="text" 
-                          name="lastName" 
-                          value={lastName || 'Tu apellido'}
-                          placeholder={lastName || 'Tu apellido'}
-                          readOnly
-                        />
-
-                        <label>Email</label>
-                        <input 
-                          type="text" 
-                          name="email" 
-                          value={email || 'Tu email'}
-                          placeholder={email || 'Tu email'} 
-                          readOnly
-                        />
-
-                        <label>Provincia</label>
-                        <input 
-                          type="text" 
-                          name="municipality" 
-                          value={municipality || 'Provincia donde vives'} 
-                          placeholder={municipality || 'Provincia donde vives'} 
-                          readOnly
-                        />
-                        <label>Fecha de nacimiento</label>
-                        <input 
-                          type="text" 
-                          name="birthday" 
-                          value={birthday || 'Fecha de nacimiento'} 
-                          placeholder={birthday || 'Fecha de nacimiento'} 
-                          readOnly
-                        />
-
-                        <label>Género</label>
-                        <input 
-                          type="text" 
-                          name="gender" 
-                          value={gender || 'Género'} 
-                          placeholder={gender || 'Género'} 
-                          readOnly
-                        />
-
-
-                        <button onClick={this.changeToEditMode}>Editar información</button>
-                  </div>
-                </div>
-              )
-              :
-               (< EditProfileForm cancelEditMode={this.changeToViewMode}/>) 
+           { view ? 
+                  (
+                      <div className="flex flex-col w-3/5 space-y-2">
+                        <div className="flex flex-col">
+                          <label>Nombre</label>
+                          <input 
+                            type="text" 
+                            name="firstName" 
+                            value={firstName || 'Tu nombre'}
+                            placeholder={firstName || 'Tu nombre'}
+                            readOnly
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <label>Apellidos</label>
+                          <input 
+                            type="text" 
+                            name="lastName" 
+                            value={lastName || 'Tu apellido'}
+                            placeholder={lastName || 'Tu apellido'}
+                            readOnly
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <label>Fecha de nacimiento</label>
+                          <input 
+                            type="text" 
+                            name="birthday" 
+                            value={birthday || 'Fecha de nacimiento'} 
+                            placeholder={birthday || 'Fecha de nacimiento'} 
+                            readOnly
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <label>Género</label>
+                          <input 
+                            type="text" 
+                            name="gender" 
+                            value={gender || 'Género'} 
+                            placeholder={gender || 'Género'} 
+                            readOnly
+                          />
+                        </div>
+                          <button className="button-accent" onClick={this.changeToEditMode}>Editar información</button>
+                      </div>
+                  )
+                :
+                  (< EditProfileForm cancelEditMode={this.changeToViewMode}/>) 
             }
+          </div>
 				</main>
 			</>
 		);
