@@ -92,7 +92,7 @@
 		@apply py-2 px-4 leading-medium rounded-xl text-xs font-bold hover:underline focus:underline inline-block;
 	}
 	.button-accent-searchBar {
-		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
+		@apply bg-primary-medium py-5 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
 	}
 	.button-border {
 		@apply border-2 py-3 px-4 rounded-xl border-primary-medium hover:shadow-xl focus:shadow-xl;
@@ -108,10 +108,10 @@
 
 	/* Search bar */
 	.searchBar-container {
-		@apply mb-4 py-3 px-2 bg-neutral-medium-opacity rounded-xl shadow-md  w-full mx-auto md:w-full md:w-11/12 lg:w-10/12 md:py-1 md:px-1;
+		@apply py-5 px-2 bg-neutral-medium-opacity rounded-xl shadow-md  w-full mx-auto md:w-full md:py-2 md:w-11/12 lg:w-10/12;
 	}
 	.searchBar-container-flex {
-		@apply flex flex-col space-y-3.5 md:flex-row md:justify-between md:items-center md:space-y-0;
+		@apply flex flex-col space-y-5 md:flex-row md:justify-between md:items-center md:space-y-0;
 	}
 	/* Forms */
 	.form-container {
