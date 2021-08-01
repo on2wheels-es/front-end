@@ -29,7 +29,7 @@ export class RouteCardContent extends Component {
           <div className="caption_regular font-bold bg-black w-2/6 md:w-auto md:px-5 text-white text-center border border-white md:absolute md:bottom-44 md:right-6">
             {difficulty(difficulty_score)}
           </div>
-          <div className="flex flex-col space-y-6 md:space-y-8 md:mt-1">
+          <div className="flex flex-col space-y-1 md:space-y-8 md:mt-1">
             <h3>{this.formatTitleLength(name)}</h3>
             <div className="flex justify-between items-end">
               <div >
