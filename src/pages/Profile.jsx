@@ -58,7 +58,7 @@ class Profile extends Component {
 		return (
 			<>
 				<Header />
-				<main className=" md:py-20">
+				<main className="md:py-12">
 					{ popUpOpen && <NewUserModal onPopUpClose={this.handleClosePopUp}/>}
           
                 <div className="flex flex-col space-y-8 w-full items-center md:space-y-8 md:flex-row md:items-start">

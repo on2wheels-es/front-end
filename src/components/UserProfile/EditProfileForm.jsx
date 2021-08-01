@@ -66,7 +66,7 @@ export class EditProfileForm extends Component {
         const { firstName, lastName, gender, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
 
         return (
-            <form onSubmit={this.handleFormSubmit} className="flex flex-col w-3/5 space-y-2">
+            <form onSubmit={this.handleFormSubmit} className="flex flex-col w-full mx-auto md:items-start md:w-3/4 space-y-8">
                 <div>
                   <label>Nombre</label>
                   <input 
