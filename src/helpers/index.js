@@ -34,7 +34,7 @@ export const checkDayValues = (day) => {
     const dayToString = day.toString()
 
     if (dayToString.lenght > 2 || day > 31 ) {
-        return  NotificationManager.error('Introduce un día válido', 'Día incorrecto', 800);
+       return NotificationManager.error('Introduce un día válido', 'Día incorrecto', 800);
     }
 }
 

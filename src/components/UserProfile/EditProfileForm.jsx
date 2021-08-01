@@ -22,9 +22,24 @@ export class EditProfileForm extends Component {
     }
 
     handleChange = (e) =>{
-      if ( e.target.name === 'dayOfBirth') return checkDayValues(e.target.value);
-      if ( e.target.name === 'monthOfBirth') return checkMonthValues(e.target.value);
-      if ( e.target.name === 'yearOfBirth') return checkYearValues(e.target.value);
+      if ( e.target.name === 'dayOfBirth') {
+        checkDayValues(e.target.value);
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+      }
+      if ( e.target.name === 'monthOfBirth') {
+        checkMonthValues(e.target.value);
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+      }
+      if ( e.target.name === 'yearOfBirth') {
+        checkYearValues(e.target.value);
+        this.setState({
+          [e.target.name]: e.target.value,
+        })
+      } 
 
       this.setState({
         [e.target.name]: e.target.value,
