@@ -40,8 +40,8 @@ class NewUserModal extends Component  {
         const { firstName, lastName, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
         return (
             <div className="popup">
-              <div className="relative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:px-8 md:py-6 rounded-xl shadow-xl">
-                <h2 className="mb-6">Completa tu perfil</h2>
+              <div className="brelative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:px-8 md:py-6 rounded-xl shadow-xl">
+                <h3 className="tertiary_title_bold mb-4 md:mb-6">Completa tu perfil</h3>
                 
                 <form onSubmit={this.handleFormSubmit} className="flex flex-col space-y-6 mt-4">
                   <div>
