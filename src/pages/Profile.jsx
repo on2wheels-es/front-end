@@ -33,7 +33,12 @@ class Profile extends Component {
     this.setState({
       mode: 'edit'
     })
+  }
 
+  changeToViewMode = () => {
+    this.setState({
+      mode: 'view'
+    })
   }
 
 	handleChange = (e) => {
@@ -125,7 +130,7 @@ class Profile extends Component {
                 </div>
               )
               :
-               (< EditProfileForm />) 
+               (< EditProfileForm cancelEditMode={this.changeToViewMode}/>) 
             }
 				</main>
 			</>

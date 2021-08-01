@@ -38,7 +38,7 @@ export class EditProfileForm extends Component {
   
         this.props.updateUserProfile(valuesToUpdate);
         NotificationManager.success('Los cambios han sido guardados correctamente', '', 800)
-        return this.props.history.push('/profile')
+        this.props.cancelEditMode()
     }
 
     render() {
@@ -99,8 +99,8 @@ export class EditProfileForm extends Component {
                   </div>
                 </div>
 
-                <div className="flex justify-end">
-                  <button className="link-as-button text-primary-medium">Cancelar</button>
+                <div className="flex justify-end mt-4">
+                  <button className="link-as-button text-primary-medium" onClick={() => this.props.cancelEditMode()}>Cancelar</button>
                   <button className="button-accent ml-8" onClick={this.handleFormSubmit}>Guardar cambios</button>
                 </div>
             </form> 
