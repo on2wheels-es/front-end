@@ -50,7 +50,7 @@ class Signup extends Component {
                     name="email" 
                     value={email} 
                     onChange={this.handleChange} 
-                    className="form-input text-black" 
+                    className="form-input" 
                   />
                 </div>
                   <div>
@@ -60,7 +60,7 @@ class Signup extends Component {
                       name="password"
                       value={password}
                       onChange={this.handleChange}
-                      className="form-input text-black"
+                      className="form-input"
                     />
                   </div>
                   <input className="button-accent-big" type="submit" value="Crear cuenta" />
