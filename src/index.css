@@ -78,6 +78,9 @@
 	.caption_regular_dark {
 		@apply font-base leading-long text-nano md:text-xs font-regular text-neutral-semilight;
 	}
+  .caption_regular_light {
+    @apply font-base leading-long text-nano md:text-xs font-regular text-white;
+  }
 	.footer_links {
 		@apply font-highlight leading-tight text-s md:leading-medium md:text-sm font-regular;
 	}
@@ -85,12 +88,18 @@
 	.button-accent {
 		@apply bg-primary-medium py-2 px-4 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
 	}
+  .button-accent-big {
+		@apply bg-primary-medium py-3 px-4 leading-medium rounded-xl text-neutral-white text-s font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
+	}
 	.button {
 		@apply py-2 px-4 leading-medium rounded-xl text-xs font-bold hover:underline focus:underline inline-block;
 	}
 	.button-accent-searchBar {
 		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
 	}
+  .link-as-button {
+    @apply text-white hover:underline focus:underline;
+  }
 	/* Layout */
 	.wrapper {
 		@apply max-w-screen-lg mx-auto p-4;
@@ -122,7 +131,7 @@
 
 	/* User profile */ 
 	.popup {
-		@apply bg-gray-500 bg-opacity-25  w-full h-full justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
+		@apply bg-gray-500 bg-opacity-25 w-full h-full justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none;
 	} 
 
 }

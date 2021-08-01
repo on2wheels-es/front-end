@@ -89,7 +89,7 @@ class NewUserModal extends Component  {
                     </div>
 
                     <div className="flex justify-end">
-                      <button className="link-as-button" onClick={this.handlePopUpClose}>Completar más tarde</button>
+                      <button className="link-as-button text-primary-medium" onClick={this.handlePopUpClose}>Completar más tarde</button>
                       <button type="submit" className="button-accent-big ml-8">Guadar información</button>
                     </div>
                 </form> 

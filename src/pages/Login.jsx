@@ -29,11 +29,11 @@ class Login extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="flex w-screen h-screen bg-secundary-medium">
+      <div className="flex w-screen h-screen bg-secundary-medium overflow-hidden">
         <div className="hidden md:w-1/2 md:block">
           <img className="object-cover object-bottom w-full h-full" src={loginImage}/>
         </div>
-        <div className="wrapper px-8 py-8 text-white bg-secundary-medium md:px-36 md:w-1/2 md:h-screen">
+        <div className="wrapper px-8 py-8 text-white bg-secundary-medium md:px-36 md:w-1/2 md:h-screen lg:py-32">
             <Link to="/"> 
                <p className="mb-8 hover:underline">{`< Volver a la página`}</p>
             </Link>
@@ -45,7 +45,7 @@ class Login extends Component {
               </div>
               <form className="flex flex-col space-y-8" onSubmit={this.handleFormSubmit}>
                 <div>
-                  <label className="caption_regular_light text-white">Email</label>
+                  <label className="caption_regular_light">Email</label>
                   <input 
                     className="form-input" 
                     type="text" 
@@ -54,7 +54,7 @@ class Login extends Component {
                     onChange={this.handleChange} />
                 </div>
                 <div>
-                  <label className="caption_regular_light text-white">Password</label>
+                  <label className="caption_regular_light">Password</label>
                   <input
                     type="password"
                     name="password"
@@ -63,7 +63,7 @@ class Login extends Component {
                     className="form-input"
                   />
                 </div>
-                <input className="button-accent" type="submit" value="Accede a tu cuenta" />
+                <input className="button-accent-big" type="submit" value="Accede a tu cuenta" />
               </form>
               <div className="flex my-6 items-center justify-between">
                 <hr className="w-5/12"></hr>
@@ -71,7 +71,7 @@ class Login extends Component {
                 <hr className="w-5/12"></hr>
               </div>
               <Link to="/signup">
-                <p className="link-as-button">Crea una nueva cuenta</p>
+                <p className="link-as-button text-center">Crea una nueva cuenta</p>
               </Link>
           </div>
         </div>
