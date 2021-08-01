@@ -71,7 +71,7 @@ class Profile extends Component {
                         <h1 className="mb-2">{firstName || 'Nombre'} {lastName}</h1>
                         <div>
                           <h3 className="mb-4">Elementos guardados</h3>
-                          <div className="flex flex-col flex-y-4 md:flex-row md:items-start md:space-x-8">
+                          <div className="flex flex-col space-y-4 md:flex-row md:items-start md:space-y-0 md:space-x-8">
                             <div className="button-border">
                               <RoutesIcon title={'Rutas: '} text={favouriteRoutes.length || 0}/>
                             </div>
