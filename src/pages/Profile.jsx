@@ -58,16 +58,16 @@ class Profile extends Component {
 		return (
 			<>
 				<Header />
-				<main className="py-20">
+				<main className=" md:py-20">
 					{ popUpOpen && <NewUserModal onPopUpClose={this.handleClosePopUp}/>}
           
-                <div className="flex items-start">
-                    <div className="w-1/5 items-start mr-20" >
-                      <img className="w-10/12" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="profile picture" />
+                <div className="flex flex-col space-y-8 w-full items-center md:space-y-8 md:flex-row md:items-start">
+                    <div className="w-full flex justify-center md:w-1/5 md:items-start md:mr-20" >
+                      <img className="w-1/2  md:w-10/12" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="profile picture" />
                     </div>
            { view ? 
                   (
-                      <div className="flex flex-col items-start w-3/4 space-y-8">
+                      <div className="flex flex-col w-full mx-auto md:items-start md:w-3/4 space-y-8">
                         <h1 className="mb-2">{firstName || 'Nombre'} {lastName}</h1>
                         <div>
                           <h3 className="mb-4">Elementos guardados</h3>

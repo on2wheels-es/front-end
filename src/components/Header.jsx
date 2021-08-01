@@ -4,7 +4,7 @@ import { withAuth } from '../providers/AuthProvider';
 
 class Header extends Component {
 	render() {
-		const { isLoggedIn, logout } = this.props;
+		const { isLoggedIn } = this.props;
 
 		return (
 		 <header className="py-2 mb-8 border-b">

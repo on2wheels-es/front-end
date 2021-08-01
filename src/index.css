@@ -126,7 +126,7 @@
 		@apply mt-1  block w-full shadow-sm border-2 border-neutral-lightest rounded-md py-2 pl-4 text-black;
 	}
   .form-input-view {
-		@apply mt-1 block shadow-sm border-b-2 border-neutral-lightest py-2 pl-4 text-black w-9/12;
+		@apply mt-1 block shadow-sm border-b-2 border-neutral-lightest py-2 pl-4 text-black  w-full md:w-9/12;
 	}
 	/* Cards */
 	.card-content-details {
