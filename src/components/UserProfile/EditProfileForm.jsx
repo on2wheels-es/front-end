@@ -4,7 +4,7 @@ import 'react-notifications/lib/notifications.css';
 import { NotificationManager } from 'react-notifications';
 import { withAuth } from "../../providers/AuthProvider";
 import { genderOptions } from "../../data/data";
-import { giveFormatToBirthday } from "../../helpers";
+import { giveFormatToBirthday, checkDayValues, checkMonthValues, checkYearValues } from "../../helpers";
 import { withRouter } from 'react-router'
 
 export class EditProfileForm extends Component {
@@ -22,20 +22,25 @@ export class EditProfileForm extends Component {
     }
 
     handleChange = (e) =>{
-        this.setState({
-          [e.target.name]: e.target.value,
-        })
+      if ( e.target.name === 'dayOfBirth') return checkDayValues(e.target.value);
+      if ( e.target.name === 'monthOfBirth') return checkMonthValues(e.target.value);
+      if ( e.target.name === 'yearOfBirth') return checkYearValues(e.target.value);
+
+      this.setState({
+        [e.target.name]: e.target.value,
+      })
     }
 
-    handleFormSubmit = (e) => {
+    handleFormSubmit = async(e) => {
         e.preventDefault()
         const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
+        
         if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender ) {
           return NotificationManager.error('Rellena todos los campos', '', 800)
         }
-        
-        const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
-        const valuesToUpdate = {...this.state, birthday };
+
+        const birthday = await giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
+        const valuesToUpdate = await {...this.state, birthday };
   
         this.props.updateUserProfile(valuesToUpdate);
         NotificationManager.success('Los cambios han sido guardados correctamente', '', 800)
