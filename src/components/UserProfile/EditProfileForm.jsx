@@ -33,6 +33,7 @@ export class EditProfileForm extends Component {
         if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender ) {
           return NotificationManager.error('Rellena todos los campos', '', 800)
         }
+        
         const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
         const valuesToUpdate = {...this.state, birthday };
   
