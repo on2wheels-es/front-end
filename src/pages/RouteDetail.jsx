@@ -5,10 +5,11 @@ import Container from '../components/Container';
 import Header from '../components/Header/Header';
 import RouteGpxConverter from '../components/RouteGpxConverter';
 import DownloadBtn from '../components/DownloadBtn';
+import Favourite from '../components/Favourite';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
-import { formatNumber } from '../helpers'
+import { formatNumber, difficulty } from '../helpers'
 
 export class RouteDetail extends Component {
 
@@ -64,12 +65,15 @@ export class RouteDetail extends Component {
                                 <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
                                 <ul>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance} km</li>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {data.max_alt} m</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {formatNumber(data.max_alt)} m</li>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {formatNumber(data.gradient)} m</li>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Muncipios por los que pasa:</span> {data.municipalities_ids.length}</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Dificultad:</span> {difficulty(data.difficulty_score)}</li>
                                 </ul>
                             </div>
-                            <DownloadBtn gpx={data.gpx} name={data.name}/>
+                            <div className="flex space-x-12">
+                                <DownloadBtn gpx={data.gpx} name={data.name}/>
+                                <Favourite type="routes" id={data._id}/>
+                            </div>
                           </div>
                         </div>
                         <Container title={"Municipios por donde pasaras"}>

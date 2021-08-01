@@ -58,3 +58,13 @@ export const createErrorNotification = (type) => {
 export const formatNumber = (num) => {
     return num.toLocaleString();
 }
+
+export const difficulty = (value) => {
+    if (value <= 1/3*100) {
+        return 'Fàcil'
+    } if ( value > 2/3*100) {
+        return 'Difícil'
+    } else {
+        return 'Media'
+    }
+}

@@ -7,6 +7,7 @@ import Header from '../components/Header/Header';
 import gif from '../images/bike-loading.gif';
 import RoutesIcon from '../components/iconsSVG/RoutesIcon';
 import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon';
+import { formatNumber } from '../helpers'
 
 import apiClient from '../services/apiClient';
 import Footer from '../components/Footer';
@@ -70,9 +71,9 @@ export class MunicipalityDetail extends Component {
                         </Map>
                       </div>
                       <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                        <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.municipality}</p>
+                        <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
                         <ul>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {data.municipality_inhabitants}</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Área georgráfica:</span> { data.georgraphic_area === undefined ? 'No hay datos' : `${data.georgraphic_area}km` }</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>

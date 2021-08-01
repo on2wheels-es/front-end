@@ -9,6 +9,7 @@ import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
 import AltitudeIcon from '../components/iconsSVG/AltitudeIcon';
 import MountainSlopeIcon from '../components/iconsSVG/MountainSlopeIcon';
+import { formatNumber } from '../helpers'
 
 export class MountainPassDetail extends Component {
 
@@ -68,12 +69,12 @@ export class MountainPassDetail extends Component {
                             </Map>
                         </div>
                         <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                        <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.municipality}</p>
+                        <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
                         <ul>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Comunidad autónoma:</span> {data.province}</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud:</span> { data.altitude}m</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {data.mountain_slope}</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Dificultad:</span> {data.technical_difficulty}</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud:</span> {formatNumber(data.altitude)} m</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {formatNumber(data.gradient)} m</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Inclinación Media:</span> {formatNumber(data.mountain_slope)} %</li>
                         </ul>
                       </div>
                     </div>
