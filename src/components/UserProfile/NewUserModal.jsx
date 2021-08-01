@@ -28,6 +28,7 @@ class NewUserModal extends Component  {
       const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
       const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
       this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth, isNewUser: false });
+      return this.props.history.push('/profile')
     }
 
     handlePopUpClose = async (e) => {
