@@ -4,7 +4,7 @@ import { withAuth } from '../providers/AuthProvider';
 
 class Header extends Component {
 	render() {
-		const { user, isLoggedIn, logout } = this.props;
+		const { isLoggedIn, logout } = this.props;
 
 		return (
 		 <header className="py-2 mb-8 border-b">
@@ -20,7 +20,6 @@ class Header extends Component {
 								<>
 									<Link to="/profile"><li  className="text-center py-1 px-4 ml-8 rounded-lg hover:bg-indigo-500 hover:underline">Perfil</li></Link>
 									<Link to="/favourites"><li  className="text-center py-1 px-4 ml-8 rounded-lg hover:bg-indigo-500 hover:underline">Favoritos</li></Link>
-									<button onClick={logout} className="button-indigo">Cerrar sesión</button>
 								</>
 							) : (
 								<>
