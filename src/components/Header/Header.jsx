@@ -20,8 +20,10 @@ class Header extends Component {
 							<ul className="flex justify-center p-0">
 								{isLoggedIn ? (
 									<>
-										<Link to="/profile"><li  className="button text-neutral-medium mr-2">Profile</li></Link>
-										<Link to="/favourites"><li  className="button text-neutral-medium mr-2">Favoritos</li></Link>
+										<Link to="/favourites"><li className="button text-neutral-medium mr-2">Favoritos</li></Link>
+										<Link to="/profile">
+											<img  src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="avatar image" className="object-fit w-9 mt-1" />
+										</Link>
 									</>
 								) : (
 									<>
