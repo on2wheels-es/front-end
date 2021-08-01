@@ -11,7 +11,7 @@
 		@apply wrapper flex flex-col;
 	}
 	h1 {
-		@apply text-lg font-base leading-none md:leading-tight md:leading-base md:text-xl font-heavy;
+		@apply text-lg font-base leading-none md:leading-tight md:text-xl font-heavy;
 	}
 	h2 {
 		@apply tertiary_title_bold;
@@ -94,9 +94,13 @@
 	.button-accent-searchBar {
 		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
 	}
+  .button-border {
+    @apply border-2 py-3 px-4 rounded-xl border-primary-medium hover:shadow-xl focus:shadow-xl;
+  }
   .link-as-button {
     @apply text-white font-heavy hover:underline focus:underline;
   }
+
 	/* Layout */
 	.wrapper {
 		@apply max-w-screen-lg mx-auto p-4;
@@ -120,6 +124,9 @@
 	}
 	.form-input {
 		@apply mt-1  block w-full shadow-sm border-2 border-neutral-lightest rounded-md py-2 pl-4 text-black;
+	}
+  .form-input-view {
+		@apply mt-1 block shadow-sm border-b-2 border-neutral-lightest py-2 pl-4 text-black w-9/12;
 	}
 	/* Cards */
 	.card-content-details {
