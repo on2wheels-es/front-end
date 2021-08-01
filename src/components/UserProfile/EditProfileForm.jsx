@@ -29,8 +29,8 @@ export class EditProfileForm extends Component {
 
     handleFormSubmit = (e) => {
         e.preventDefault()
-        const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender, email } = this.state;
-        if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender || !email) {
+        const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
+        if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender ) {
           return alert(`Por favor rellena todos los campos`)
         }
         const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
@@ -61,14 +61,6 @@ export class EditProfileForm extends Component {
               value={lastName} 
               placeholder={lastName}
               onChange={this.handleChange}
-            />
-
-            <label className="block text-lg font-medium text-gray-700">Email</label>
-            <input 
-              type="text" 
-              name="email" 
-              value={email} 
-              onChange={this.handleChange} 
             />
 
             <div>
