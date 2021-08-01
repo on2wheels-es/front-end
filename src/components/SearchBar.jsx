@@ -41,7 +41,7 @@ const SearchBar = () => {
               placeholder={'Elige tu destino'}
             />
         </div>
-        <div className="bg-neutral-medium-opacity mx-2 border-b-2 md:border-b-0 md:w-5/12 ">
+        <div className="bg-neutral-medium-opacity mx-2 border-b-2 md:border-b-0 md:w-5/12">
           <DateRangePicker
             startDate={startDate}
             startDateId="start-date"

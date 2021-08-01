@@ -28,7 +28,7 @@ class Signup extends Component {
   render() {
     const { email, password } = this.state;
     return (
-      <div className="flex w-screen h-screen bg-secundary-medium">
+      <div className="flex w-screen h-screen bg-secundary-medium overflow-hidden">
         <div className="hidden md:w-1/2 md:block">
           <img className="object-cover object-center w-full h-full" src={signinImage}/>
         </div>
@@ -44,26 +44,26 @@ class Signup extends Component {
               </div>
               <form className="flex flex-col space-y-8" onSubmit={this.handleFormSubmit}>
                 <div>
-                  <label className="caption_regular_light text-white">Email</label>
+                  <label className="caption_regular_light">Email</label>
                   <input 
                     type="email" 
                     name="email" 
                     value={email} 
                     onChange={this.handleChange} 
-                    className="form-input text-black" 
+                    className="form-input" 
                   />
                 </div>
                   <div>
-                    <label className="caption_regular_light text-white">Contraseña</label>
+                    <label className="caption_regular_light">Contraseña</label>
                     <input
                       type="password"
                       name="password"
                       value={password}
                       onChange={this.handleChange}
-                      className="form-input text-black"
+                      className="form-input"
                     />
                   </div>
-                  <input className="button-accent" type="submit" value="Crear cuenta" />
+                  <input className="button-accent-big" type="submit" value="Crear cuenta" />
               </form>
               <div className="flex my-6 items-center justify-between">
                   <hr className="w-5/12"></hr>
@@ -71,7 +71,7 @@ class Signup extends Component {
                   <hr className="w-5/12"></hr>
               </div>
               <Link to="/signup">
-                <p className="link-as-button">Ya tienes una cuenta? Accede a ella!</p>
+                <p className="link-as-button text-center">Ya tienes una cuenta? Accede a ella!</p>
               </Link>
             </div>
           </div>

@@ -57,7 +57,7 @@ module.exports = {
         '4xl': '2rem',
       },
       backgroundImage: (theme) => ({
-        'hero-image': `url("/src/images/hero-image.jpg")`,
+        'avatar-img': `url("https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png")`
      }),
 	  }
 	},

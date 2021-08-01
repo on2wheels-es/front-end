@@ -48,16 +48,6 @@ export class MunicipalityDetail extends Component {
         return (
           <>
             <Header>
-              <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-                {status === 'loaded' &&
-                <> 
-                  <div className="caption_regular font-bold inline-block px-4 py-1 bg-neutral-white text-black mb-6 md:mb-12">
-                    {data.ccaa}
-                  </div>
-                  <h1 className="mb-2">{data.municipality}</h1>
-                </>
-                }
-              </div>
             </Header>
             <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
@@ -70,15 +60,15 @@ export class MunicipalityDetail extends Component {
                             <MountainPassesIcon text={dataMountainPasses.length} />
                         </Map>
                       </div>
-                      <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                        <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
-                        <ul>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Área georgráfica:</span> { data.georgraphic_area === undefined ? 'No hay datos' : `${data.georgraphic_area}km` }</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>
-                        </ul>
-                      </div>
+                        <div className="md:w-5/12 bg-white p-6 rounded-xl shadow-xl">
+                        <h1 className="mb-8">{data.municipality}</h1>
+                          <ul>
+                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {data.municipality_inhabitants}</li>
+                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Área georgráfica:</span> { data.georgraphic_area === undefined ? 'No hay datos' : `${data.georgraphic_area}km` }</li>
+                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
+                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>
+                          </ul>
+                        </div>
                   </div>
                     <Container title={`Rutas en ${data.municipality} `}>
                       <PrintRouteCard data={dataRoutes}/>

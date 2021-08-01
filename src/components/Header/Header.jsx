@@ -5,10 +5,10 @@ import { withAuth } from '../../providers/AuthProvider';
 
 class Header extends Component {
 	render() {
-		const { isLoggedIn, logout } = this.props;
-		const homeStyles = this.props.homeHeader ? this.props.homeHeader : '';
+		const { isLoggedIn } = this.props;
+		const homeStyles = this.props.homeHeader ? this.props.homeHeader : 'bg-secundary-medium';
 		return (
-			<header className={`py-2 mb-2 bg-secundary-medium ${homeStyles}`}>
+			<header className={`py-2 mb-2 ${homeStyles}`}>
 				<div className="wrapper">
 					<div className="flex justify-between items-center">
 						<div className="site-title">
@@ -20,9 +20,10 @@ class Header extends Component {
 							<ul className="flex justify-center p-0">
 								{isLoggedIn ? (
 									<>
-										<Link to="/profile"><li  className="button text-neutral-medium mr-2">Profile</li></Link>
-										<Link to="/favourites"><li  className="button text-neutral-medium mr-2">Favoritos</li></Link>
-										<button onClick={logout} className="button text-neutral-medium ml-2">Cerrar sesión</button>
+										<Link to="/favourites"><li className="button text-neutral-medium mr-2">Favoritos</li></Link>
+										<Link to="/profile">
+											<img  src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="avatar image" className="object-fit w-9 mt-1" />
+										</Link>
 									</>
 								) : (
 									<>

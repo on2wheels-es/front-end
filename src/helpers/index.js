@@ -30,7 +30,34 @@ export const getCCAAIds = (selectedCCAA) => {
     return ccaaIds
 }
 
+export const checkDayValues = (day) => {
+    const dayToString = day.toString()
+
+    if (dayToString.lenght > 2 || day > 31 ) {
+       return NotificationManager.error('Introduce un día válido', 'Día incorrecto', 800);
+    }
+}
+
+export const checkMonthValues = (month) => {
+    const monthToString = month.toString()
+
+    if (monthToString.lenght > 2 || month > 12 ) {
+        return  NotificationManager.error('Introduce un mes válido', 'Mes incorrecto ', 800);
+    }
+}
+
+
+export const checkYearValues = (year) => {
+    const yearToString = year.toString()
+    const currentYear = new Date().getFullYear();
+
+    if (yearToString.lenght > 4 || year > currentYear ) {
+        return  NotificationManager.error('Introduce un año válido', 'Año incorrecto', 800);
+    }
+}
+
 export const giveFormatToBirthday = (day, month, year) => {
+
     return moment(new Date(`${year}-${month}-${day}`)).format('L');
 }
 

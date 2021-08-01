@@ -108,13 +108,13 @@ class Favourites extends Component {
                 {(status === 'loading' && providerStatusLoading) && <img src={gif} alt="gif" />}
                 {(status === 'loaded' && !providerStatusLoading) && (
                     <>
-                        <Container title={"Municipios"}>
+                        <Container title={"Municipios"} id="#municipalities">
                             {this.printMunicipalities()}
                         </Container>
                         <Container title={"Puertos de Montaña"}>
                             {this.printMountainPasses()}
                         </Container>
-                        <Container title={"Rutas"}>
+                        <Container title={"Rutas"} id="#rutas">
                             {this.printRoutes()}
                         </Container>
                     </>
