@@ -98,7 +98,7 @@
 		@apply bg-primary-medium py-3 px-6 leading-medium rounded-xl text-neutral-white text-xs font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block md:ml-3;
 	}
   .link-as-button {
-    @apply text-white hover:underline focus:underline;
+    @apply text-white font-heavy hover:underline focus:underline;
   }
 	/* Layout */
 	.wrapper {

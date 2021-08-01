@@ -8,7 +8,6 @@ class DownloadBtn extends Component {
         super(props)
         this.state = {
             favourited: false,
-
         }
     }
 
