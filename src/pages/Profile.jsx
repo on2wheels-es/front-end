@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import NewUserModal from '../components/UserProfile/NewUserModal';
 import EditProfileForm from '../components/UserProfile/EditProfileForm';
@@ -6,6 +7,7 @@ import { withAuth } from '../providers/AuthProvider';
 import RoutesIcon from '../components/iconsSVG/RoutesIcon'
 import LocationIcon from '../components/iconsSVG/LocationIcon'
 import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon'
+import Footer from '../components/Footer';
 
 class Profile extends Component {
 	constructor(props) {
@@ -72,15 +74,21 @@ class Profile extends Component {
                         <div>
                           <h3 className="mb-4">Elementos guardados</h3>
                           <div className="flex flex-col space-y-4 md:flex-row md:items-start md:space-y-0 md:space-x-8">
-                            <div className="button-border">
-                              <RoutesIcon title={'Rutas: '} text={favouriteRoutes.length || 0}/>
-                            </div>
-                            <div className="button-border">
-                              <MountainPassesIcon title={'Puertos: '}text={favouritePasses.length || 0} />
-                            </div>
-                            <div className="button-border">
-                              <LocationIcon  title={'Muncipios: '} text={favouriteLocations.length || 0}/>
-                            </div>
+                            <Link to="/favourites">
+                              <div className="button-border">
+                                <RoutesIcon title={'Rutas: '} text={favouriteRoutes.length || 0}/>
+                              </div>
+                            </Link>
+                            <Link to="/favourites">
+                              <div className="button-border">
+                                <MountainPassesIcon title={'Puertos: '}text={favouritePasses.length || 0} />
+                              </div>
+                            </Link>
+                            <Link to="/favourites">
+                              <div className="button-border">
+                                <LocationIcon  title={'Muncipios: '} text={favouriteLocations.length || 0}/>
+                              </div>
+                            </Link>
                           </div>
                         </div>
                         <div className="w-full space-y-4">
@@ -139,6 +147,7 @@ class Profile extends Component {
             }
           </div>
 				</main>
+        <Footer />
 			</>
 		);
 	}
