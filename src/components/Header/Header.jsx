@@ -22,7 +22,6 @@ class Header extends Component {
 									<>
 										<Link to="/profile"><li  className="button text-neutral-medium mr-2">Profile</li></Link>
 										<Link to="/favourites"><li  className="button text-neutral-medium mr-2">Favoritos</li></Link>
-										<button onClick={logout} className="button text-neutral-medium ml-2">Cerrar sesión</button>
 									</>
 								) : (
 									<>
