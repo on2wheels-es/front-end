@@ -91,7 +91,7 @@ export class EditProfileForm extends Component {
                 </div>
 
                 <div>
-                  <p className="body_primary_semibold mb-2 font-base">Fecha de nacimiento</p>
+                  <p className="body_primary_semibold mb-2">Fecha de nacimiento</p>
                     <div className="flex space-x-8">
                       <div>
                         <label>Día</label>

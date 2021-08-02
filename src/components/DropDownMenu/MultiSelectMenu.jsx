@@ -20,7 +20,7 @@ const MultiSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, place
   };
 
    const colourStyles = {
-    control: styles => ({ ...styles, backgroundColor: '#313030', border: 0 }),
+    control: styles => ({ ...styles, backgroundColor: '#313030', border: 0, fontSize: '18px', }),
     option: (base) => ({ 
       ...base, 
       padding: 5, 
@@ -29,7 +29,7 @@ const MultiSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, place
       display: 'flex' ,
       alignItems: 'center',
       fontFamily: 'Open sans',
-      fontSize: '16px',
+      fontSize: '18px',
    }) 
    }
   
