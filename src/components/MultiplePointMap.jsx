@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import ReactMapGL, { Marker, Popup } from '!react-map-gl';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import RoutesIcon from '../components/iconsSVG/RoutesIcon';
 import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon';
@@ -12,7 +11,7 @@ export default function MultiplePointMap(props) {
     const { data } = props
     
     const [viewport, setViewport] = useState({
-        width: '100%',
+        width: '100',
         height: '50vh',
         latitude: 40.415524,
         longitude: -3.707488,

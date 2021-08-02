@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-// eslint-disable-next-line import/no-webpack-loader-syntax
-import mapboxgl from "!mapbox-gl";
+import mapboxgl from "mapbox-gl";
 import bbox from 'geojson-bbox';
 import "mapbox-gl/dist/mapbox-gl.css";
 
@@ -49,7 +48,7 @@ const BikeRouteMap = (props) => {
         return () => map.remove()
     }, [])
 
-    return <div ref={mapContainer} style={{ width: "100%", height: "50vh" }} />
+    return <div ref={mapContainer} style={{ width: "100", height: "50vh" }} />
 }
 
 export default BikeRouteMap
