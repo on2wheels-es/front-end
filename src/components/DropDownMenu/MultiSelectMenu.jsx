@@ -20,17 +20,26 @@ const MultiSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, place
   };
 
    const colourStyles = {
-    control: styles => ({ ...styles, backgroundColor: '#313030', border: 0, fontSize: '18px', marginBottom: '10px' }),
-    option: (base) => ({ 
-      ...base, 
-      padding: 5, 
-      borderRadius: 5, 
-      color: '#313030', 
-      display: 'flex' ,
-      alignItems: 'center',
-      fontFamily: 'Open sans',
-      fontSize: '18px',
-   }) 
+      control: styles => ({ 
+        ...styles, 
+        backgroundColor: '#313030', 
+        border: 0, fontSize: '18px', 
+        marginBottom: '10px', 
+        "@media (min-width: 768px)": {
+        ...styles["@media (min-width: 768px)"],
+        marginBottom: '0px',
+        }  
+    }),
+      option: (base) => ({ 
+        ...base, 
+        padding: 5, 
+        borderRadius: 5, 
+        color: '#313030', 
+        display: 'flex' ,
+        alignItems: 'center',
+        fontFamily: 'Open sans',
+        fontSize: '18px',
+    }) 
    }
   
   return (
