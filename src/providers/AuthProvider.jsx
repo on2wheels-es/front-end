@@ -62,9 +62,8 @@ class AuthProvider extends Component {
     }
   }
 
-  login = async ({ email, password, pathToRedirect }) => {
+  login = async ({ email, password }) => {
     try {
-      console.log('history',this.history, 'path', pathToRedirect)
       this.setState({
         status: 'loading',
         user: null,
