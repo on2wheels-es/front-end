@@ -11,10 +11,10 @@
 		@apply wrapper flex flex-col box-content;
 	}
 	h1 {
-		@apply font-base text-md leading-9 font-heavy md:text-xl md:leading-10;
+		@apply h1_bold;
 	}
 	h2 {
-		@apply tertiary_title_bold;
+		@apply h2_bold;
 	}
 	h3 {
 		@apply font-highlight text-s font-bold;
@@ -36,14 +36,20 @@
 	.h1_bold {
 		@apply font-base text-md leading-9 font-heavy md:text-xl md:leading-10;
 	}
+	.h1_regular {
+		@apply font-base text-md leading-9 font-regular md:text-xl md:leading-10;
+	}
 	.h1_bold_medium {
 		@apply font-base text-md leading-9 font-heavy md:text-lg md:leading-10;
 	}
 	.h1_bold_small {
 		@apply font-base text-sm leading-9 font-heavy md:text-sm md:leading-10;
 	}
-	.h1_regular {
-		@apply font-base text-md leading-9 font-regular md:text-xl md:leading-10;
+	.h2_bold {
+		@apply font-base text-sm leading-long font-bold md:text-md md:leading-large;
+	}
+	.h2_regular {
+		@apply font-base text-sm leading-long font-regular md:text-md md:leading-large;
 	}
 	.headline_bold {
 		@apply font-highlight leading-base text-huge font-heavy;
@@ -56,9 +62,6 @@
 	}
 	.tertiary_title_regular {
 		@apply font-base leading-medium text-l font-regular;
-	}
-	.tertiary_title_bold {
-		@apply font-base leading-tight text-md md:leading-medium md:text-l font-bold;
 	}
 	.tertiary_title_card {
 		@apply font-highlight text-sm font-bold;
