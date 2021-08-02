@@ -2,6 +2,9 @@ import moment from 'moment'
 import { ccaaOptions } from '../data/data'
 import 'react-notifications/lib/notifications.css';
 import { NotificationManager } from 'react-notifications';
+import girlAvatar from '../images/girl_cyclist.png'
+import boyAvatar from '../images/guy_cyclist.png'
+
 
 export const calculateMiddleDate = (arrival, departure) => {
     const date1 = new Date(arrival);
@@ -93,5 +96,13 @@ export const difficulty = (value) => {
         return 'Difícil'
     } else {
         return 'Media'
+    }
+}
+
+export const avatar = (gender) => {
+    if (gender === 'Mujer') {
+        return girlAvatar
+    } else {
+        return boyAvatar
     }
 }

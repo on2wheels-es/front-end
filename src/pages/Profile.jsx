@@ -8,6 +8,7 @@ import RoutesIcon from '../components/iconsSVG/RoutesIcon'
 import LocationIcon from '../components/iconsSVG/LocationIcon'
 import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon'
 import Footer from '../components/Footer';
+import { avatar } from '../helpers'
 
 class Profile extends Component {
 	constructor(props) {
@@ -65,7 +66,7 @@ class Profile extends Component {
           
                 <div className="flex flex-col space-y-8 w-full items-center md:space-y-8 md:flex-row md:items-start">
                     <div className="w-full flex justify-center md:w-1/5 md:items-start md:mr-20" >
-                      <img className="w-1/2  md:w-10/12" src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="profile picture" />
+                      <img className="w-1/2  md:w-10/12" src={avatar(gender)} alt="profile picture" />
                     </div>
            { view ? 
                   (
