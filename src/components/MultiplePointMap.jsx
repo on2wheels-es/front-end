@@ -11,7 +11,7 @@ export default function MultiplePointMap(props) {
     const { data } = props
     
     const [viewport, setViewport] = useState({
-        width: '100%',
+        width: '100',
         height: '50vh',
         latitude: 40.415524,
         longitude: -3.707488,

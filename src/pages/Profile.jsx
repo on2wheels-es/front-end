@@ -35,7 +35,6 @@ class Profile extends Component {
   }
 
   changeToEditMode = () => {
-    console.log('edit mode')
     this.setState({
       mode: 'edit'
     })

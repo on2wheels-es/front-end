@@ -35,7 +35,7 @@ const BikeRouteMap = (props) => {
         },
         paint: {
             "line-color": "#ef8451",
-            "line-width": 6,
+            "line-width": 3,
         },
         })
     })
@@ -48,7 +48,7 @@ const BikeRouteMap = (props) => {
         return () => map.remove()
     }, [])
 
-    return <div ref={mapContainer} style={{ width: "100%", height: "50vh" }} />
+    return <div ref={mapContainer} style={{ width: "100", height: "50vh" }} />
 }
 
 export default BikeRouteMap

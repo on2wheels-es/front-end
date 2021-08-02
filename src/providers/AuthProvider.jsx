@@ -3,6 +3,7 @@ import apiClient from "../services/authApiClient";
 import apiClientNotAuth from "../services/apiClient";
 import { createErrorNotification } from "../helpers"
 import 'react-notifications/lib/notifications.css';
+import gif from '../images/bike-loading.gif';
 
 const { Consumer, Provider } = React.createContext();
 
@@ -41,6 +42,7 @@ class AuthProvider extends Component {
       user: null,
       renderChild: false,
       error: null,
+      pathToRedirect: null
     }
   }
 
@@ -194,7 +196,7 @@ class AuthProvider extends Component {
               {this.props.children}
 
             </Provider>) 
-        : "Loading" }
+        : <img src={gif} alt="gif" /> }
       </>
     )
   }

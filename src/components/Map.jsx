@@ -28,7 +28,7 @@ export default function Map(props) {
     const bounds = getBoundsLatLong(data, zoom)
 
     const [viewport, setViewport] = useState({
-        width: '100%',
+        width: '100',
         height: '50vh',
         ...bounds
     });
