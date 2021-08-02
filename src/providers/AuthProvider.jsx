@@ -62,8 +62,9 @@ class AuthProvider extends Component {
     }
   }
 
-  login = async ({ email, password }) => {
+  login = async ({ email, password, pathToRedirect }) => {
     try {
+      console.log('history',this.history, 'path', pathToRedirect)
       this.setState({
         status: 'loading',
         user: null,
@@ -114,7 +115,6 @@ class AuthProvider extends Component {
         user,
         error: null,
       })
-      console.log(user)
     } catch (e) {
         this.setState({
           status: 'loggedOut',
@@ -127,7 +127,6 @@ class AuthProvider extends Component {
   removeFromFavourites = async ({id,type, userID}) => {
     try {
       const user = await apiClientNotAuth.removeFromFavourites(id,type, userID)
-      console.log(user)
       this.setState({
         status: 'loggedIn',
         user,
