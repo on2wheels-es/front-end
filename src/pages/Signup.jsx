@@ -27,28 +27,30 @@ class Signup extends Component {
 
   render() {
     const { email, password } = this.state;
+    const width = window.innerWidth;
+    const breakpoint = 768;
+    const bgImage = width >= breakpoint ? "bg-secundary-medium" : "signup-img"
     return (
       <div className="flex w-screen h-screen bg-secundary-medium overflow-hidden">
         <div className="hidden md:w-1/2 md:block">
           <img className="object-cover object-center w-full h-full" src={signinImage}/>
         </div>
-        <div className="wrapper px-8 py-8 text-white bg-secundary-medium md:px-36 md:w-1/2 md:h-screen">
+        <div className={`wrapper w-full px-4 py-12 text-white md:px-12 md:w-1/2 md:h-screen ${bgImage}`}>
             <Link to="/"> 
-               <p className="mb-8 hover:underline">{`< Volver a la página`}</p>
+               <p className="text-xs font-bold mb-8 md:text-white md:font-regular hover:underline">{`< Volver a la página`}</p>
             </Link>
-            <div className="mx-auto">
-              <div className="py-8 border-b mb-8">
-                <h2 className="mb-4">Crea una cuenta nueva</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Non ac imperdiet ullamcorper lacus. Duis.</p>
+            <div className="mx-auto px-4 py-8 rounded-lg bg-secundary-medium bg-opacity-75 md:bg-opacity-100 md:rounded-none md:px-0 md:py-0 md:w-9/12">
+              <div className="py-4 mb-4">
+                <h2 className="mb-2">Crea una cuenta nueva</h2>
               </div>
-              <form className="flex flex-col space-y-8" onSubmit={this.handleFormSubmit}>
+              <form className="flex flex-col space-y-6 pb-4" onSubmit={this.handleFormSubmit}>
                 <div>
                   <label className="caption_regular_light">Email</label>
                   <input 
                     type="email" 
                     name="email" 
                     value={email} 
+                    placeholder="Email"
                     onChange={this.handleChange} 
                     className="form-input" 
                   />
@@ -59,11 +61,12 @@ class Signup extends Component {
                       type="password"
                       name="password"
                       value={password}
+                      placeholder="Contraseña"
                       onChange={this.handleChange}
                       className="form-input"
                     />
                   </div>
-                  <input className="button-accent-big" type="submit" value="Crear cuenta" />
+                  <input className="button-accent-big" type="submit" value="Crea una nueva cuenta" />
               </form>
               <div className="flex my-6 items-center justify-between">
                   <hr className="w-5/12"></hr>
