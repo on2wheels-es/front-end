@@ -2,9 +2,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Favourite from '../../Favourite';
-import LocationIcon from '../../iconsSVG/LocationIcon'
+import AltitudeIcon from '../../iconsSVG/AltitudeIcon'
 import RouteDistance from '../../iconsSVG/RouteDistance'
-import { difficulty } from '../../../helpers'
+import { difficulty, formatNumber } from '../../../helpers'
 
 export class RouteCardContent extends Component {
 
@@ -19,7 +19,7 @@ export class RouteCardContent extends Component {
   }
 
   render() {
-    const { name, province, distance, _id, difficulty_score } = this.props.data;
+    const { name, gradient, distance, _id, difficulty_score } = this.props.data;
     return (
       <div className="inline-block flex h-44 md:flex-col md:w-72 md:h-96 bg-white hover:shadow-xl">
         <Link to={`/routes/${_id}`}>
@@ -33,7 +33,7 @@ export class RouteCardContent extends Component {
             <h3>{this.formatTitleLength(name)}</h3>
             <div className="flex justify-between items-end">
               <div >
-                <LocationIcon text={province}/>
+                <AltitudeIcon text={formatNumber(gradient)}/>
                 <RouteDistance text={distance}/>
               </div>
               <div>

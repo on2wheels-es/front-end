@@ -41,6 +41,7 @@ class AuthProvider extends Component {
       user: null,
       renderChild: false,
       error: null,
+      pathToRedirect: null
     }
   }
 

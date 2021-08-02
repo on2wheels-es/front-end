@@ -27,7 +27,7 @@ class App extends Component {
 					<Route exact path="/municipalities/:id" component={MunicipalityDetail} />
 					<Route exact path="/routes/:id" component={RouteDetail} />
 					<AnonRoute path="/signup"  redirect='/profile' component={Signup} />
-					<AnonRoute path="/login" component={Login} />
+					<AnonRoute path="/login" redirect='/profile' component={Login} />
 					<PrivateRoute path="/profile" component={Profile} />
 					<PrivateRoute path="/favourites" component={Favourites} />
 					<Route  component={NotFound} />
