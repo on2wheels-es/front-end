@@ -61,7 +61,7 @@ export class MunicipalityDetail extends Component {
                         </Map>
                       </div>
                         <div className="md:w-5/12 bg-white p-6 rounded-xl shadow-xl">
-                        <h1 className="mb-8">{data.municipality}</h1>
+                        <h1 className="h1_bold_small mb-8">{data.municipality}</h1>
                           <ul>
                             <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
                             <li className="secondary_body_regular"><span className="caption_regular ml-1">Área georgráfica:</span> { data.georgraphic_area === undefined ? 'No hay datos' : `${data.georgraphic_area}km` }</li>

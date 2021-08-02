@@ -11,7 +11,7 @@
 		@apply wrapper flex flex-col box-content;
 	}
 	h1 {
-		@apply text-lg font-base leading-none md:leading-tight md:text-xl font-heavy;
+		@apply font-base text-md leading-9 font-heavy md:text-xl md:leading-10;
 	}
 	h2 {
 		@apply tertiary_title_bold;
@@ -33,8 +33,14 @@
 /* Base Components */
 @layer components {
 	/* Healines */
-	.headline_regular {
-		@apply font-highlight leading-base text-huge font-regular;
+	.h1_bold {
+		@apply font-base text-md leading-9 font-heavy md:text-xl md:leading-10;
+	}
+	.h1_bold_small {
+		@apply font-base text-md leading-9 font-heavy md:text-lg md:leading-10;
+	}
+	.h1_regular {
+		@apply font-base text-md leading-9 font-regular md:text-xl md:leading-10;
 	}
 	.headline_bold {
 		@apply font-highlight leading-base text-huge font-heavy;
