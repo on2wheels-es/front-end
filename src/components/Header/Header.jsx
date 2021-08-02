@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { avatar } from '../../helpers'
 
 import { withAuth } from '../../providers/AuthProvider';
 
 class Header extends Component {
 	render() {
-		const { isLoggedIn } = this.props;
+		console.log(this.props)
+		const { isLoggedIn, user } = this.props;
 		const homeStyles = this.props.homeHeader ? this.props.homeHeader : 'bg-secundary-medium';
 		return (
 			<header className={`py-2 mb-2 ${homeStyles}`}>
@@ -22,7 +24,7 @@ class Header extends Component {
 									<>
 										<Link to="/favourites"><li className="button text-neutral-medium mr-2">Favoritos</li></Link>
 										<Link to="/profile">
-											<img  src="https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/default-avatar.png" alt="avatar image" className="object-fit w-9 mt-1" />
+											<img  src={avatar(user.gender)} alt="avatar image" className="object-fit w-9 mt-1" />
 										</Link>
 									</>
 								) : (
