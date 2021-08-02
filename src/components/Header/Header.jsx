@@ -34,8 +34,8 @@ class Header extends Component {
 									</>
 								) : (
 									<>
-										<Link to="/login"><li className="button text-neutral-medium mr-2">Mi cuenta</li></Link>
-										<Link to="/signup"><li  className="button-accent">Regístrate</li></Link>
+										<Link to="/login"><li className="button text-neutral-medium">Mi cuenta</li></Link>
+										<Link to="/signup"><li className="button-accent-small">Regístrate</li></Link>
 									</>
 								)}
 							</ul>
