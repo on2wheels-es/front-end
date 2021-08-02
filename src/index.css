@@ -102,7 +102,7 @@
 
 	/* Search bar */
 	.searchBar-container {
-		@apply py-5 px-2 bg-neutral-medium-opacity rounded-xl shadow-md  w-full mx-auto md:w-full md:py-2 md:w-11/12 lg:w-10/12;
+		@apply py-5 px-2 bg-neutral-medium-opacity rounded-xl shadow-md w-full mx-auto md:w-full md:py-2 md:w-11/12 lg:w-10/12;
 	}
 	.searchBar-container-flex {
 		@apply flex flex-col space-y-5 md:flex-row md:justify-between md:items-center md:space-y-0;
