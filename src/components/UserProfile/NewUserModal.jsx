@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import SingleSelectMenu from "../DropDownMenu/SingleSelectMenu";
+import 'react-notifications/lib/notifications.css';
+import { NotificationManager } from 'react-notifications';
 import { withAuth } from "../../providers/AuthProvider";
 import { genderOptions } from "../../data/data"
-import { giveFormatToBirthday } from "../../helpers"
+import { giveFormatToBirthday, invalidDay, invalidMoth, invalidYear } from "../../helpers";
 
 class NewUserModal extends Component  {
     constructor(props) {
@@ -17,7 +19,7 @@ class NewUserModal extends Component  {
         }
     }
 
-    handleChange = (e) =>{
+    handleChange = (e) =>{ 
       this.setState({
         [e.target.name]: e.target.value,
       })
@@ -26,8 +28,20 @@ class NewUserModal extends Component  {
     handleFormSubmit =(e) => {
       e.preventDefault()
       const { dayOfBirth, monthOfBirth, yearOfBirth, firstName, lastName, gender } = this.state;
+      if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender ) {
+        return NotificationManager.error('Para completar tu perfil, rellena todos los campos', '', 1000)
+      }
+      if (invalidDay(dayOfBirth)) {
+        return NotificationManager.error('Introduce un día válido', 'Día incorrecto', 800);
+      } else if (invalidMoth(monthOfBirth)) {
+        return NotificationManager.error('Introduce un mes válido', 'Mes incorrecto', 800);
+      } else if (invalidYear(yearOfBirth)) {
+        return NotificationManager.error('Introduce un año válido', 'Año incorrecto', 800);
+      }
+
       const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
       this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth, isNewUser: false });
+      return this.props.history.push('/profile')
     }
 
     handlePopUpClose = async (e) => {
@@ -40,8 +54,8 @@ class NewUserModal extends Component  {
         const { firstName, lastName, dayOfBirth, monthOfBirth, yearOfBirth } = this.state;
         return (
             <div className="popup">
-              <div className="relative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:px-8 md:py-6 rounded-xl shadow-xl">
-                <h2 className="mb-6">Completa tu perfil</h2>
+              <div className="brelative my-6 mx-auto w-11/12 md:max-w-3xl bg-white p-8 md:px-8 md:py-6 rounded-xl shadow-xl">
+                <h3 className="tertiary_title_bold mb-4 md:mb-6">Completa tu perfil</h3>
                 
                 <form onSubmit={this.handleFormSubmit} className="flex flex-col space-y-6 mt-4">
                   <div>
@@ -54,7 +68,7 @@ class NewUserModal extends Component  {
                   </div>
 
                   <div>
-                    <p className="body_primary_semibold mb-2 font-base">Fecha de nacimiento</p>
+                    <p className="body_primary_semibold mb-2">Fecha de nacimiento</p>
                       <div className="flex space-x-8">
                         <div>
                           <label>Día</label>
@@ -89,7 +103,7 @@ class NewUserModal extends Component  {
                     </div>
 
                     <div className="flex justify-end">
-                      <button className="link-as-button" onClick={this.handlePopUpClose}>Completar más tarde</button>
+                      <button className="link-as-button text-primary-medium" onClick={this.handlePopUpClose}>Completar más tarde</button>
                       <button type="submit" className="button-accent-big ml-8">Guadar información</button>
                     </div>
                 </form> 

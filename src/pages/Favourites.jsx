@@ -99,22 +99,19 @@ class Favourites extends Component {
 
         return (
           <>
-            <Header>
-                <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-                    <h1 className="mb-2 md:mb-10">Favoritos</h1>
-                </div>
-            </Header>
+            <Header />
             <main>
                 {(status === 'loading' && providerStatusLoading) && <img src={gif} alt="gif" />}
                 {(status === 'loaded' && !providerStatusLoading) && (
                     <>
-                        <Container title={"Municipios"}>
+                        <h1 className="h1_bold_medium mb-2 md:mb-10">Favoritos</h1>
+                        <Container title={"Municipios"} id="#municipalities">
                             {this.printMunicipalities()}
                         </Container>
                         <Container title={"Puertos de Montaña"}>
                             {this.printMountainPasses()}
                         </Container>
-                        <Container title={"Rutas"}>
+                        <Container title={"Rutas"} id="#rutas">
                             {this.printRoutes()}
                         </Container>
                     </>

@@ -29,7 +29,7 @@ const SingleSelectMenu = ({data, handleSelectedValue, defaultSelectedValue, plac
         onChange={handleChange}
         options={data}
         components={{ Option }}
-        placeholder={''}
+        placeholder={placeholder}
         styles={colourStyles}
       />
   );

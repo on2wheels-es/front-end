@@ -42,19 +42,19 @@ export default class Home extends Component {
 
   render() {
     const { status, dataMunicipalities, dataMountainPasses } = this.state;
-    const stylesHeader = 'relative pb-60 mb-44 md:mb-80';
+    const stylesHeader = 'relative pb-60 mb-28 md:mb-80 hero-img';
 
     return (
       <>
         <Header homeHeader={stylesHeader}>
-            <div className="text-neutral-medium mt-14 mb-8 md:mb-16 md:mt-32 md:text-center md:mx-auto md:w-9/12">
-              <h1 className="mb-2 md:mb-10">Disfruta pedaleando</h1>
+            <div className="text-neutral-medium my-12 md:mt-20 md:text-center md:mx-auto md:w-9/12">
+              <h1 className="mb-4 md:mb-4">Disfruta pedaleando</h1>
               <p className="text-s md:text-s leading-short">Encuentra las destinaciones con mejor tiempo para salir a rodar</p>
             </div>
             <SearchBar />
             <div className="wrapper overflow-hidden absolute top-2/3 inset-x-2">
                 { status === 'loading' && <img className="object-cover w-full h-full" src={mapPlaceholder}/> }
-                {status === 'loaded' && 
+                { status === 'loaded' && 
                   <MultiplePointMap data={dataMunicipalities} />
                 }
             </div>

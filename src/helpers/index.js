@@ -2,6 +2,9 @@ import moment from 'moment'
 import { ccaaOptions } from '../data/data'
 import 'react-notifications/lib/notifications.css';
 import { NotificationManager } from 'react-notifications';
+import girlAvatar from '../images/girl_cyclist.png'
+import boyAvatar from '../images/guy_cyclist.png'
+
 
 export const calculateMiddleDate = (arrival, departure) => {
     const date1 = new Date(arrival);
@@ -30,7 +33,36 @@ export const getCCAAIds = (selectedCCAA) => {
     return ccaaIds
 }
 
+export const invalidDay = (day) => {
+    if (day < 0 || day > 31) {
+       return true
+    } else {
+        return false
+    }
+}
+
+export const invalidMoth = (month) => {
+    if (month < 0 || month > 12 ) {
+        return true
+    } else {
+        return false
+    }
+}
+
+
+export const invalidYear = (year) => {
+    const yearToString = year.toString()
+    const currentYear = new Date().getFullYear();
+
+    if (year < 0 || year > currentYear || yearToString.length !== 4) {
+        return true
+    } else {
+        return false
+    }
+}
+
 export const giveFormatToBirthday = (day, month, year) => {
+
     return moment(new Date(`${year}-${month}-${day}`)).format('L');
 }
 
@@ -57,4 +89,27 @@ export const createErrorNotification = (type) => {
 
 export const formatNumber = (num) => {
     return num.toLocaleString();
+}
+
+export const difficulty = (value) => {
+    if (value <= 1/3*100) {
+        return 'Fàcil'
+    } if ( value > 2/3*100) {
+        return 'Difícil'
+    } else {
+        return 'Media'
+    }
+}
+
+export const avatar = (gender) => {
+    if (gender === 'Mujer') {
+        return girlAvatar
+    } else {
+        return boyAvatar
+    }
+}
+
+export const removeDotFromString = (string) => {
+    const newString = string.split('.').join("");
+    return newString
 }

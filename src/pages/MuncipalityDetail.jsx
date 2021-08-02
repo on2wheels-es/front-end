@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import Map from '../components/Map';
 import Container from '../components/Container';
+import Favourite from '../components/Favourite';
 import PrintRouteCard from '../components/Card/PrintRouteCard';
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Header from '../components/Header/Header';
 import gif from '../images/bike-loading.gif';
 import RoutesIcon from '../components/iconsSVG/RoutesIcon';
 import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon';
+import { formatNumber } from '../helpers'
 
 import apiClient from '../services/apiClient';
 import Footer from '../components/Footer';
@@ -46,18 +48,7 @@ export class MunicipalityDetail extends Component {
 
         return (
           <>
-            <Header>
-              <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-                {status === 'loaded' &&
-                <> 
-                  <div className="caption_regular font-bold inline-block px-4 py-1 bg-neutral-white text-black mb-6 md:mb-12">
-                    {data.ccaa}
-                  </div>
-                  <h1 className="mb-2">{data.municipality}</h1>
-                </>
-                }
-              </div>
-            </Header>
+            <Header />
             <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (
@@ -69,15 +60,20 @@ export class MunicipalityDetail extends Component {
                             <MountainPassesIcon text={dataMountainPasses.length} />
                         </Map>
                       </div>
-                      <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                        <p className="tertiary_title_card leading-long mb-4">Lo que debes saber de {data.municipality}</p>
+                        <div className="md:w-5/12 bg-white p-6 rounded-xl shadow-xl">
+                        <div className="flex items-center space-x-2">
+                          <h1 className="h1_bold_medium mb-8">{data.municipality}</h1>
+                          <div className="mb-8">
+                            <Favourite type="municipalities" id={data._id}/>
+                          </div>
+                        </div>
                         <ul>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {data.municipality_inhabitants}</li>
-                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Área georgráfica:</span> { data.georgraphic_area === undefined ? 'No hay datos' : `${data.georgraphic_area}km` }</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Provincia:</span> { data.province }</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>
                         </ul>
-                      </div>
+                        </div>
                   </div>
                     <Container title={`Rutas en ${data.municipality} `}>
                       <PrintRouteCard data={dataRoutes}/>

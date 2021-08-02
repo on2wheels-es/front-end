@@ -5,10 +5,11 @@ import Container from '../components/Container';
 import Header from '../components/Header/Header';
 import RouteGpxConverter from '../components/RouteGpxConverter';
 import DownloadBtn from '../components/DownloadBtn';
+import Favourite from '../components/Favourite';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
-import { formatNumber } from '../helpers'
+import { formatNumber, difficulty, removeDotFromString } from '../helpers'
 
 export class RouteDetail extends Component {
 
@@ -42,15 +43,7 @@ export class RouteDetail extends Component {
 
         return (
           <>
-            <Header>
-                <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-                    {status === 'loaded' &&
-                    <> 
-                      <h1 className="mb-2">{data.name}</h1>
-                    </>
-                    }
-                </div>
-            </Header>
+            <Header />
             <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (
@@ -60,13 +53,16 @@ export class RouteDetail extends Component {
                             <RouteGpxConverter gpx={data.gpx} data={data}/>
                           </div>
                           <div className="flex-col md:w-5/12">
-                            <div className=" bg-white p-6 rounded-xl shadow-xl mb-8">
-                                <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
+                            <div className=" bg-white p-4 rounded-xl shadow-xl mb-8">
+                                <div className="flex">
+                                    <h1 className="h1_bold_small mb-2">{removeDotFromString(data.name)}</h1>
+                                    <Favourite type="routes" id={data._id}/>
+                                </div>
                                 <ul>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance} km</li>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {data.max_alt} m</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {formatNumber(data.max_alt)} m</li>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Desnivel:</span> {formatNumber(data.gradient)} m</li>
-                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Muncipios por los que pasa:</span> {data.municipalities_ids.length}</li>
+                                <li className="secondary_body_regular"><span className="caption_regular ml-1">Dificultad:</span> {difficulty(data.difficulty_score)}</li>
                                 </ul>
                             </div>
                             <DownloadBtn gpx={data.gpx} name={data.name}/>

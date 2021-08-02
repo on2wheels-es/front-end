@@ -51,7 +51,7 @@ export default function SearchResults(props) {
             <>
               <Header />
               <main>
-                <h3 className="mb-5 ">Los municipios con mejor tiempo para las fechas escogidas del {moment(arrival).format('DD-MM')} al {moment(departure).format('DD-MM')}</h3>
+                <h3 className="mb-5 ">Estos son los <b>municipios</b> con <b>mejor tiempo</b> entre el {moment(arrival).format('DD-MM')} y el {moment(departure).format('DD-MM')}</h3>
                 <MultiplePointMap data={municipalities.municipalitiesData}/>
                 <Container>
                   <PrintMunicipalityCard data={municipalities.municipalitiesData} />

@@ -35,7 +35,7 @@ const BikeRouteMap = (props) => {
         },
         paint: {
             "line-color": "#ef8451",
-            "line-width": 6,
+            "line-width": 3,
         },
         })
     })

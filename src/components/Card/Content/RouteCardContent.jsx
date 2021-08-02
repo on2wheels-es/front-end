@@ -1,14 +1,16 @@
+/* eslint-disable camelcase */
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Favourite from '../../Favourite';
-import LocationIcon from '../../iconsSVG/LocationIcon'
+import AltitudeIcon from '../../iconsSVG/AltitudeIcon'
 import RouteDistance from '../../iconsSVG/RouteDistance'
+import { difficulty, formatNumber } from '../../../helpers'
 
 export class RouteCardContent extends Component {
 
   formatTitleLength = (name) => {
-    if(name.length > 45) {
-      const title = name.substring(0, 45) + ' ...'
+    if(name.length > 30) {
+      const title = name.substring(0, 30) + ' ...'
       return title
     } else {
       const title = name.split('.').join("");
@@ -17,7 +19,7 @@ export class RouteCardContent extends Component {
   }
 
   render() {
-    const { name, province, distance, _id } = this.props.data;
+    const { name, gradient, distance, _id, difficulty_score } = this.props.data;
     return (
       <div className="inline-block flex h-44 md:flex-col md:w-72 md:h-96 bg-white hover:shadow-xl">
         <Link to={`/routes/${_id}`}>
@@ -25,13 +27,13 @@ export class RouteCardContent extends Component {
         </Link>
         <div className="flex flex-col justify-evenly w-80 px-5 md:w-auto md:justify-end md:h-48 md:p-5 md:relative">
           <div className="caption_regular font-bold bg-black w-2/6 md:w-auto md:px-5 text-white text-center border border-white md:absolute md:bottom-44 md:right-6">
-            Fácil
+            {difficulty(difficulty_score)}
           </div>
-          <div className="flex flex-col space-y-6 md:space-y-8 md:mt-1">
+          <div className="flex flex-col space-y-1 md:space-y-8 md:mt-1">
             <h3>{this.formatTitleLength(name)}</h3>
             <div className="flex justify-between items-end">
               <div >
-                <LocationIcon text={province}/>
+                <AltitudeIcon text={formatNumber(gradient)}/>
                 <RouteDistance text={distance}/>
               </div>
               <div>
