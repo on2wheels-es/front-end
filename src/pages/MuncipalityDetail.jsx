@@ -47,8 +47,7 @@ export class MunicipalityDetail extends Component {
 
         return (
           <>
-            <Header>
-            </Header>
+            <Header />
             <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (

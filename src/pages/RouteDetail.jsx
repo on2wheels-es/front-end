@@ -43,15 +43,7 @@ export class RouteDetail extends Component {
 
         return (
           <>
-            <Header>
-                <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-                    {status === 'loaded' &&
-                    <> 
-                      <h1 className="mb-2">{data.name}</h1>
-                    </>
-                    }
-                </div>
-            </Header>
+            <Header />
             <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (
@@ -62,7 +54,7 @@ export class RouteDetail extends Component {
                           </div>
                           <div className="flex-col md:w-5/12">
                             <div className=" bg-white p-6 rounded-xl shadow-xl mb-8">
-                                <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
+                                <h1 className="h1_bold_small mb-2">{data.name}</h1>
                                 <ul>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance} km</li>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {formatNumber(data.max_alt)} m</li>

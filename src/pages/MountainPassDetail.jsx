@@ -45,18 +45,7 @@ export class MountainPassDetail extends Component {
 
         return (
             <>
-              <Header>
-                <div className="text-neutral-medium mt-10 mb-4 md:mt-16 md:mb-8 md:w-9/12">
-                    {status === 'loaded' &&
-                    <> 
-                    <div className="caption_regular font-bold inline-block px-4 py-1 bg-neutral-white text-black mb-6 md:mb-12">
-                        {data.municipality}
-                    </div>
-                    <h1 className="mb-2">{data.name}</h1>
-                    </>
-                    }
-                </div>
-              </Header>
+              <Header />
               <main>
                 {status === 'loading' && <img src={gif} alt="gif" />}
                 {status === 'loaded' && (
@@ -69,7 +58,7 @@ export class MountainPassDetail extends Component {
                             </Map>
                         </div>
                         <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                        <p className="tertiary_title_card leading-long mb-4">Todo lo que debes saber</p>
+                        <h1 className="h1_bold_small mb-2">{data.name}</h1>
                         <ul>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Comunidad autónoma:</span> {data.province}</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud:</span> {formatNumber(data.altitude)} m</li>
