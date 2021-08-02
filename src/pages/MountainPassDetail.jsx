@@ -3,6 +3,7 @@ import PrintRouteCard from '../components/Card/PrintRouteCard';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
 import Container from '../components/Container';
 import Map from '../components/Map';
+import Favourite from '../components/Favourite';
 import Header from '../components/Header/Header';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
@@ -58,7 +59,10 @@ export class MountainPassDetail extends Component {
                             </Map>
                         </div>
                         <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">
-                        <h1 className="h1_bold_medium mb-2">{data.name}</h1>
+                        <div className="flex items-center space-x-6">
+                          <h1 className="h1_bold_medium mb-2">{data.name}</h1>
+                          <Favourite type="mountainPasses" id={data._id}/>
+                        </div>
                         <ul>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Comunidad autónoma:</span> {data.province}</li>
                           <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud:</span> {formatNumber(data.altitude)} m</li>

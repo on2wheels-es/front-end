@@ -53,8 +53,11 @@ export class RouteDetail extends Component {
                             <RouteGpxConverter gpx={data.gpx} data={data}/>
                           </div>
                           <div className="flex-col md:w-5/12">
-                            <div className=" bg-white p-6 rounded-xl shadow-xl mb-8">
-                                <h1 className="h1_bold_small mb-2">{data.name}</h1>
+                            <div className=" bg-white p-4 rounded-xl shadow-xl mb-8">
+                                <div className="flex">
+                                    <h1 className="h1_bold_small mb-2">{data.name}</h1>
+                                    <Favourite type="routes" id={data._id}/>
+                                </div>
                                 <ul>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Distancia</span> {data.distance} km</li>
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Altitud Máxima:</span> {formatNumber(data.max_alt)} m</li>
@@ -62,10 +65,7 @@ export class RouteDetail extends Component {
                                 <li className="secondary_body_regular"><span className="caption_regular ml-1">Dificultad:</span> {difficulty(data.difficulty_score)}</li>
                                 </ul>
                             </div>
-                            <div className="flex space-x-12">
-                                <DownloadBtn gpx={data.gpx} name={data.name}/>
-                                <Favourite type="routes" id={data._id}/>
-                            </div>
+                            <DownloadBtn gpx={data.gpx} name={data.name}/>
                           </div>
                         </div>
                         <Container title={"Municipios por donde pasaras"}>

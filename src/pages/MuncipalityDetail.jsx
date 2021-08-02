@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Map from '../components/Map';
 import Container from '../components/Container';
+import Favourite from '../components/Favourite';
 import PrintRouteCard from '../components/Card/PrintRouteCard';
 import PrintMountainPassCard from '../components/Card/PrintMountainPassCard';
 import Header from '../components/Header/Header';
@@ -60,13 +61,18 @@ export class MunicipalityDetail extends Component {
                         </Map>
                       </div>
                         <div className="md:w-5/12 bg-white p-6 rounded-xl shadow-xl">
-                        <h1 className="h1_bold_medium mb-8">{data.municipality}</h1>
-                          <ul>
-                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
-                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Provincia:</span> { data.province }</li>
-                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
-                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>
-                          </ul>
+                        <div className="flex items-center space-x-2">
+                          <h1 className="h1_bold_medium mb-8">{data.municipality}</h1>
+                          <div className="mb-8">
+                            <Favourite type="municipalities" id={data._id}/>
+                          </div>
+                        </div>
+                        <ul>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Provincia:</span> { data.province }</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
+                          <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>
+                        </ul>
                         </div>
                   </div>
                     <Container title={`Rutas en ${data.municipality} `}>
