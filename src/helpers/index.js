@@ -106,3 +106,8 @@ export const avatar = (gender) => {
         return boyAvatar
     }
 }
+
+export const removeDotFromString = (string) => {
+    const newString = string.split('.').join("");
+    return newString
+}
