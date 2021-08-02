@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import ReactMapGL, { Marker, Popup } from '!react-map-gl';
 import { getCenterOfBounds } from 'geolib';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
