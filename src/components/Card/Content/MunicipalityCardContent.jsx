@@ -23,7 +23,7 @@ export class MunicipalityCardContent extends Component {
           <div className="flex flex-col justify-between items-end">
               <p className="caption_regular">Municipio situado en {province} constituido por {formatNumber(municipality_inhabitants)} habitantes</p>
               <div className="mt-2 md:mt-8">
-                <Favourite type="municipality" id={_id}/>
+                <Favourite type="municipalities" id={_id}/>
               </div>
           </div>
         </div>
