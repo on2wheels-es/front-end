@@ -93,7 +93,7 @@ export const formatNumber = (num) => {
 
 export const difficulty = (value) => {
     if (value <= 1/3*100) {
-        return 'Fàcil'
+        return 'Fácil'
     } if ( value > 2/3*100) {
         return 'Difícil'
     } else {
