@@ -36,8 +36,11 @@
 	.h1_bold {
 		@apply font-base text-md leading-9 font-heavy md:text-xl md:leading-10;
 	}
-	.h1_bold_small {
+	.h1_bold_medium {
 		@apply font-base text-md leading-9 font-heavy md:text-lg md:leading-10;
+	}
+	.h1_bold_small {
+		@apply font-base text-sm leading-9 font-heavy md:text-sm md:leading-10;
 	}
 	.h1_regular {
 		@apply font-base text-md leading-9 font-regular md:text-xl md:leading-10;

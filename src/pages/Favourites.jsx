@@ -104,7 +104,7 @@ class Favourites extends Component {
                 {(status === 'loading' && providerStatusLoading) && <img src={gif} alt="gif" />}
                 {(status === 'loaded' && !providerStatusLoading) && (
                     <>
-                        <h1 className="h1_bold_small mb-2 md:mb-10">Favoritos</h1>
+                        <h1 className="h1_bold_medium mb-2 md:mb-10">Favoritos</h1>
                         <Container title={"Municipios"} id="#municipalities">
                             {this.printMunicipalities()}
                         </Container>
