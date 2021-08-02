@@ -73,7 +73,7 @@
 		@apply font-base leading-long text-nano md:text-xs font-regular text-white;
 	}
 	.footer_links {
-		@apply font-highlight leading-tight text-s md:leading-medium md:text-sm font-regular;
+		@apply font-highlight leading-tight text-xs md:leading-medium md:text-s font-regular;
 	}
 	/* Buttons*/
 	.button {
