@@ -63,7 +63,7 @@ export class MunicipalityDetail extends Component {
                         <h1 className="h1_bold_medium mb-8">{data.municipality}</h1>
                           <ul>
                             <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de habitantes:</span> {formatNumber(data.municipality_inhabitants)}</li>
-                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Área georgráfica:</span> { data.georgraphic_area === undefined ? 'No hay datos' : `${data.georgraphic_area}km` }</li>
+                            <li className="secondary_body_regular"><span className="caption_regular ml-1">Provincia:</span> { data.province }</li>
                             <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de rutas:</span> {data.routes_number}</li>
                             <li className="secondary_body_regular"><span className="caption_regular ml-1">Número de puertos de montaña:</span> {data.mountain_passes_ids.length}</li>
                           </ul>

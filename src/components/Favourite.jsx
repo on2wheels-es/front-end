@@ -19,8 +19,7 @@ class Favourite extends Component {
                 return user.favouritePasses.includes(id);
             } else if (type === 'routes' && user.favouriteRoutes.length > 0) {
                 return user.favouriteRoutes.includes(id);
-            } else if (type === 'municipality' && user.favouriteLocations.length > 0) {
-                console.log('user',user,'id', id, 'Albolote fav', user.favouriteLocations.includes(id))
+            } else if (type === 'municipalities' && user.favouriteLocations.length > 0) {
                 return user.favouriteLocations.includes(id);
             } else {
                 return false;
@@ -46,7 +45,10 @@ class Favourite extends Component {
             })
             this.showSuccessNotification()
         } else {
-            return this.props.history.push('/login')
+            return this.props.history.push({
+                pathname: '/login',
+                state: { previousPath: `/${type}/${id}` }
+            })
         }
     }
 
