@@ -7,7 +7,6 @@ import like from '../../images/like-white.png'
 
 class Header extends Component {
 	render() {
-		console.log(this.props)
 		const { isLoggedIn, user } = this.props;
 		const homeStyles = this.props.homeHeader ? this.props.homeHeader : 'bg-secundary-medium';
 		return (
