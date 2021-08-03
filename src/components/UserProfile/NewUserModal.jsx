@@ -41,7 +41,7 @@ class NewUserModal extends Component  {
 
       const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
       this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth, isNewUser: false });
-      return this.props.history.push('/profile')
+      this.props.onPopUpClose()
     }
 
     handlePopUpClose = async (e) => {
@@ -104,7 +104,7 @@ class NewUserModal extends Component  {
 
                     <div className="flex justify-end">
                       <button className="link-as-button text-primary-medium" onClick={this.handlePopUpClose}>Completar más tarde</button>
-                      <button type="submit" className="button-accent-big ml-8">Guadar información</button>
+                      <button type="submit" className="button-accent-big ml-8" onClick={this.handleFormSubmit}>Guadar información</button>
                     </div>
                 </form> 
               </div>
