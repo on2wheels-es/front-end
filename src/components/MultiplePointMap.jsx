@@ -39,7 +39,6 @@ export default function MultiplePointMap(props) {
         e.preventDefault();
         setSelectedData(data)
     }
-    console.log(selectedData)
     return (
         <div className="mb-6">
             <ReactMapGL
