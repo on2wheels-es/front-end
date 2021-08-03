@@ -42,7 +42,7 @@ export default class Home extends Component {
 
   render() {
     const { status, dataMunicipalities, dataMountainPasses } = this.state;
-    const stylesHeader = 'relative pb-60 mb-28 md:mb-80 hero-img';
+    const stylesHeader = 'relative pb-60 mb-36 md:mb-80 hero-img';
 
     return (
       <>
