@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import RoutesIcon from '../components/iconsSVG/RoutesIcon';
-import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon';
 import { Link } from 'react-router-dom';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import RoutesIcon from './iconsSVG/RoutesIcon';
+import MountainPassesIcon from './iconsSVG/MountainPassesIcon';
+import closeButton from '../images/close-icon.png'
+
 
 const REACT_APP_MAPBOX_TOKEN ='pk.eyJ1IjoibGFpYWxsb3JldCIsImEiOiJja3JhYTdhZHY0aDF6MzFvNmdxNXdhZXJnIn0.FxPZTopXMJT5Ypk3uK5dwg';
 
@@ -37,7 +39,7 @@ export default function MultiplePointMap(props) {
         e.preventDefault();
         setSelectedData(data)
     }
-
+    console.log(selectedData)
     return (
         <div className="mb-6">
             <ReactMapGL
@@ -66,15 +68,16 @@ export default function MultiplePointMap(props) {
                         longitude={selectedData.coords.coordinates[0][0]}
                         closeButton={false}
                         >
-                        <div className="flex flex-col items-center space-y-2 mx-auto p-2">
-                          <div className="self-end">
-                            <p className="text-nano rounded-full h-5 w-5 flex items-center justify-center bg-gray-200 " onClick={() => {setSelectedData(null)}}>x</p>
+                        <div className="flex flex-col">
+                          <img  src={closeButton} alt="favourites button" className="object-fit w-5 self-end" onClick={() => {setSelectedData(null)}}/>
+                          <div className="flex flex-col items-start space-y-2 mx-auto">
+                            <p className="font-heavy">{selectedData.municipality}</p>
+                            <RoutesIcon text={selectedData.routes_number} />
+                            <MountainPassesIcon text={selectedData.mountain_passes_ids.length} />
+                            <Link to={`/municipalities/${selectedData._id}`} className="self-center">
+                                <button className="button-accent-xs">+ Info.</button>
+                            </Link>
                           </div>
-                          <RoutesIcon text={selectedData.routes_number} />
-                          <MountainPassesIcon text={selectedData.mountain_passes_ids.length} />
-                          <Link to={`/municipalities/${selectedData._id}`}>
-                            <button className="button-accent text-s inline-block">+ Info</button>
-                          </Link>
                         </div>
                     </Popup>
                 )}

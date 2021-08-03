@@ -85,6 +85,9 @@
 	.button-accent-small {
 		@apply bg-primary-medium py-1 px-3 md:py-2 md:px-4 leading-medium rounded-xl text-neutral-white text-nano md:text-s font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
 	}
+	.button-accent-xs {
+		@apply border border-primary-medium py-1 px-2 leading-medium rounded-xl text-primary-medium text-nano font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
+	}
   	.button-accent-big {
 		@apply bg-primary-medium py-3 px-4 leading-medium rounded-xl text-neutral-white text-s font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
 	}
