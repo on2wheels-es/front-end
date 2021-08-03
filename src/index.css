@@ -42,6 +42,9 @@
 	.h1_bold_medium {
 		@apply font-base text-md leading-9 font-heavy m-0 md:text-lg md:leading-10;
 	}
+	.h1_regular_medium {
+		@apply font-base text-md leading-9 font-regular m-0 md:text-lg md:leading-10;
+	}
 	.h1_bold_small {
 		@apply font-base text-sm leading-9 font-heavy m-0 md:text-sm md:leading-10;
 	}
@@ -51,14 +54,21 @@
 	.h2_regular {
 		@apply font-base text-sm leading-long font-regular m-0 md:text-md md:leading-large;
 	}
+	.h3_bold_medium {
+		@apply font-highlight text-s font-bold leading-5 md:text-md;
+	}
 	.h3_bold {
 		@apply font-highlight text-xs font-bold leading-5 md:text-s;
 	}
+
 	.body_primary {
 		@apply font-base leading-5 text-nano md:text-xs;
 	}
 	.body_primary_semibold {
 		@apply font-base leading-medium text-s font-bold;
+	}
+	.body_primary_medium {
+		@apply font-base leading-5 text-s md:text-sm;
 	}
 	.secondary_body_regular {
 		@apply font-base leading-large text-xs font-regular;

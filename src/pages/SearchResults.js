@@ -6,6 +6,7 @@ import moment from 'moment'
 import Header from '../components/Header/Header';
 import Container from '../components/Container';
 import PrintMunicipalityCard from '../components/Card/PrintMunicipalityCard';
+import gif from '../images/bike-loading.gif';
 
 // import { calculateMiddleDate, getCCAAIds } from '../helpers'
 import MultiplePointMap from '../components/MultiplePointMap';
@@ -46,13 +47,14 @@ export default function SearchResults(props) {
   return (
     <>
       { municipalities.status === 'loading' 
-        ? (<p>loading data</p>) 
+        ? (<img src={gif} alt="gif" />) 
         : (
             <>
               <Header />
               <main>
-                <h3 className="mb-5 ">Estos son los <b>municipios</b> con <b>mejor tiempo</b> entre el {moment(arrival).format('DD-MM')} y el {moment(departure).format('DD-MM')}</h3>
+                <p className="body_primary_medium mb-5 md:my-8">Estos son los <b>municipios</b> con <b>mejor tiempo</b> entre el <b>{moment(arrival).format('DD')} de {moment(arrival).format('MMMM')}</b>  y el <b>{moment(departure).format('DD')} de {moment(departure).format('MMMM')}</b></p>
                 <MultiplePointMap data={municipalities.municipalitiesData}/>
+                <h2 className="mt-4">Elige tu próximo destino</h2>
                 <Container>
                   <PrintMunicipalityCard data={municipalities.municipalitiesData} />
                 </Container>
