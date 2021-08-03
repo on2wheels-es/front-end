@@ -42,6 +42,9 @@
 	.h1_bold_medium {
 		@apply font-base text-md leading-9 font-heavy m-0 md:text-lg md:leading-10;
 	}
+	.h1_regular_medium {
+		@apply font-base text-md leading-9 font-regular m-0 md:text-lg md:leading-10;
+	}
 	.h1_bold_small {
 		@apply font-base text-sm leading-9 font-heavy m-0 md:text-sm md:leading-10;
 	}
@@ -51,14 +54,21 @@
 	.h2_regular {
 		@apply font-base text-sm leading-long font-regular m-0 md:text-md md:leading-large;
 	}
+	.h3_bold_medium {
+		@apply font-highlight text-s font-bold leading-5 md:text-md;
+	}
 	.h3_bold {
 		@apply font-highlight text-xs font-bold leading-5 md:text-s;
 	}
+
 	.body_primary {
 		@apply font-base leading-5 text-nano md:text-xs;
 	}
 	.body_primary_semibold {
 		@apply font-base leading-medium text-s font-bold;
+	}
+	.body_primary_medium {
+		@apply font-base leading-5 text-s md:text-sm;
 	}
 	.secondary_body_regular {
 		@apply font-base leading-large text-xs font-regular;
@@ -84,6 +94,9 @@
 	}
 	.button-accent-small {
 		@apply bg-primary-medium py-1 px-3 md:py-2 md:px-4 leading-medium rounded-xl text-neutral-white text-nano md:text-s font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
+	}
+	.button-accent-xs {
+		@apply border border-primary-medium py-1 px-2 leading-medium rounded-xl text-primary-medium text-nano font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
 	}
   	.button-accent-big {
 		@apply bg-primary-medium py-3 px-4 leading-medium rounded-xl text-neutral-white text-s font-bold shadow-sm hover:shadow-xl focus:shadow-xl inline-block;
@@ -168,4 +181,10 @@
 	--color : rgba(53, 54, 53, 0.13);
 	background : linear-gradient(var(--color),var(--color)),
 					   url(https://images.unsplash.com/photo-1533107862482-0e6974b06ec4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=680&q=80) center / cover;
+}
+
+.notFound-gif {
+	--color : rgba(53, 54, 53, 0.13);
+	background : linear-gradient(var(--color),var(--color)),
+					   url(https://cdn.dribbble.com/users/462418/screenshots/3350828/desert.gif) center / cover;
 }

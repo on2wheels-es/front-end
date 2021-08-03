@@ -54,8 +54,9 @@ export class MountainPassDetail extends Component {
                     <div className="mb-8 md:flex items-start md:mb-16">
                       <div className="w-full mb-4 md:mb-0 md:w-7/12 md:mr-8 md:h-1/6 md:overflow-hidden">
                             <Map data={[data]} zoom={7}>
-                              <AltitudeIcon text={data.altitude} />
-                              <MountainSlopeIcon text={data.mountain_slope} />
+                                <p className="font-heavy">{data.name}</p>
+                                <AltitudeIcon text={data.altitude} />
+                                <MountainSlopeIcon text={data.mountain_slope} />
                             </Map>
                         </div>
                         <div className="md:w-5/12  bg-white p-6 rounded-xl shadow-xl">

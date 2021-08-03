@@ -1,24 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer'
 
 export class NotFound extends Component {
     render() {
         return (
-            <>
-            <Header />
-            <main>
-                <div className="flex flex-col space-y-8 px-8 py-20 md:p-16 mx-auto h-full">
-                    <h2 className="h1_bold_medium">Uuuups!</h2>
+            <div className="flex w-screen h-screen px-8 py-8 notFound-gif overflow-hidden">
+                <div className="mx-auto flex flex-col space-y-12 h-10/12 text-white justify-center">
+                    <h1 className="text-huge">Uuuups!</h1>
                     <p className="h2_regular">Parece que nos hemos equivocado de ruta</p>
                     <Link to="/" >
-                        <button className="button-accent" >Vuelve a la página de inicio</button>
+                        <button className="button-accent-big" >Vuelve a la pagina de inicio</button>
                     </Link>
-                 </div>
-            </main>
-            <Footer />
-           </>
+                </div>
+          </div>
         )
     }
 }
