@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { avatar } from '../../helpers'
-
 import { withAuth } from '../../providers/AuthProvider';
+import logo from '../../images/logo-transparent.png'
+import like from '../../images/like-white.png'
 
 class Header extends Component {
 	render() {
@@ -15,16 +16,20 @@ class Header extends Component {
 					<div className="flex justify-between items-center">
 						<div className="site-title">
 							<Link to="/">
-								<p className="text-neutral-medium">On<strong>2Wheels</strong></p>
+								<img className="w-40" src={logo} alt="on2wheels logo" />
 							</Link>
 						</div>
 						<nav>
-							<ul className="flex justify-center p-0">
+							<ul className="flex justify-center items-center p-0">
 								{isLoggedIn ? (
 									<>
-										<Link to="/favourites"><li className="button text-neutral-medium mr-2">Favoritos</li></Link>
+										<Link to="/favourites">
+											<li className="mr-4 md:mr-8">
+												<img  src={like} alt="favourites button" className="object-fit w-8 mt-1" />
+											</li>
+										</Link>
 										<Link to="/profile">
-											<img  src={avatar(user.gender)} alt="avatar image" className="object-fit w-9 mt-1" />
+											<img  src={avatar(user.gender)} alt="avatar image" className="object-fit w-10 mt-1" />
 										</Link>
 									</>
 								) : (

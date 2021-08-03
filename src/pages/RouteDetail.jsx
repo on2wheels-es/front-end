@@ -9,7 +9,7 @@ import Favourite from '../components/Favourite';
 import apiClient from '../services/apiClient';
 import gif from '../images/bike-loading.gif';
 import Footer from '../components/Footer';
-import { formatNumber, difficulty } from '../helpers'
+import { formatNumber, difficulty, removeDotFromString } from '../helpers'
 
 export class RouteDetail extends Component {
 
@@ -55,7 +55,7 @@ export class RouteDetail extends Component {
                           <div className="flex-col md:w-5/12">
                             <div className=" bg-white p-4 rounded-xl shadow-xl mb-8">
                                 <div className="flex">
-                                    <h1 className="h1_bold_small mb-2">{data.name}</h1>
+                                    <h1 className="h1_bold_small mb-2">{removeDotFromString(data.name)}</h1>
                                     <Favourite type="routes" id={data._id}/>
                                 </div>
                                 <ul>

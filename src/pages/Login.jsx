@@ -15,12 +15,19 @@ class Login extends Component {
   handleFormSubmit = async(event) => {
     event.preventDefault();
     const { email, password } = this.state;
-    const pathToRedirect = this.props.location.state.previousPath
+    let pathToRedirect;
+
+    if (this.props.location.state) {
+      pathToRedirect = this.props.location.state.previousPath
+    } else {
+      pathToRedirect = '/profile'
+    }
+
     await this.props.login({
       email, 
-      password,
-      pathToRedirect
+      password
     })
+    this.props.history.push(pathToRedirect);
   };
 
   handleChange = event => {

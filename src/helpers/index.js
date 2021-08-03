@@ -33,29 +33,31 @@ export const getCCAAIds = (selectedCCAA) => {
     return ccaaIds
 }
 
-export const checkDayValues = (day) => {
-    const dayToString = day.toString()
-
-    if (dayToString.lenght > 2 || day > 31 ) {
-       return NotificationManager.error('Introduce un día válido', 'Día incorrecto', 800);
+export const invalidDay = (day) => {
+    if (day < 0 || day > 31) {
+       return true
+    } else {
+        return false
     }
 }
 
-export const checkMonthValues = (month) => {
-    const monthToString = month.toString()
-
-    if (monthToString.lenght > 2 || month > 12 ) {
-        return  NotificationManager.error('Introduce un mes válido', 'Mes incorrecto ', 800);
+export const invalidMoth = (month) => {
+    if (month < 0 || month > 12 ) {
+        return true
+    } else {
+        return false
     }
 }
 
 
-export const checkYearValues = (year) => {
+export const invalidYear = (year) => {
     const yearToString = year.toString()
     const currentYear = new Date().getFullYear();
 
-    if (yearToString.lenght > 4 || year > currentYear ) {
-        return  NotificationManager.error('Introduce un año válido', 'Año incorrecto', 800);
+    if (year < 0 || year > currentYear || yearToString.length !== 4) {
+        return true
+    } else {
+        return false
     }
 }
 
@@ -91,7 +93,7 @@ export const formatNumber = (num) => {
 
 export const difficulty = (value) => {
     if (value <= 1/3*100) {
-        return 'Fàcil'
+        return 'Fácil'
     } if ( value > 2/3*100) {
         return 'Difícil'
     } else {
@@ -105,4 +107,9 @@ export const avatar = (gender) => {
     } else {
         return boyAvatar
     }
+}
+
+export const removeDotFromString = (string) => {
+    const newString = string.split('.').join("");
+    return newString
 }

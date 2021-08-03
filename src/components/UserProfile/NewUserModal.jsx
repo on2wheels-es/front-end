@@ -4,7 +4,7 @@ import 'react-notifications/lib/notifications.css';
 import { NotificationManager } from 'react-notifications';
 import { withAuth } from "../../providers/AuthProvider";
 import { genderOptions } from "../../data/data"
-import { giveFormatToBirthday, checkDayValues, checkMonthValues, checkYearValues } from "../../helpers";
+import { giveFormatToBirthday, invalidDay, invalidMoth, invalidYear } from "../../helpers";
 
 class NewUserModal extends Component  {
     constructor(props) {
@@ -19,26 +19,7 @@ class NewUserModal extends Component  {
         }
     }
 
-    handleChange = (e) =>{
-      if ( e.target.name === 'dayOfBirth') {
-        checkDayValues(e.target.value);
-        this.setState({
-          [e.target.name]: e.target.value,
-        })
-      }
-      if ( e.target.name === 'monthOfBirth') {
-        checkMonthValues(e.target.value);
-        this.setState({
-          [e.target.name]: e.target.value,
-        })
-      }
-      if ( e.target.name === 'yearOfBirth') {
-        checkYearValues(e.target.value);
-        this.setState({
-          [e.target.name]: e.target.value,
-        })
-      } 
-
+    handleChange = (e) =>{ 
       this.setState({
         [e.target.name]: e.target.value,
       })
@@ -50,6 +31,14 @@ class NewUserModal extends Component  {
       if( !dayOfBirth || !monthOfBirth || !yearOfBirth || !firstName || !lastName || !gender ) {
         return NotificationManager.error('Para completar tu perfil, rellena todos los campos', '', 1000)
       }
+      if (invalidDay(dayOfBirth)) {
+        return NotificationManager.error('Introduce un día válido', 'Día incorrecto', 800);
+      } else if (invalidMoth(monthOfBirth)) {
+        return NotificationManager.error('Introduce un mes válido', 'Mes incorrecto', 800);
+      } else if (invalidYear(yearOfBirth)) {
+        return NotificationManager.error('Introduce un año válido', 'Año incorrecto', 800);
+      }
+
       const birthday = giveFormatToBirthday(dayOfBirth, monthOfBirth, yearOfBirth);
       this.props.updateUserProfile({ firstName, lastName, gender, birthday, dayOfBirth, monthOfBirth, yearOfBirth, isNewUser: false });
       return this.props.history.push('/profile')
