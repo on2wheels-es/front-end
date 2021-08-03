@@ -67,7 +67,7 @@ export default function MultiplePointMap(props) {
                         longitude={selectedData.coords.coordinates[0][0]}
                         closeButton={false}
                         >
-                        <div className="flex flex-col">
+                        <div className="flex flex-col py-0.5">
                           <img  src={closeButton} alt="favourites button" className="object-fit w-5 self-end" onClick={() => {setSelectedData(null)}}/>
                           <div className="flex flex-col items-start space-y-2 mx-auto">
                             <p className="font-heavy">{selectedData.municipality}</p>
