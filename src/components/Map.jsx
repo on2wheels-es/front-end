@@ -82,7 +82,7 @@ export default function Map(props) {
                         longitude={selectedData.coords.coordinates[0][0]}
                         closeButton={false}
                         >
-                        <div className="flex flex-col py-2">
+                        <div className="flex flex-col p-2">
                           <img  src={closeButton} alt="favourites button" className="object-fit w-5 self-end" onClick={() => {setSelectedData(null)}}/>
                           <div className="flex flex-col items-start space-y-1 mx-auto">
                             {props.children}
