@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { getCenterOfBounds } from 'geolib';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import closeButton from '../images/close-icon.png'
 
 const REACT_APP_MAPBOX_TOKEN ='pk.eyJ1IjoibGFpYWxsb3JldCIsImEiOiJja3JhYTdhZHY0aDF6MzFvNmdxNXdhZXJnIn0.FxPZTopXMJT5Ypk3uK5dwg';
 
@@ -77,13 +78,15 @@ export default function Map(props) {
 
                 {selectedData && (
                     <Popup 
-                        className="patata"
                         latitude={selectedData.coords.coordinates[0][1]}
                         longitude={selectedData.coords.coordinates[0][0]}
-                        onClose = {() => {setSelectedData(null)}}
+                        closeButton={false}
                         >
-                        <div>
+                        <div className="flex flex-col">
+                          <img  src={closeButton} alt="favourites button" className="object-fit w-5 self-end" onClick={() => {setSelectedData(null)}}/>
+                          <div className="flex flex-col items-start space-y-1 mx-auto">
                             {props.children}
+                          </div>
                         </div>
                     </Popup>
                 )}
