@@ -113,3 +113,7 @@ export const removeDotFromString = (string) => {
     const newString = string.split('.').join("");
     return newString
 }
+
+export const getNameFromEmail = (email) => {
+    return email.split("@")[0];
+}

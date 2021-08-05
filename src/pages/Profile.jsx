@@ -8,7 +8,7 @@ import RoutesIcon from '../components/iconsSVG/RoutesIcon'
 import LocationIcon from '../components/iconsSVG/LocationIcon'
 import MountainPassesIcon from '../components/iconsSVG/MountainPassesIcon'
 import Footer from '../components/Footer';
-import { avatar } from '../helpers'
+import { avatar, getNameFromEmail } from '../helpers'
 
 class Profile extends Component {
 	constructor(props) {
@@ -53,7 +53,7 @@ class Profile extends Component {
 	}
 
 	render() {
-	  const { user: { firstName, lastName, birthday, gender, favouriteRoutes, favouritePasses, favouriteLocations }, logout } = this.props;
+	  const { user: { firstName, lastName, birthday, gender, favouriteRoutes, favouritePasses, favouriteLocations, email }, logout } = this.props;
     const { popUpOpen } = this.state;
     const view = this.state.mode === 'view';
 
@@ -70,7 +70,7 @@ class Profile extends Component {
            { view ? 
                   (
                       <div className="flex flex-col w-full mx-auto md:items-start md:w-3/4 space-y-8">
-                        <h1 className="mb-2">{firstName || 'Nombre'} {lastName}</h1>
+                        <h1 className="mb-2">{firstName || getNameFromEmail(email)} {lastName}</h1>
                         <div>
                           <h3 className="mb-4">Elementos guardados</h3>
                           <div className="flex flex-col space-y-4 md:flex-row md:items-start md:space-y-0 md:space-x-8">
