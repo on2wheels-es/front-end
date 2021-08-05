@@ -34,7 +34,7 @@ export const getCCAAIds = (selectedCCAA) => {
 }
 
 export const invalidDay = (day) => {
-    if (day < 0 || day > 31) {
+    if (day <= 0 || day > 31) {
        return true
     } else {
         return false
@@ -42,7 +42,7 @@ export const invalidDay = (day) => {
 }
 
 export const invalidMoth = (month) => {
-    if (month < 0 || month > 12 ) {
+    if (month <= 0 || month > 12 ) {
         return true
     } else {
         return false
@@ -54,7 +54,7 @@ export const invalidYear = (year) => {
     const yearToString = year.toString()
     const currentYear = new Date().getFullYear();
 
-    if (year < 0 || year > currentYear || yearToString.length !== 4) {
+    if (year <= 0 || year > currentYear || yearToString.length !== 4) {
         return true
     } else {
         return false
